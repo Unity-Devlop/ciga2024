@@ -22,6 +22,16 @@ namespace Game
             Vector2 velocity = _rb2D.velocity;
             velocity.x = forwardSpeed;
             _rb2D.velocity = velocity;
+            
+            if(_input.Jump.triggered)
+            {
+                Jump();
+            }
+        }
+
+        private void Jump()
+        {
+            _rb2D.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
         }
 
         public void OnEnable()
