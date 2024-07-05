@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game
@@ -9,7 +8,8 @@ namespace Game
         private CustomInputActions _customInput;
         private CustomInputActions.PlayerActions _input => _customInput.Player;
 
-
+        private bool _canJump = true;
+        
         public float forwardSpeed = 10f;
         private void Awake()
         {
@@ -23,7 +23,7 @@ namespace Game
             velocity.x = forwardSpeed;
             _rb2D.velocity = velocity;
             
-            if(_input.Jump.triggered)
+            if(_input.Jump.triggered && _canJump)
             {
                 Jump();
             }
@@ -32,6 +32,7 @@ namespace Game
         private void Jump()
         {
             _rb2D.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            _canJump = false;
         }
 
         public void OnEnable()
@@ -42,6 +43,11 @@ namespace Game
         private void OnDisable()
         {
             _customInput.Disable();
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            _canJump = true;
         }
     }
 }
