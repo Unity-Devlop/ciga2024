@@ -148,17 +148,24 @@ namespace Game
         {
             isEnd = true;
             healthState = HealthState.Death;
-            if(health<=0)
+            SettlementPanel settlementPanel;
+            if (health<=0)
             {
                 //死亡通知书
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Death;
             }
             else if(stomach<=0)
             {
                 //饿死
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Starve;
             }
             else if(stomach>=maxStomach)
             {
                 //爆体而亡
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Boom;
             }
         }
 
@@ -195,25 +202,36 @@ namespace Game
                 if (EatFrequencyList[i] > 12) ++freq_h;
                 else if (EatFrequencyList[i] < 6) ++frep_l;
             }
+            SettlementPanel settlementPanel;
             if(health>60&&appetite>=50&&appetite<=70&&stomach>=70&&stomach<=80&&avg>=6&&avg<=12)
             {
                 //完美结局
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Perfect;
             }
             else if(freq_h>=2&&frep_l>=2)
             {
                 //进食障碍
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.EatingDisorder;
             }
             else if(appetite>80)
             {
                 //暴饮暴食
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.EatintTooMuch;
             }
             else if(appetite<40)
             {
                 //厌食
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Anorexia;
             }
             else
             {
                 //普通结局
+                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
+                settlementPanel.endingType = EndingType.Common;
             }
         }
     }
