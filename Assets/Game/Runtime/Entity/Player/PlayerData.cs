@@ -48,6 +48,8 @@ namespace Game
 
         public bool conditionalVisual = false;
 
+        public bool isDashing = false;
+
         public PlayerData()
         {
             Bind = new BindData<PlayerData>(this);

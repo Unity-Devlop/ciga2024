@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6225739667850667321}
   - component: {fileID: 516307618218562164}
   - component: {fileID: 3336694368826117873}
+  - component: {fileID: 2645753467457189731}
+  - component: {fileID: 7690542544849460626}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -119,15 +121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1655fac275dc442fb42dbf42b19b229f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <data>k__BackingField:
+  data:
     moveSpeed: 10
     fixedMoveSpeed: 10
     jumpSpeed: 10
     accelerateMultiplier: 2
     dashEnergyCost: 10
     accelerateCost: 12
-    dashSpeed: {x: 35, y: 35}
-    dashTime: 0.2
+    dashSpeed: 20
+    dashTime: 2
+    dashLock: 0.2
+    dashCoolDown: 2
     energyRecoverSpeed: 1
     <Health>k__BackingField: 1
     <MaxHealth>k__BackingField: 1
@@ -138,7 +142,10 @@ MonoBehaviour:
     canJump: 1
     canAccelerate: 1
     canRecoverEnergy: 1
+    infiniteHealth: 0
+    conditionalVisual: 0
   <State>k__BackingField: 1
+  direction: 0
 --- !u!114 &3702510538877255399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +238,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2645753467457189731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225796974936762308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5cbe8fe23046b3a33a3db3065ba41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &7690542544849460626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225796974936762308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 328140a45f2bf498089b94585326842a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3208798765153039178
 GameObject:
   m_ObjectHideFlags: 0
