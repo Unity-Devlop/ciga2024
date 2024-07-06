@@ -37,7 +37,9 @@ namespace Game
             if (!data.canJump) return;
             if (Input.Jump.triggered && _checker.isGrounded)
             {
-                _rb2D.AddForce(Vector2.up * data.jumpSpeed, ForceMode2D.Impulse);
+                Vector2 velocity = _rb2D.velocity;
+                velocity.y = data.jumpSpeed;
+                _rb2D.velocity = velocity;
             }
         }
 
