@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,8 @@ namespace Game
                 print($"下一关");
                 Global.Singleton.LoadNextLevel();
                 
+                UIRoot.Singleton.ClosePanel<SettlementPanel>();
+                
             }));
             
             btnReStart.onClick.AddListener((() =>
@@ -45,6 +48,8 @@ namespace Game
                 //重新开始这一关
                 print($"重新开始这一关");
                 Global.Singleton.ReSetLevel();
+
+                UIRoot.Singleton.ClosePanel<SettlementPanel>();
             }));
 
             image.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -74,7 +79,14 @@ namespace Game
             
             
         }
-    
+
+        private void OnDestroy()
+        {
+            btnExit.onClick.RemoveAllListeners();
+            btnNext.onClick.RemoveAllListeners();
+            btnReStart.onClick.RemoveAllListeners();
+        }
+
         // Update is called once per frame
         void Update()
         {
