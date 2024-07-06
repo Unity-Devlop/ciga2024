@@ -16,8 +16,6 @@ namespace Game
         protected PhysicsChecker _checker => _player.checker;
 
         private CancellationTokenSource _dashCoolDownCts;
-        [field: SerializeField] public AnimState State { get; private set; }
-
 
         protected SpriteRenderer SpriteRenderer;
 
@@ -42,6 +40,11 @@ namespace Game
             Accelerate();
             Jump();
             Dash();
+
+            if (!data.isDashing)
+            {
+                _rb2D.gravityScale = 3;
+            }
         }
 
         protected virtual void UpdateAnim()
@@ -87,30 +90,22 @@ namespace Game
 
         protected void ToIdle()
         {
-            if (State == AnimState.Idle) return;
             _animator.Play("idle");
-            State = AnimState.Idle;
         }
 
         protected void ToMove()
         {
-            if (State == AnimState.Move) return;
             _animator.Play("move");
-            State = AnimState.Move;
         }
 
         protected void ToJump()
         {
-            if (State == AnimState.Dash) return;
             _animator.Play("jump");
-            State = AnimState.Jump;
         }
 
         protected void ToDash()
         {
-            if (State == AnimState.Jump) return;
             _animator.Play("dash");
-            State = AnimState.Dash;
         }
 
         protected void ReDashCheck()
@@ -159,6 +154,7 @@ namespace Game
         protected virtual void Accelerate()
         {
             if (!data.canAccelerate) return;
+            if(!data.HasEnergy && !data.infiniteEnergy) return;
             if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1) && data.HasEnergy)
             {
                 _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
@@ -172,7 +168,9 @@ namespace Game
             data.canMove = false;
             data.canJump = false;
             data.canAccelerate = false;
+            _rb2D.gravityScale = 0;
             await UniTask.Delay(TimeSpan.FromSeconds(time));
+            _rb2D.gravityScale = 3f;
             data.canMove = true;
             data.canJump = true;
             data.canAccelerate = true;
