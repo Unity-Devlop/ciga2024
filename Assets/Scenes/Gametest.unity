@@ -676,12 +676,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1097662228 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1040020324636628619, guid: 4499ce83c06003645a7ee0ffb13edf7e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2043150195095672517}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1381646135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,11 +1136,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRightMainPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 6164450767538711244, guid: 4499ce83c06003645a7ee0ffb13edf7e,
-        type: 3}
-      propertyPath: imageFoodInHand
-      value: 
-      objectReference: {fileID: 1097662228}
     - target: {fileID: 6223217405656006982, guid: 4499ce83c06003645a7ee0ffb13edf7e,
         type: 3}
       propertyPath: m_Pivot.x
