@@ -15,6 +15,7 @@ namespace Game
         protected override void Dash()
         {
             if (!data.canDash) return;
+            _player.dashEffect.Play();
             Vector2 faceDir = Input.Move.ReadValue<Vector2>();
             if (faceDir == Vector2.zero)
             {
