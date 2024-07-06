@@ -58,7 +58,7 @@ namespace Game
         {
             if (curLevel >= levelCofigs.Count)
             {
-                Debug.LogError("�ؿ�Խ�磡");
+                Debug.LogError("关卡越界！");
                 return null;
             }
             return levelCofigs[curLevel];

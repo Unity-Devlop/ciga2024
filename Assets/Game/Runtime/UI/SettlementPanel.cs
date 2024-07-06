@@ -36,12 +36,15 @@ namespace Game
             {
                 //下一关
                 print($"下一关");
+                Global.Singleton.LoadNextLevel();
+                
             }));
             
             btnReStart.onClick.AddListener((() =>
             {
                 //重新开始这一关
                 print($"重新开始这一关");
+                Global.Singleton.ReSetLevel();
             }));
 
             image.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);

@@ -22,11 +22,13 @@ namespace Game
         [SerializeField] private Image imageMyHand;
         [SerializeField] private GameObject imageFoodInHand;
 
+        public List<GameObject> listobj = new List<GameObject>();
+
         public Sequence mysSequence;
 
         public float time = 30.0f;
         
-        public List<FoodItem> listFoodItem = new List<FoodItem>();
+        // public List<FoodItem> listFoodItem = new List<FoodItem>();
         
         public void Init()
         {
@@ -39,10 +41,10 @@ namespace Game
 
         public void Reset()
         {
-            for (int i = 0; i < listFoodItem.Count; ++i)
-            {
-                listFoodItem[i].myNum = 10000;
-            }
+            // for (int i = 0; i < listFoodItem.Count; ++i)
+            // {
+            //     listFoodItem[i].myNum = 10000;
+            // }
         }
         
         private void Awake()
@@ -54,13 +56,15 @@ namespace Game
         public void OnEat(FoodType foodType)
         {
             //每次进来我先赋值
+            print("jinlaile");
             
-            for (int i = 0; i < listFoodItem.Count; ++i)
+            for (int i = 0; i < listobj.Count; ++i)
             {
-                if (listFoodItem[i].foodType == foodType)
+                if (listobj[i].GetComponent<Food>().type == foodType)
                 {
-                    listFoodItem[i].myNum--;
-                    print($"我吃了一个类型{listFoodItem[i].foodType}的食物");
+                    print(foodType);
+                    // listobj[i].myNum--;
+                    // print($"我吃了一个类型{listobj[i].foodType}的食物");
 
                     // imageMyHand = listFoodItem[i].foodSprite;
 
@@ -70,7 +74,7 @@ namespace Game
                     // mysSequence.Kill();
                     if (mysSequence == null)
                     {
-                        imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
+                        imageFoodInHand.GetComponent<Image>().sprite = listobj[i].GetComponent<SpriteRenderer>().sprite;
                         mysSequence = DOTween.Sequence();
                         mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
                             .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
@@ -80,12 +84,15 @@ namespace Game
                                 {
                                     // imageFoodInHand = null;
                                     imageFoodInHand.GetComponent<Image>().sprite = null;
+                                    imageFoodInHand.SetActive(false);
                                 }
 
                             }).OnComplete(() =>
                             {
-                                mysSequence.Kill();
+                                mysSequence.Kill(); 
                                 mysSequence = null;
+                                
+                                imageFoodInHand.SetActive(true);
                             }));
                         mysSequence.Play();
                     }
