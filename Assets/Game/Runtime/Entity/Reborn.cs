@@ -21,12 +21,12 @@ namespace Game
 
         public void Active()
         {
-            GetComponent<SpriteRenderer>().enabled = true;
+            // GetComponent<SpriteRenderer>().enabled = true;
         }
 
         public void UnActive()
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            // GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

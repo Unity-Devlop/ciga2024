@@ -588,6 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4630515515658628436, guid: 54d7c6acacf844841ac0de8174207465,
         type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630515515658628436, guid: 54d7c6acacf844841ac0de8174207465,
+        type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -619,12 +624,12 @@ PrefabInstance:
     - target: {fileID: 6016572944293960633, guid: 54d7c6acacf844841ac0de8174207465,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 6016572944293960633, guid: 54d7c6acacf844841ac0de8174207465,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.48
+      value: 5.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
