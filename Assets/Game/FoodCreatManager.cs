@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityToolkit;
 
-public class FoodCreatManager : MonoBehaviour
+namespace Game
 {
-    public List<GameObject> prefabs = new List<GameObject>();
-
-    // Start is called before the first frame update
-    void Start()
+    public class FoodCreatManager : MonoBehaviour
     {
-        //对象池注册
-        for(int i=0;i<prefabs.Count;++i)
+        public List<GameObject> prefabs = new List<GameObject>();
+
+        // Start is called before the first frame update
+        void Start()
         {
-            GameObjectPoolManager.Create(prefabs[i].GetComponent<Food>().type, prefabs[i]);
+            //对象池注册
+            for (int i = 0; i < prefabs.Count; ++i)
+            {
+                GameObjectPoolManager.Create(prefabs[i].GetComponent<Food>().type, prefabs[i]);
+            }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
