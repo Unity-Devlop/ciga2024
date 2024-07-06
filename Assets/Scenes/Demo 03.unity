@@ -2053,6 +2053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
+      propertyPath: data.<Health>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
       propertyPath: <data>k__BackingField.dashTime
       value: 0.1
       objectReference: {fileID: 0}
@@ -2060,6 +2065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: <data>k__BackingField.jumpSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: data.<MaxHealth>k__BackingField
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
@@ -2080,6 +2090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: <data>k__BackingField.dashSpeed.y
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: data.<CurrentEnergy>k__BackingField
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7740765121056268974, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}

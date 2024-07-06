@@ -11,6 +11,8 @@ namespace Game
     {
         public BindData<PlayerData> Bind { get; private set; }
 
+        public int stateStage = 1;
+
         public float moveSpeed = 10f;
         public float fixedMoveSpeed = 10;
 
@@ -28,8 +30,8 @@ namespace Game
         public float dashCoolDown = 2f;
         public float energyRecoverSpeed = 1f;
 
-        [field: SerializeField] public int Health { get; private set; } = 1;
-        [field: SerializeField] public int MaxHealth { get; private set; } = 1;
+        [field: SerializeField] public int Health { get; private set; } = 3;
+        [field: SerializeField] public int MaxHealth { get; private set; } = 3;
         [field: SerializeField] public float MaxEnergy { get; private set; } = 100;
         [field: SerializeField] public float CurrentEnergy { get; private set; } = 100;
 
@@ -45,6 +47,7 @@ namespace Game
         public bool canRecoverEnergy = true;
 
         public bool infiniteHealth = false;
+        [FormerlySerializedAs("lockHeadSet")] public bool hasHeadSet = false;
 
         public bool conditionalVisual = false;
 
@@ -62,6 +65,8 @@ namespace Game
             CurrentEnergy += value;
             CurrentEnergy = Mathf.Clamp(CurrentEnergy, 0, MaxEnergy);
             Bind.SetDirty();
+            
+            Global.Event.Send(new UpdateEnergy(){energyFillAmount = CurrentEnergy / MaxEnergy});
         }
 
         public void ChangeHealth(int i)
@@ -69,6 +74,8 @@ namespace Game
             Health += i;
             Health = Mathf.Clamp(Health, 0, MaxHealth);
             Bind.SetDirty();
+            
+            Global.Event.Send(new UpdateHp());
         }
 
         [Sirenix.OdinInspector.Button]
