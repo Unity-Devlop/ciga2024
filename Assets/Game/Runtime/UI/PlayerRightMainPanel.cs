@@ -22,6 +22,8 @@ namespace Game
         [SerializeField] private Image imageMyHand;
         [SerializeField] private GameObject imageFoodInHand;
 
+        public Sequence mysSequence;
+
         public float time = 30.0f;
         
         public List<FoodItem> listFoodItem = new List<FoodItem>();
@@ -54,10 +56,8 @@ namespace Game
         
         public void OnEat(FoodType foodType)
         {
-            int a = 0;
             //每次进来我先赋值
             
-            imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
             for (int i = 0; i < listFoodItem.Count; ++i)
             {
                 if (listFoodItem[i].foodType == foodType)
@@ -65,23 +65,34 @@ namespace Game
                     listFoodItem[i].myNum--;
                     print($"我吃了一个类型{listFoodItem[i].foodType}的食物");
 
-                    imageMyHand = listFoodItem[i].foodSprite;
-                    
+                    // imageMyHand = listFoodItem[i].foodSprite;
+
+                    imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
                     //画出对应类型的动画
-                    Sequence mysSequence = DOTween.Sequence();
-                    mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
-                        .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
-                        {
-                            a++;
-                            if (a == 1)
+                    int a = 0;
+                    // mysSequence.Kill();
+                    if (mysSequence == null)
+                    {
+                        mysSequence = DOTween.Sequence();
+                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
+                            .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
                             {
-                                // imageFoodInHand = null;
-                                imageFoodInHand.GetComponent<Image>().sprite = null;
-                            }
-                    
-                        }));
-                    mysSequence.Play();
-                    
+                                a++;
+                                if (a == 1)
+                                {
+                                    // imageFoodInHand = null;
+                                    imageFoodInHand.GetComponent<Image>().sprite = null;
+                                }
+
+                            }).OnComplete(() =>
+                            {
+                                mysSequence.Kill();
+                                mysSequence = null;
+                            }));
+                        mysSequence.Play();
+                    }
+
+
                     break;
                 }
             }

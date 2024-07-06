@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodSprite: {fileID: 0}
   myNum: 10000
-  foodType: 0
+  foodType: 1
