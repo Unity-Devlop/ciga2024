@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityToolkit;
@@ -11,7 +10,7 @@ namespace Game
 
     public struct UpdateEnergy : IEvent { public float energyFillAmount; }
     
-    public struct EnterLevel : IEvent { public int levelNum; }
+    public struct UpdateState : IEvent { public int stateStage; }
     
     public struct RingUp : IEvent { }
     
@@ -52,7 +51,7 @@ namespace Game
             Global.Event.Listen<TurnToInfiniteHp>(TurnToInfiniteHp);
             Global.Event.Listen<UpdateHp>(UpdateHp);
             Global.Event.Listen<UpdateEnergy>(UpdateEnergy);
-            Global.Event.Listen<EnterLevel>(EnterLevel);
+            Global.Event.Listen<UpdateState>(EnterLevel);
             Global.Event.Listen<RingUp>(RingUp);
             Global.Event.Listen<RingOver>(RingOver);
             
@@ -70,7 +69,7 @@ namespace Game
             Global.Event.UnListen<TurnToInfiniteHp>(TurnToInfiniteHp);
             Global.Event.UnListen<UpdateHp>(UpdateHp);
             Global.Event.UnListen<UpdateEnergy>(UpdateEnergy);
-            Global.Event.UnListen<EnterLevel>(EnterLevel);
+            Global.Event.UnListen<UpdateState>(EnterLevel);
             Global.Event.UnListen<RingUp>(RingUp);
             Global.Event.UnListen<RingOver>(RingOver);
             
@@ -83,6 +82,18 @@ namespace Game
         private void Init()
         {
             var data = GameMgr.Singleton.Local.data;
+            imgState.sprite = spriteStates[data.stateStage - 1];
+            if (data.infiniteHealth)
+            {
+                infiniteHp.gameObject.SetActive(true);
+                hpRoot.gameObject.SetActive(false);
+            }
+
+            if (data.hasHeadSet)
+            {
+                connect.gameObject.SetActive(true);
+                headSet.gameObject.SetActive(true);
+            }
         }
 
         private void DisConnectHeadSet(DisConnectHeadSet obj)
@@ -114,7 +125,7 @@ namespace Game
             imgPhone.GetComponent<Animator>().enabled = true;
         }
 
-        private void EnterLevel(EnterLevel obj) => imgState.sprite = spriteStates[obj.levelNum - 1];
+        private void EnterLevel(UpdateState obj) => imgState.sprite = spriteStates[obj.stateStage - 1];
         
         private void UpdateEnergy(UpdateEnergy obj) => imgEnegy.fillAmount = obj.energyFillAmount;
         
