@@ -60,5 +60,11 @@ namespace Game
         {
             _customInput.Disable();
         }
+
+        public void SetVelocity(Vector2 velocity,float angularVelocity = 0)
+        {
+            rb2D.velocity = velocity;
+            rb2D.angularVelocity = angularVelocity;
+        }
     }
 }

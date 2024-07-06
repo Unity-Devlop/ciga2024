@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityToolkit;
 
 namespace Game
@@ -8,8 +9,11 @@ namespace Game
     {
         [field: SerializeField] public Player Local { get; private set; }
 
+        public IReborn Reborn { get; private set; }
+
         protected override void OnInit()
         {
+            Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
             GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
             gameHUDPanel.Bind(Local.data);
         }
@@ -20,8 +24,26 @@ namespace Game
             {
                 hudPanel.UnBind();
             }
-            
+
             UIRoot.Singleton.ClosePanel<GameHUDPanel>();
+        }
+
+        public void OnObstacleHit(Player player, IObstacle obstacle)
+        {
+            player.data.ChangeHealth(-1);
+            if (player.data.Health <= 0)
+            {
+                player.SetVelocity(Vector2.zero, 0);
+                // 重生
+                player.data.ChangeHealth(player.data.MaxHealth);
+
+                player.transform.position = Reborn.transform.position;
+            }
+        }
+
+        public void OnRebornHit(Player player, IReborn reborn)
+        {
+            this.Reborn = reborn;
         }
     }
 }

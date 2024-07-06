@@ -49,5 +49,12 @@ namespace Game
             CurrentEnergy = Mathf.Clamp(CurrentEnergy, 0, MaxEnergy);
             Bind.SetDirty();
         }
+
+        public void ChangeHealth(int i)
+        {
+            Health += i;
+            Health = Mathf.Clamp(Health, 0, MaxHealth);
+            Bind.SetDirty();
+        }
     }
 }

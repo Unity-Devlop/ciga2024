@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Game
 {
     public interface IControl
@@ -6,4 +8,16 @@ namespace Game
         public void Update();
     }
 
+    public interface IObstacle
+    {
+    }
+
+    public interface ISpring
+    {
+    }
+
+    public interface IReborn
+    {
+        public Transform transform { get; }
+    }
 }
