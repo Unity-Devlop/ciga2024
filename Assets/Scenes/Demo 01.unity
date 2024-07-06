@@ -2063,6 +2063,36 @@ PrefabInstance:
       propertyPath: <State>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.dashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.dashForce.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.dashForce.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.dashSpeed.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: <data>k__BackingField.dashSpeed.y
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7740765121056268974, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
       propertyPath: lowJumpMultiplier

@@ -23,7 +23,7 @@ namespace Game
             {
                 _rb2D.velocity += Vector2.up * (Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
             }
-            else if (_rb2D.velocity.y > 0 && Mathf.Approximately(_player.Input.Jump.ReadValue<float>(), 1))
+            else if (_rb2D.velocity.y > 0 && Mathf.Approximately(_player.Input.Jump.ReadValue<float>(), 0))
             {
                 _rb2D.velocity += Vector2.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
             }

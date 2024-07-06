@@ -15,6 +15,8 @@ namespace Game
 
     public interface IObstacle
     {
+        public void Destroy();
+        public void Recover();
     }
 
     public interface ISpring

@@ -48,7 +48,7 @@ namespace Game
         private void Jump()
         {
             if (!data.canJump) return;
-            if (Input.Jump.triggered && _checker.isGrounded)
+            if (Mathf.Approximately(Input.Jump.ReadValue<float>(), 1) && _checker.isGrounded)
             {
                 Vector2 velocity = _rb2D.velocity;
                 velocity.y = data.jumpSpeed;
@@ -67,7 +67,7 @@ namespace Game
 
             if (Input.Dash.triggered && data.HasEnergy && data.canDash)
             {
-                _rb2D.AddForce(faceDir * data.dashSpeed, ForceMode2D.Impulse);
+                _rb2D.AddForce(faceDir * data.dashForce, ForceMode2D.Impulse);
                 data.ChangeEnergy(-data.dashEnergyCost);
 
                 // 禁止移动一会

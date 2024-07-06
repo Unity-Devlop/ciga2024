@@ -37,22 +37,35 @@ namespace Game
             UIRoot.Singleton.ClosePanel<GameHUDPanel>();
         }
 
-        public void OnObstacleHit(Player player, IObstacle obstacle)
+        public void OnObstacleEnter(Player player, IObstacle obstacle)
         {
-            player.data.ChangeHealth(-1);
-            if (player.data.Health <= 0)
+            if (!player.data.infiniteHealth)
             {
-                player.SetVelocity(Vector2.zero, 0);
-                // 重生
-                player.data.ChangeHealth(player.data.MaxHealth);
+                player.data.ChangeHealth(-1);
+                if (player.data.Health <= 0)
+                {
+                    player.SetVelocity(Vector2.zero, 0);
+                    // 重生
+                    player.data.ChangeHealth(player.data.MaxHealth);
 
-                player.transform.position = Reborn.transform.position;
+                    player.transform.position = Reborn.transform.position;
+                }   
             }
+            else
+            {
+                
+            }
+        }
+        
+        public void OnObstacleExit(Player component, IObstacle obstacle)
+        {
+            
         }
 
         public void OnRebornHit(Player player, IReborn reborn)
         {
             this.Reborn = reborn;
         }
+
     }
 }
