@@ -43,19 +43,14 @@ namespace Game
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
             Reborn.Active();
             
-            GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
-            gameHUDPanel.Bind(Local.data);
+            UIRoot.Singleton.OpenPanel<GamePanel>();
         }
 
         protected override void OnDispose()
         {
             if (UIRoot.SingletonNullable == null) return;
-            if (UIRoot.Singleton.GetOpenedPanel(out GameHUDPanel hudPanel))
-            {
-                hudPanel.UnBind();
-            }
 
-            UIRoot.Singleton.ClosePanel<GameHUDPanel>();
+            UIRoot.Singleton.ClosePanel<GamePanel>();
         }
 
         public void OnObstacleEnter(Player player, IObstacle obstacle)

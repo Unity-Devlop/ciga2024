@@ -64,6 +64,9 @@ namespace Game
         
         private void OnDestroy()
         {
+            if (Global.Singleton is null || Global.Event is null)
+                return;
+            
             Global.Event.UnListen<TurnToInfiniteHp>(TurnToInfiniteHp);
             Global.Event.UnListen<UpdateHp>(UpdateHp);
             Global.Event.UnListen<UpdateEnergy>(UpdateEnergy);

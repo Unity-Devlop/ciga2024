@@ -654,6 +654,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
   sortingOrder: 1
+  infiniteHp: {fileID: 0}
+  hpRoot: {fileID: 0}
+  imgHps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spriteHps:
+  - {fileID: 0}
+  - {fileID: 0}
+  imgEnegy: {fileID: 0}
+  imgState: {fileID: 0}
+  spriteStates:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  imgPhone: {fileID: 0}
+  spritePhones:
+  - {fileID: 0}
+  - {fileID: 0}
+  connect: {fileID: 0}
+  imgConnect: {fileID: 0}
+  spriteConnects:
+  - {fileID: 0}
+  - {fileID: 0}
+  headSet: {fileID: 0}
+  imgHeadSet: {fileID: 0}
+  spriteHeadSets:
+  - {fileID: 0}
+  - {fileID: 0}
   skipOnInput: 0
   waitForInput: 0
   subtitlesGroup: {fileID: 22400002}
