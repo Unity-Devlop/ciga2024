@@ -5,90 +5,50 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
+    public enum PlayerState
+    {
+        NormalControl,
+        ForwardControl,
+    }
+
     public class Player : MonoBehaviour
     {
-        private Rigidbody2D _rb2D;
-        private CustomInputActions _customInput;
-        public CustomInputActions.PlayerActions Input => _customInput.Player;
-
-        private PhysicsChecker _checker;
-
+        public Rigidbody2D rb2D { get; private set; }
+        public PhysicsChecker checker { get; private set; }
         [field: SerializeField] public PlayerData data { get; private set; }
 
+        private CustomInputActions _customInput;
+        public CustomInputActions.PlayerActions Input => _customInput.Player;
+        [field: SerializeField] public PlayerState State { get; private set; } = PlayerState.NormalControl;
+        public NormalControl NormalControl;
+        public ForwardControl ForwardControl;
 
         private void Awake()
         {
-            _checker = GetComponent<PhysicsChecker>();
-            _rb2D = GetComponent<Rigidbody2D>();
+            checker = GetComponent<PhysicsChecker>();
+            rb2D = GetComponent<Rigidbody2D>();
             _customInput = new CustomInputActions();
+
+            NormalControl = new NormalControl();
+            ForwardControl = new ForwardControl();
+
+            NormalControl.Set(this);
+            ForwardControl.Set(this);
         }
 
 
         private void Update()
         {
-            Move();
-            Accelerate();
-            Jump();
-            Dash();
-        }
-
-
-        private void Accelerate()
-        {
-            if (!data.canAccelerate) return;
-            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1) && data.HasEnergy)
+            if (State == PlayerState.NormalControl)
             {
-                _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
-                data.ChangeEnergy(Time.deltaTime * -1 * data.accelerateCost);
-            }
-        }
-
-        private void Move()
-        {
-            if (!data.canMove) return;
-
-            Vector2 move = Input.Move.ReadValue<Vector2>();
-            _rb2D.velocity = new Vector2(move.x * data.moveSpeed, _rb2D.velocity.y);
-        }
-
-        private void Jump()
-        {
-            if (!data.canJump) return;
-            if (Input.Jump.triggered && _checker.isGrounded)
-            {
-                _rb2D.AddForce(Vector2.up * data.jumpSpeed, ForceMode2D.Impulse);
-            }
-        }
-
-        private void Dash()
-        {
-            Vector2 faceDir = Input.Move.ReadValue<Vector2>();
-            if (faceDir == Vector2.zero)
-            {
-                faceDir = Vector2.right; // TODO 朝向
+                NormalControl.Update();
+                return;
             }
 
-            if (Input.Dash.triggered && data.HasEnergy && data.canDash)
+            if (State == PlayerState.ForwardControl)
             {
-                _rb2D.AddForce(faceDir * data.dashSpeed, ForceMode2D.Impulse);
-                data.ChangeEnergy(-data.dashEnergyCost);
-
-                // 禁止移动一会
-                DashWait(data.dashTime);
+                ForwardControl.Update();
             }
-        }
-
-        private async void DashWait(float time)
-        {
-            data.canMove = false;
-            data.canJump = false;
-            data.canAccelerate = false;
-            data.canDash = false;
-            await UniTask.Delay(TimeSpan.FromSeconds(time));
-            data.canMove = true;
-            data.canJump = true;
-            data.canAccelerate = true;
-            data.canDash = true;
         }
 
         public void OnEnable()

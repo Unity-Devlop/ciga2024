@@ -10,16 +10,17 @@ namespace Game
     public class PlayerData //: ScriptableObject
     {
         public BindData<PlayerData> Bind { get; private set; }
-
-
+        
         public float moveSpeed = 10f;
+        public float fixedMoveSpeed = 10;
+        
         public float jumpSpeed = 10f;
         public float accelerateMultiplier = 2f;
 
 
         public float dashEnergyCost = 10f;
         public float accelerateCost = 12f;
-        public float dashSpeed = 40f;
+        public Vector2 dashSpeed = new Vector2(10, 5);
 
         [field: SerializeField] public int Health { get; private set; } = 1;
         [field: SerializeField] public int MaxHealth { get; private set; } = 1;
