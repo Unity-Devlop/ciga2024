@@ -17,6 +17,7 @@ namespace Game
         private void Update()
         {
             if (!_data.canRecoverEnergy) return;
+            if(_data.CurrentEnergy >= _data.MaxEnergy) return;
             _data.ChangeEnergy(Time.deltaTime * _data.energyRecoverSpeed);
         }
     }

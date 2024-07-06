@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9056385751691973887}
   - component: {fileID: 6055265289361004471}
+  - component: {fileID: 1724634812001936788}
   m_Layer: 0
   m_Name: ConditionalVisual
   m_TagString: Untagged
@@ -86,6 +87,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1724634812001936788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847338440641229446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c65a911c0104c98a86a1040a8c73c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6471025232391188803
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8FDB\u5165\u540E\u53D8\u900F\u660E\uFF0C\u79BB\u5F00\u53D8\u9ED1"
+  m_text: "\u6839\u636E\u6761\u4EF6\u663E\u793A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 075a644ae3e0d4f4ba8953c38d0f2e92, type: 2}
   m_sharedMaterial: {fileID: 2608996104116260222, guid: 075a644ae3e0d4f4ba8953c38d0f2e92,
