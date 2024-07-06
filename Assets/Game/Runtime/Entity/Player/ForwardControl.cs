@@ -39,6 +39,7 @@ namespace Game
 
         protected override void UpdateAnim()
         {
+            if (_animator == null) return;
             switch (_player.direction)
             {
                 case FacingDirection.Left:

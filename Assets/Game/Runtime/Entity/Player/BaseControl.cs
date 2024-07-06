@@ -19,7 +19,7 @@ namespace Game
 
         protected SpriteRenderer SpriteRenderer;
 
-        private Animator _animator;
+        protected Animator _animator;
 
         private string _idleAnim;
         private string _moveAnim;
@@ -60,6 +60,7 @@ namespace Game
 
         protected virtual void UpdateAnim()
         {
+            if (_animator == null) return;
             switch (_player.direction)
             {
                 case FacingDirection.Left:
@@ -165,7 +166,7 @@ namespace Game
         protected virtual void Accelerate()
         {
             if (!data.canAccelerate) return;
-            if(!data.HasEnergy && !data.infiniteEnergy) return;
+            if (!data.HasEnergy && !data.infiniteEnergy) return;
             if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1) && data.HasEnergy)
             {
                 _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
