@@ -56,6 +56,7 @@ namespace Game
 
         private void Update()
         {
+            data.isGounded = checker.isGrounded;
             if (State == PlayerState.NormalControl)
             {
                 _normalControl.Update();

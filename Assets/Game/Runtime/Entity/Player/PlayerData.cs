@@ -49,6 +49,7 @@ namespace Game
         public bool conditionalVisual = false;
 
         public bool isDashing = false;
+        public bool isGounded;
 
         public PlayerData()
         {

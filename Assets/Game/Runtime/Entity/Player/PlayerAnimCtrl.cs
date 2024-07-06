@@ -9,14 +9,16 @@ namespace Game
         public enum AnimState
         {
             Move,
-            Idle
+            Idle,
+            Jump,
+            Dash,
         }
 
         private SpriteRenderer _spriteRenderer;
 
         private Animator _animator;
         private Player _player;
-        
+
         [field: SerializeField] public AnimState State { get; private set; }
 
         private void Awake()
@@ -24,7 +26,6 @@ namespace Game
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _player = GetComponent<Player>();
-
         }
 
         private void Update()
@@ -44,8 +45,19 @@ namespace Game
             Vector2 move = _player.Input.Move.ReadValue<Vector2>();
             if (move.sqrMagnitude > 0)
             {
-                Debug.Log("Move");
                 ToMove();
+                return;
+            }
+
+            if (_player.data.isDashing)
+            {
+                ToDash();
+                return;
+            }
+
+            if (!_player.checker.isGrounded)
+            {
+                ToJump();
                 return;
             }
 
@@ -53,7 +65,6 @@ namespace Game
                 _player.rb2D.velocity.y == 0)
             {
                 ToIdle();
-                return;
             }
 
             // new Camera().GetOrthographicCameraRect();
@@ -71,6 +82,20 @@ namespace Game
             if (State == AnimState.Move) return;
             _animator.Play("move");
             State = AnimState.Move;
+        }
+
+        private void ToJump()
+        {
+            if (State == AnimState.Dash) return;
+            _animator.Play("jump");
+            State = AnimState.Jump;
+        }
+
+        private void ToDash()
+        {
+            if (State == AnimState.Jump) return;
+            _animator.Play("dash");
+            State = AnimState.Dash;
         }
     }
 }
