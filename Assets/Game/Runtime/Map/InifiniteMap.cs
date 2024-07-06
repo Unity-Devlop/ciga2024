@@ -40,7 +40,7 @@ namespace Game
             _center = Instantiate(Resources.Load<GameObject>($"Prefabs/Snow{Random.Range(1,4)}"), _trans);
             _center.name = "Center";
             _mapItemDatas[1].length = _center.GetComponent<SpriteRenderer>().size.x;
-            _mapItemDatas[1].pos = new Vector3(GetPlayerX, 0, 0);
+            _mapItemDatas[1].pos = new Vector3(GetPlayerX, _trans.position.y, 0);
             _center.transform.position = _mapItemDatas[1].pos;
             _centerLeftSideX = _mapItemDatas[1].pos.x - _mapItemDatas[1].length / 2;
             _centerRightSideX = _mapItemDatas[1].pos.x + _mapItemDatas[1].length / 2;
