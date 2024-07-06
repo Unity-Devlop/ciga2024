@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ namespace Game
 
         protected PlayerData data => _player.data;
         protected PhysicsChecker _checker => _player.checker;
+
+        private CancellationTokenSource _dashCoolDownCts;
 
         public void Set(Player player)
         {
@@ -78,8 +81,23 @@ namespace Game
 
         protected async void DashCoolDown(float time)
         {
+            _dashCoolDownCts?.Cancel();
+            _dashCoolDownCts = new CancellationTokenSource();
             data.canDash = false;
-            await UniTask.Delay(TimeSpan.FromSeconds(time));
+            try
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: _dashCoolDownCts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+            }
+
+            data.canDash = true;
+        }
+
+        public void RecoverDash()
+        {
+            _dashCoolDownCts?.Cancel();
             data.canDash = true;
         }
     }

@@ -11,6 +11,7 @@ namespace Game
     {
         public void Set(Player player);
         public void Update();
+        void RecoverDash();
     }
 
     public interface IObstacle

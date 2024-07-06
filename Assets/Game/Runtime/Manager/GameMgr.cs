@@ -86,5 +86,11 @@ namespace Game
                 _dialoguePanel.gameObject.SetActive(false);
             });
         }
+
+        public void OnRecoverDash(Player component, RecoverDashObject recoverDashObject)
+        {
+            component.Control.RecoverDash();
+            recoverDashObject.CollDown();
+        }
     }
 }

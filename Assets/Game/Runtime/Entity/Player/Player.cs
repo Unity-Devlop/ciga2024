@@ -21,6 +21,22 @@ namespace Game
         private NormalControl _normalControl;
         private ForwardControl _forwardControl;
 
+        public IControl Control
+        {
+            get
+            {
+                switch (State)
+                {
+                    case PlayerState.NormalControl:
+                        return _normalControl;
+                    case PlayerState.ForwardControl:
+                        return _forwardControl;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
         private void Awake()
         {
             checker = GetComponent<PhysicsChecker>();
