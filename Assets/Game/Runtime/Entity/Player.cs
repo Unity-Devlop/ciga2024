@@ -12,9 +12,8 @@ namespace Game
 
         private PhysicsChecker _checker;
 
-        public float moveSpeed = 10f;
-        public float jumpSpeed = 10f;
-        public float accelerateMultiplier = 2f;
+        [field: SerializeField] public PlayerData data { get; private set; }
+
 
         private void Awake()
         {
@@ -40,7 +39,7 @@ namespace Game
         {
             if (Input.Jump.triggered && CanJump())
             {
-                _rb2D.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                _rb2D.AddForce(Vector2.up * data.jumpSpeed, ForceMode2D.Impulse);
             }
         }
 
@@ -54,10 +53,10 @@ namespace Game
             // Input.Accelerate.triggered
             if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1))
             {
-                return moveSpeed * accelerateMultiplier;
+                return data.moveSpeed * data.accelerateMultiplier;
             }
 
-            return moveSpeed;
+            return data.moveSpeed;
         }
 
         public void OnEnable()

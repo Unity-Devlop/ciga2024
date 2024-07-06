@@ -766,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b0685b5764685b69291dc5e867928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Local>k__BackingField: {fileID: 2093033810}
 --- !u!4 &1381646137
 Transform:
   m_ObjectHideFlags: 0
@@ -1265,8 +1266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1655fac275dc442fb42dbf42b19b229f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpSpeed: 10
+  <data>k__BackingField: {fileID: 11400000, guid: 6ffec2ae17af746f7bb0089a74ece606,
+    type: 2}
 --- !u!58 &2093033811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1339,8 +1340,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 90796521}
-  - {fileID: 1381646137}
   - {fileID: 1316017796}
+  - {fileID: 1381646137}
   - {fileID: 2093033808}
   - {fileID: 1148452528}
   - {fileID: 436736241}
