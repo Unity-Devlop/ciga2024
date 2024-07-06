@@ -23,6 +23,7 @@ namespace Game
         public Vector2 dashForce = new Vector2(10, 5);
 
 
+        public float jumpDashWaitTime = 0.1f;
         public float dashTime = 2f;
         public float energyRecoverSpeed = 1f;
 

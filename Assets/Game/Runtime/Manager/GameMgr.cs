@@ -72,7 +72,7 @@ namespace Game
         public void OnEnergyObjectEnter(Player component, EnergyObject energyObject)
         {
             component.data.ChangeEnergy(energyObject.energyPoint);
-            Destroy(energyObject.gameObject);
+            energyObject.BeEat();
         }
     }
 }
