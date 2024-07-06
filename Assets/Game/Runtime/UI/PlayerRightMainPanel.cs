@@ -35,7 +35,7 @@ namespace Game
             {
                 var obj = Instantiate(foodItem, objparent.transform);
                 obj.GetComponent<FoodItem>().Init(20);
-                listFoodItem[i] = obj;
+                listFoodItem.Insert(i,obj);
             }
             
         }

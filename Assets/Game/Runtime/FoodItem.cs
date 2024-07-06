@@ -11,7 +11,7 @@ namespace Game
         // Start is called before the first frame update
         public Image foodSprite;
         public TextMeshProUGUI textNum;
-        public int myNum;
+        public int myNum = 11;
         public FoodType foodType;
         public Dictionary<FoodType, Sprite> foodObj = new Dictionary<FoodType, Sprite>();
 
@@ -22,6 +22,11 @@ namespace Game
 
         public void Init(int num)
         {
+            foodObj[foodType] = foodSprite.sprite;
+            myNum = num;
+            textNum.text = myNum.ToString();
+            
+            
             switch (foodType)
             {
                 case FoodType.Hamburger :
