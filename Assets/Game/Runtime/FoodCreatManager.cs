@@ -13,6 +13,7 @@ namespace Game
         public float height;
         public PlayerRightMainPanel playerRightMainPanel;
         float time;
+        float frequency;
 
         private void Awake()
         {
@@ -37,7 +38,20 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
-            if(Time.time-time>=1)
+            if(Player.Instance.appetite<40)
+            {
+                frequency = 1f / 5f;
+            }
+            else if(Player.Instance.appetite>80)
+            {
+                frequency = 1f / 1f;
+            }
+            else
+            {
+                frequency = 1f / 3f;
+            }
+
+            if(Time.time-time>=frequency)
             {
                 Create();
                 time = Time.time;

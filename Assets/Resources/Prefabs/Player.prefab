@@ -44,13 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5665b0a55f7b1343a5a4b13d9bef09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  appetite: 50
-  stomach: 50
+  health: 60
+  appetite: 70
+  stomach: 10
   maxHealth: 100
   maxAppetite: 100
   maxStomach: 100
-  appetiteIncreaseValue: 1
+  appetiteIncreaseValue: 2
   stomachLossValue: 1
-  difference: 10
+  healthDiff_Up: 20
+  healthDiff_Down: 50
   playerRightMainPanel: {fileID: 0}

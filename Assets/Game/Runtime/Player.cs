@@ -5,6 +5,13 @@ using UnityToolkit;
 
 namespace Game
 {
+    public enum HealthState
+    {
+        Health,
+        SubHealth,
+        Dying,
+        Death,
+    }
 
     public class Player : MonoBehaviour
     {
@@ -28,13 +35,15 @@ namespace Game
         public int appetiteIncreaseValue;
         public int stomachLossValue;
 
-        public float difference;
+        public float healthDiff_Up;
+        public float healthDiff_Down;
 
         public PlayerRightMainPanel playerRightMainPanel;
 
         float time = 0;
         float appetiteTime = 0;
         float stomachTime = 0;
+        bool isDie = false;
 
         private void Awake()
         {
@@ -47,8 +56,13 @@ namespace Game
             if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
+            if (isDie)
+            {
+                Die();
+                return;
+            }
             AppetiteIncrease();
             StomachLoss();
             CheckHealth();
@@ -61,8 +75,8 @@ namespace Game
         {
             if (Time.time - time >= 1)
             {
-                if (Mathf.Abs(appetite - stomach) <= difference) health += 1;
-                else health -= 1;
+                if (Mathf.Abs(appetite - stomach) <= healthDiff_Up) health += 1;
+                else if (Mathf.Abs(appetite - stomach) >= healthDiff_Down) health -= 2;
                 time = Time.time;
             }
         }
@@ -84,6 +98,11 @@ namespace Game
                 stomach -= stomachLossValue;
                 if (stomach < 0) stomach = 0;
             }
+        }
+
+        private void Die()
+        {
+
         }
 
         public void ChangeStomach(int value)

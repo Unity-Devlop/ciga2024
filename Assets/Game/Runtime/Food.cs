@@ -16,6 +16,7 @@ namespace Game
         public int stomachIncrease;
         public int appetiteDecrease;
         public FoodType type;
+        public float disappearTime;
 
         float time = 0;
 
@@ -26,7 +27,7 @@ namespace Game
 
         private void Update()
         {
-            if (Time.time - time >= 2)
+            if (Time.time - time >= disappearTime)
             {
                 Disappear(null);
             }

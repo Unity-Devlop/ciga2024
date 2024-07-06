@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRightMainPanel: {fileID: 0}
-  clickTimesDivision: 5
+  clickTimesDivision_H: 12
+  clickTimesDivision_L: 6
   clickTimes: 0

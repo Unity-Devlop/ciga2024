@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2eb53207cac6a4a988cecc735a69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachIncrease: 2
-  appetiteDecrease: 4
+  stomachIncrease: 1
+  appetiteDecrease: 1
   type: 0
+  disappearTime: 4
 --- !u!58 &5352274335099184426
 CircleCollider2D:
   m_ObjectHideFlags: 0
