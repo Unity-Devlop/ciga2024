@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Game
 {
+    [Serializable]
     public abstract class BaseControl : IControl
     {
         protected Player _player;
@@ -15,14 +16,25 @@ namespace Game
         protected PhysicsChecker _checker => _player.checker;
 
         private CancellationTokenSource _dashCoolDownCts;
+        [field: SerializeField] public AnimState State { get; private set; }
+
+
+        protected SpriteRenderer SpriteRenderer;
+
+        private Animator _animator;
+
 
         public void Set(Player player)
         {
+            SpriteRenderer = player.GetComponent<SpriteRenderer>();
+            _animator = player.GetComponent<Animator>();
+            _player = player.GetComponent<Player>();
             _player = player;
         }
 
         public virtual void Update()
         {
+            UpdateAnim();
             ReDashCheck();
             ChangeFacingDirection();
             Fire();
@@ -32,7 +44,76 @@ namespace Game
             Dash();
         }
 
-        private void ReDashCheck()
+        protected virtual void UpdateAnim()
+        {
+            switch (_player.direction)
+            {
+                case FacingDirection.Left:
+                    SpriteRenderer.flipX = true;
+                    break;
+                case FacingDirection.Right:
+                    SpriteRenderer.flipX = false;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+
+            if (_player.data.isDashing)
+            {
+                ToDash();
+                return;
+            }
+
+            if (!_player.checker.isGrounded)
+            {
+                ToJump();
+                return;
+            }
+
+            Vector2 move = _player.Input.Move.ReadValue<Vector2>();
+            if (move.sqrMagnitude > 0)
+            {
+                ToMove();
+                return;
+            }
+
+            if (move == Vector2.zero && !_player.data.isDashing && _player.checker.isGrounded &&
+                _player.rb2D.velocity.y == 0)
+            {
+                ToIdle();
+            }
+        }
+
+        protected void ToIdle()
+        {
+            if (State == AnimState.Idle) return;
+            _animator.Play("idle");
+            State = AnimState.Idle;
+        }
+
+        protected void ToMove()
+        {
+            if (State == AnimState.Move) return;
+            _animator.Play("move");
+            State = AnimState.Move;
+        }
+
+        protected void ToJump()
+        {
+            if (State == AnimState.Dash) return;
+            _animator.Play("jump");
+            State = AnimState.Jump;
+        }
+
+        protected void ToDash()
+        {
+            if (State == AnimState.Jump) return;
+            _animator.Play("dash");
+            State = AnimState.Dash;
+        }
+
+        protected void ReDashCheck()
         {
             if (_checker.isGrounded)
             {
@@ -40,7 +121,7 @@ namespace Game
             }
         }
 
-        private void ChangeFacingDirection()
+        protected virtual void ChangeFacingDirection()
         {
             Vector2 move = Input.Move.ReadValue<Vector2>();
             if (Mathf.Approximately(move.x, 0)) return;

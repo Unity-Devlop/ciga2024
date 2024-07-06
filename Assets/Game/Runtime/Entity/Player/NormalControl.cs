@@ -25,5 +25,7 @@ namespace Game
                 DashCoolDown(data.dashCoolDown);
             }
         }
+        
+        
     }
 }

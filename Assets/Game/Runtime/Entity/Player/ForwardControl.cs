@@ -36,5 +36,43 @@ namespace Game
                 DashCoolDown(data.dashCoolDown);
             }
         }
+
+        protected override void UpdateAnim()
+        {
+            switch (_player.direction)
+            {
+                case FacingDirection.Left:
+                    SpriteRenderer.flipX = true;
+                    break;
+                case FacingDirection.Right:
+                    SpriteRenderer.flipX = false;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (!data.isDashing && _player.checker.isGrounded)
+            {
+                ToMove();
+                return;
+            }
+
+            if (_player.data.isDashing)
+            {
+                ToDash();
+                return;
+            }
+
+            if (!_player.checker.isGrounded)
+            {
+                ToJump();
+                return;
+            }
+        }
+
+        protected override void ChangeFacingDirection()
+        {
+            _player.direction = FacingDirection.Right;
+        }
     }
 }
