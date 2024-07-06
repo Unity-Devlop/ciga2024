@@ -73,6 +73,15 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b8ab6bc-1475-4761-ad76-22aa8a0cb0cc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -315,6 +324,17 @@ namespace Game
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3b9f4e7-fd0c-4a0e-acc8-11c6fe5f5ca9"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -907,6 +927,7 @@ namespace Game
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
             m_Player_Accelerate = m_Player.FindAction("Accelerate", throwIfNotFound: true);
+            m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -985,6 +1006,7 @@ namespace Game
         private readonly InputAction m_Player_Fire;
         private readonly InputAction m_Player_Jump;
         private readonly InputAction m_Player_Accelerate;
+        private readonly InputAction m_Player_Dash;
         public struct PlayerActions
         {
             private @CustomInputActions m_Wrapper;
@@ -994,6 +1016,7 @@ namespace Game
             public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputAction @Accelerate => m_Wrapper.m_Player_Accelerate;
+            public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1018,6 +1041,9 @@ namespace Game
                 @Accelerate.started += instance.OnAccelerate;
                 @Accelerate.performed += instance.OnAccelerate;
                 @Accelerate.canceled += instance.OnAccelerate;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1037,6 +1063,9 @@ namespace Game
                 @Accelerate.started -= instance.OnAccelerate;
                 @Accelerate.performed -= instance.OnAccelerate;
                 @Accelerate.canceled -= instance.OnAccelerate;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1224,6 +1253,7 @@ namespace Game
             void OnFire(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnAccelerate(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

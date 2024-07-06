@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityToolkit;
 
 namespace Game
@@ -16,13 +17,25 @@ namespace Game
         public float accelerateMultiplier = 2f;
 
 
+        public float dashEnergyCost = 10f;
+        public float accelerateCost = 12f;
+        public float dashSpeed = 40f;
+
         [field: SerializeField] public int Health { get; private set; } = 1;
         [field: SerializeField] public int MaxHealth { get; private set; } = 1;
         [field: SerializeField] public float MaxEnergy { get; private set; } = 100;
         [field: SerializeField] public float CurrentEnergy { get; private set; } = 100;
-        
+
 
         public bool HasEnergy => CurrentEnergy > 0;
+
+
+        // Runtime State Property
+        public bool canMove = true;
+        public bool canDash = true;
+        public bool canJump = true;
+        public bool canAccelerate = true;
+        public float dashTime = 2f;
 
         public PlayerData()
         {
