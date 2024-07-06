@@ -10,7 +10,7 @@ using UnityToolkit;
 
 namespace Game
 {
-    public class DialoguePanel : UIPanel, IPointerClickHandler
+    public class DialoguePanel : GamePanel, IPointerClickHandler
     {
         [System.Serializable]
         public class SubtitleDelays

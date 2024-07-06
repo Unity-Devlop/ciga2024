@@ -6,7 +6,7 @@ using UnityToolkit;
 
 namespace Game
 {
-    public class FloatTextPanel : UIPanel
+    public class FloatTextPanel : GamePanel
     {
         [SerializeField] private TextMeshProUGUI _content;
         private CancellationTokenSource _cancellation;

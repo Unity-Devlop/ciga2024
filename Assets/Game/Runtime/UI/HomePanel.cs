@@ -5,7 +5,7 @@ using UnityToolkit;
 
 namespace Game
 {
-    public class HomePanel : UIPanel
+    public class HomePanel : GamePanel
     {
         [SerializeField] private Button enterGameButton;
 

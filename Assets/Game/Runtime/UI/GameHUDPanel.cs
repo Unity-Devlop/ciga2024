@@ -6,7 +6,7 @@ using UnityToolkit;
 
 namespace Game
 {
-    public class GameHUDPanel : UIPanel
+    public class GameHUDPanel : GamePanel
     {
         // [SerializeField] private TextMeshProUGUI healthText;
         [SerializeField] private ProgressBar energyBar;
