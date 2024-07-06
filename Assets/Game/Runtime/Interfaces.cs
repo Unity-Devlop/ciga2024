@@ -19,5 +19,12 @@ namespace Game
     public interface IReborn
     {
         public Transform transform { get; }
+        public void Active();
+        public void UnActive();
+    }
+
+    public interface IBackDrop
+    {
+        
     }
 }

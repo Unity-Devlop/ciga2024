@@ -3,9 +3,11 @@ using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof(Collider2D))]
     public class Spring : MonoBehaviour, ISpring
     {
         public Vector2 force = new Vector2(0, 10);
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             // 给一个弹力

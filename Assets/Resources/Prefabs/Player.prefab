@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7740765121056268974}
   - component: {fileID: 4425782208347048066}
   - component: {fileID: 3702510538877255399}
+  - component: {fileID: 6225739667850667321}
   - component: {fileID: 516307618218562164}
   - component: {fileID: 3336694368826117873}
   m_Layer: 0
@@ -118,8 +119,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1655fac275dc442fb42dbf42b19b229f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <data>k__BackingField: {fileID: 11400000, guid: 6ffec2ae17af746f7bb0089a74ece606,
-    type: 2}
+  <data>k__BackingField:
+    moveSpeed: 10
+    fixedMoveSpeed: 10
+    jumpSpeed: 10
+    accelerateMultiplier: 2
+    dashEnergyCost: 10
+    accelerateCost: 12
+    dashSpeed: {x: 35, y: 35}
+    dashTime: 0.2
+    energyRecoverSpeed: 1
+    <Health>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <MaxEnergy>k__BackingField: 100
+    <CurrentEnergy>k__BackingField: 100
+    canMove: 1
+    canDash: 1
+    canJump: 1
+    canAccelerate: 1
+    canRecoverEnergy: 1
+  <State>k__BackingField: 1
 --- !u!114 &3702510538877255399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +157,18 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6225739667850667321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225796974936762308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2592168569224f118f0c6d09d81f54b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &516307618218562164
 Rigidbody2D:
   serializedVersion: 4

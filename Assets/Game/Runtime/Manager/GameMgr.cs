@@ -14,6 +14,7 @@ namespace Game
         protected override void OnInit()
         {
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
+            Reborn.Active();
             GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
             gameHUDPanel.Bind(Local.data);
         }
