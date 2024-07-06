@@ -132,3 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
   sortingOrder: 0
+  endingType: 0
+  image: {fileID: 0}
+  btnExit: {fileID: 0}
+  btnNext: {fileID: 0}
+  btnReSart: {fileID: 0}
