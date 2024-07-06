@@ -20,6 +20,7 @@ namespace Game
         public int clickTimes = 0;
         float time = 0;
         public EatFrequency eatFrequency;
+        int eatNum = 0;
 
 
         private void Awake()
@@ -68,6 +69,8 @@ namespace Game
                 {
                     if (hit.collider.tag == "Food")
                     {
+                        ++eatNum;
+                        playerRightMainPanel.SetFoodNum(eatNum.ToString());
                         ++clickTimes;
                         if (playerRightMainPanel==null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
                         Food food = hit.collider.GetComponent<Food>();

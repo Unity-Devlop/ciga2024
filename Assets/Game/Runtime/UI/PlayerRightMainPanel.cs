@@ -41,21 +41,16 @@ namespace Game
             SetSliderWantEatValue(0.5f);
         }
 
-        public override void OnOpened()
-        {
-            
-        }
-
         public void SetFoodNum(string op)
         {
 
-            textNum.GetComponent<Text>().text = op;
+            textNum.text = op;
         }
 
         public void Reset(string op)
         {
             textMeshProTime.text = op;
-            textNum.GetComponent<Text>().text = "0";
+            textNum.text = "0";
         }
         
         private void Awake()
@@ -120,7 +115,7 @@ namespace Game
 
         public void SetTextMeshProTime(float num)
         {
-            textMeshProTime.text = num.ToString("f2");
+            textMeshProTime.text = num.ToString();
         }
 
         private void OnEnterGameButtonClick()

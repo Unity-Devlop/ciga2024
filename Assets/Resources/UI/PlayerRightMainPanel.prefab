@@ -1249,7 +1249,7 @@ MonoBehaviour:
   - {fileID: 7164631771488651111, guid: f88c06097abf1c44ba2d3bcd6d863a46, type: 3}
   - {fileID: 7522894686320780661, guid: b5a8c14121d09c740a15d23cc8d766b1, type: 3}
   num: 0
-  textNum: {fileID: 0}
+  textNum: {fileID: 2666122155515985138}
   time: 30
 --- !u!1 &5700366587817634832
 GameObject:

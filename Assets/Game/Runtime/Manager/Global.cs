@@ -22,7 +22,7 @@ namespace Game
         private Tables _tables;
 
         public List<LevelCofig> levelCofigs = new List<LevelCofig>();
-        int curLevel;
+        int curLevel=0;
 
         protected override void OnInit()
         {
@@ -71,6 +71,7 @@ namespace Game
 
         public void ReturnMainMenu()
         {
+            curLevel = 0;
             SceneManager.LoadScene("Main", LoadSceneMode.Single);
         }
 
@@ -81,7 +82,11 @@ namespace Game
                 curLevel++;
                 SceneManager.LoadScene("Game", LoadSceneMode.Single);
             }
-            else SceneManager.LoadScene("Main", LoadSceneMode.Single);
+            else
+            {
+                curLevel = 0;
+                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
+            if (Player.Instance.isEnd) return;
             if(Time.time-time>=1)
             {
                 time = Time.time;

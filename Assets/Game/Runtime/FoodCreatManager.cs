@@ -37,6 +37,7 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
+            if (Player.Instance.isEnd) return;
             if(Player.Instance.appetite<40)
             {
                 frequency = 1f / 5f;

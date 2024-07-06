@@ -11,6 +11,8 @@ namespace Game
         protected override void OnInit()
         {
             UIRoot.Singleton.OpenPanel<PlayerRightMainPanel>();
+            PlayerRightMainPanel playerRightMainPanel;
+            UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
             var player= GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
             GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Click"));
             var foodCreater= GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/FoodCreateManager"));
@@ -20,6 +22,7 @@ namespace Game
             player.GetComponent<Player>().appetite = config.appetite;
             player.GetComponent<Player>().stomach = config.stomach;
             countDown.GetComponent<CountDown>().totalTime = config.totalTime;
+            playerRightMainPanel.Reset(config.totalTime.ToString());
             foodCreater.GetComponent<FoodCreatManager>().prefabs = config.foodList;
         }
 
