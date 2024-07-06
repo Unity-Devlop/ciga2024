@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityToolkit;
 
 namespace Game
 {
@@ -41,6 +42,9 @@ namespace Game
             {
                 _player = this;
             }
+            var _=GameMgr.Singleton;
+
+            if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
         }
 
         private void FixedUpdate()

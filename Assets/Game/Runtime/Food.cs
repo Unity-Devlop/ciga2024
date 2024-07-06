@@ -27,17 +27,18 @@ namespace Game
         {
             if (Time.time - time >= 2)
             {
-                Disappear();
+                Disappear(null);
             }
         }
 
-        public void BeClicked()
+        public void BeClicked(PlayerRightMainPanel playerRightMainPanel)
         {
-            Disappear();
+            Disappear(playerRightMainPanel);
         }
 
-        private void Disappear()
+        private void Disappear(PlayerRightMainPanel playerRightMainPanel)
         {
+            if (playerRightMainPanel != null) playerRightMainPanel.OnEat(type);
             GameObjectPoolManager.Release(type, gameObject);
         }
     }

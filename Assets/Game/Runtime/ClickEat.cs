@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityToolkit;
 
 namespace Game
 {
     public class ClickEat : MonoBehaviour
     {
+        public PlayerRightMainPanel playerRightMainPanel;
         public int clickTimesDivision;
         public int clickTimes = 0;
         float time = 0;
@@ -13,7 +15,9 @@ namespace Game
 
         private void Awake()
         {
+            var _ = GameMgr.Singleton;
 
+            if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
         }
 
         private void Start()
@@ -40,10 +44,11 @@ namespace Game
                 {
                     if (hit.collider.tag == "Food")
                     {
+                        if(playerRightMainPanel==null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
                         Food food = hit.collider.GetComponent<Food>();
                         Player.Instance.ChangeStomach(food.stomachIncrease);
                         Player.Instance.ChangeAppetite(-food.appetiteDecrease);
-                        food.BeClicked();
+                        food.BeClicked(playerRightMainPanel);
                     }
                 }
             }
