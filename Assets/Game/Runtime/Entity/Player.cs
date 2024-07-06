@@ -32,9 +32,10 @@ namespace Game
 
         private void Accelerate()
         {
-            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1))
+            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1) && data.HasEnergy)
             {
                 _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
+                data.ChangeEnergy(Time.deltaTime * -1 * data.accelerateMultiplier * 30);
             }
         }
 
