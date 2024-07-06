@@ -50,6 +50,7 @@ namespace Game
 
         public bool isDashing = false;
         public bool isGounded;
+        public bool infiniteEnergy = false;
 
         public PlayerData()
         {

@@ -40,6 +40,11 @@ namespace Game
             Accelerate();
             Jump();
             Dash();
+
+            if (!data.isDashing)
+            {
+                _rb2D.gravityScale = 3;
+            }
         }
 
         protected virtual void UpdateAnim()
@@ -149,6 +154,7 @@ namespace Game
         protected virtual void Accelerate()
         {
             if (!data.canAccelerate) return;
+            if(!data.HasEnergy && !data.infiniteEnergy) return;
             if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1) && data.HasEnergy)
             {
                 _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
@@ -162,7 +168,9 @@ namespace Game
             data.canMove = false;
             data.canJump = false;
             data.canAccelerate = false;
+            _rb2D.gravityScale = 0;
             await UniTask.Delay(TimeSpan.FromSeconds(time));
+            _rb2D.gravityScale = 3f;
             data.canMove = true;
             data.canJump = true;
             data.canAccelerate = true;
