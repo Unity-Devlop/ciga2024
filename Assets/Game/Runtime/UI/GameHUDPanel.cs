@@ -1,13 +1,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using UnityToolkit;
 
 namespace Game
 {
     public class GameHUDPanel : UIPanel
     {
-        [SerializeField] private TextMeshProUGUI healthText;
+        // [SerializeField] private TextMeshProUGUI healthText;
         [SerializeField] private ProgressBar energyBar;
         private PlayerData _data;
 
@@ -20,7 +21,7 @@ namespace Game
 
         private void OnData(PlayerData data)
         {
-            healthText.text = $"{data.Health}";
+            // healthText.text = $"{data.Health}";
             energyBar.SetWithoutNotify(data.CurrentEnergy, 0, data.MaxEnergy);
         }
 

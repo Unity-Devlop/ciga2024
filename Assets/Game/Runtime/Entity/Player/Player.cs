@@ -5,11 +5,9 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
-    public enum PlayerState
-    {
-        NormalControl,
-        ForwardControl,
-    }
+
+
+
 
     public class Player : MonoBehaviour
     {
