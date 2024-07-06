@@ -22,20 +22,8 @@ namespace Game
         {
             _systemLocator = new SystemLocator();
             _systemLocator.Register<ConditionalVisualSystem>();
-
-
-         
-            string jsonStr = "";
-            if (File.Exists(Const.LocalPlayerDataPath))
-            {
-                jsonStr = File.ReadAllText(Const.LocalPlayerDataPath);
-                var data = JsonConvert.DeserializeObject<PlayerData>(jsonStr);
-                Local.data = data;
-            }
-            else
-            {
-                // TODO 默认存档
-            }
+            
+            LoadPlayerData();
             
             Local.gameObject.SetActive(true);
 
@@ -81,6 +69,10 @@ namespace Game
             Reborn.UnActive();
             Reborn = reborn;
             Reborn.Active();
+            
+            LoadPlayerData();
+            Global.Event.Send(new UpdateHp());
+            Global.Event.Send(new UpdateEnergy(){energyFillAmount = 1f});
         }
 
         public void OnEnergyObjectEnter(Player component, EnergyObject energyObject)
@@ -111,7 +103,22 @@ namespace Game
         public void OnFloatText(Player component, FloatTextTrigger floatTextTrigger)
         {
         }
-        
+
+
+        public void LoadPlayerData()
+        {
+            string jsonStr = "";
+            if (File.Exists(Const.LocalPlayerDataPath))
+            {
+                jsonStr = File.ReadAllText(Const.LocalPlayerDataPath);
+                var data = JsonConvert.DeserializeObject<PlayerData>(jsonStr);
+                Local.data = data;
+            }
+            else
+            {
+                // TODO 默认存档
+            }
+        }
         
         // 重置玩家存档
         public void ResetPlayerData()
