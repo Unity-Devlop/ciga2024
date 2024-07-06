@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -10,16 +11,23 @@ namespace Game
         protected override void OnInit()
         {
             UIRoot.Singleton.OpenPanel<PlayerRightMainPanel>();
-            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
+            var player= GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
             GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Click"));
-            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/FoodCreateManager"));
-            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/CountDown"));
+            var foodCreater= GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/FoodCreateManager"));
+            var countDown= GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/CountDown"));
+            var config= Global.Singleton.GetConfig();
+            player.GetComponent<Player>().health = config.health;
+            player.GetComponent<Player>().appetite = config.appetite;
+            player.GetComponent<Player>().stomach = config.stomach;
+            countDown.GetComponent<CountDown>().totalTime = config.totalTime;
+            foodCreater.GetComponent<FoodCreatManager>().prefabs = config.foodList;
         }
 
         protected override void OnDispose()
         {
             UIRoot.Singleton.ClosePanel<PlayerRightMainPanel>();
         }
+
 
     }
 }

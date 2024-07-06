@@ -38,6 +38,7 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
+            if (Player.Instance.isEnd) return;
             if (Time.time - time >= 4)
             {
                 Player.Instance.EatFrequencyList.Add(clickTimes);

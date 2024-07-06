@@ -1,5 +1,6 @@
 using cfg;
 using SimpleJSON;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityToolkit;
@@ -19,6 +20,9 @@ namespace Game
         private SystemLocator _systemLocator;
         private TypeEventSystem _event;
         private Tables _tables;
+
+        public List<LevelCofig> levelCofigs = new List<LevelCofig>();
+        int curLevel;
 
         protected override void OnInit()
         {
@@ -48,6 +52,36 @@ namespace Game
         private void ToGame()
         {
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        }
+
+        public LevelCofig GetConfig()
+        {
+            if (curLevel >= levelCofigs.Count)
+            {
+                Debug.LogError("¹Ø¿¨Ô½½ç£¡");
+                return null;
+            }
+            return levelCofigs[curLevel];
+        }
+
+        public void ReSetLevel()
+        {
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        }
+
+        public void ReturnMainMenu()
+        {
+            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        }
+
+        public void LoadNextLevel()
+        {
+            if (curLevel < levelCofigs.Count - 1)
+            {
+                curLevel++;
+                SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            }
+            else SceneManager.LoadScene("Main", LoadSceneMode.Single);
         }
     }
 }

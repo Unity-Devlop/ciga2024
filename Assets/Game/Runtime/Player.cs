@@ -58,7 +58,7 @@ namespace Game
         float appetiteTime = 0;
         float stomachTime = 0;
         bool isDie = false;
-        bool isEnd = false;
+        public bool isEnd = false;
         HealthState healthState;
 
         private void Awake()
@@ -167,6 +167,7 @@ namespace Game
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Boom;
             }
+            TypeEventSystem.Global.UnListen<TimeEndEvent>(Live);
         }
 
         public void ChangeStomach(int value)
@@ -192,6 +193,7 @@ namespace Game
 
         public void Live(TimeEndEvent e)
         {
+            if (isDie) return;
             isEnd = true;
             float avg = 0;
             if(EatFrequencyList.Count>0) avg = EatFrequencyList.Sum() / EatFrequencyList.Count;
@@ -233,6 +235,7 @@ namespace Game
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Common;
             }
+            TypeEventSystem.Global.UnListen<TimeEndEvent>(Live);
         }
     }
 }
