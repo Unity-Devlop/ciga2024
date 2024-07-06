@@ -53,6 +53,7 @@ namespace Game
 
             if (!data.isDashing && _player.checker.isGrounded)
             {
+                Debug.Log("ToMove");
                 ToMove();
                 return;
             }

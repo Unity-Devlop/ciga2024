@@ -16,8 +16,6 @@ namespace Game
         protected PhysicsChecker _checker => _player.checker;
 
         private CancellationTokenSource _dashCoolDownCts;
-        [field: SerializeField] public AnimState State { get; private set; }
-
 
         protected SpriteRenderer SpriteRenderer;
 
@@ -87,30 +85,22 @@ namespace Game
 
         protected void ToIdle()
         {
-            if (State == AnimState.Idle) return;
             _animator.Play("idle");
-            State = AnimState.Idle;
         }
 
         protected void ToMove()
         {
-            if (State == AnimState.Move) return;
             _animator.Play("move");
-            State = AnimState.Move;
         }
 
         protected void ToJump()
         {
-            if (State == AnimState.Dash) return;
             _animator.Play("jump");
-            State = AnimState.Jump;
         }
 
         protected void ToDash()
         {
-            if (State == AnimState.Jump) return;
             _animator.Play("dash");
-            State = AnimState.Dash;
         }
 
         protected void ReDashCheck()
