@@ -35,9 +35,6 @@ namespace Game
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
             SetSliderWantEatValue(0.5f);
-
-
-
         }
 
         public void Reset()

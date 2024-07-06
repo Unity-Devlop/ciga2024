@@ -84,6 +84,7 @@ namespace Game
             AppetiteIncrease();
             StomachLoss();
             CheckHealth();
+            print($"{(float)health/maxHealth}  {(float)stomach/maxStomach} {(float)appetite/maxAppetite}");
             playerRightMainPanel.SetSliderHealthValue((float)health/maxHealth);
             playerRightMainPanel.SetSliderSatietyValue((float)stomach/maxStomach);
             playerRightMainPanel.SetSliderWantEatValue((float)appetite/maxAppetite);
