@@ -20,7 +20,7 @@ namespace Game
 
         public float dashEnergyCost = 10f;
         public float accelerateCost = 12f;
-        public Vector2 dashForce = new Vector2(10, 5);
+        public float dashSpeed = 20f;
 
 
         public float dashTime = 2f;
@@ -47,6 +47,8 @@ namespace Game
         public bool infiniteHealth = false;
 
         public bool conditionalVisual = false;
+
+        public bool isDashing = false;
 
         public PlayerData()
         {

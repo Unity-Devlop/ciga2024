@@ -23,6 +23,7 @@ namespace Game
 
         public virtual void Update()
         {
+            ReDashCheck();
             ChangeFacingDirection();
             Fire();
             Move();
@@ -30,7 +31,15 @@ namespace Game
             Jump();
             Dash();
         }
-        
+
+        private void ReDashCheck()
+        {
+            if (_checker.isGrounded)
+            {
+                RecoverDash();
+            }
+        }
+
         private void ChangeFacingDirection()
         {
             Vector2 move = Input.Move.ReadValue<Vector2>();
@@ -78,6 +87,7 @@ namespace Game
 
         protected async void DashLock(float time)
         {
+            data.isDashing = true;
             data.canMove = false;
             data.canJump = false;
             data.canAccelerate = false;
@@ -85,6 +95,7 @@ namespace Game
             data.canMove = true;
             data.canJump = true;
             data.canAccelerate = true;
+            data.isDashing = false;
         }
 
         protected async void DashCoolDown(float time)

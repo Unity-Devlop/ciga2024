@@ -30,12 +30,14 @@ namespace Game
             {
                 jsonStr = File.ReadAllText(Const.LocalPlayerDataPath);
                 var data = JsonConvert.DeserializeObject<PlayerData>(jsonStr);
-                Local.OnAwake(data);
+                Local.data = data;
             }
             else
             {
                 // TODO 默认存档
             }
+            
+            Local.gameObject.SetActive(true);
 
             
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
