@@ -17,7 +17,7 @@ namespace Game
 
             if (Input.Dash.triggered && data.HasEnergy && data.canDash)
             {
-                _rb2D.AddForce(faceDir * data.dashForce, ForceMode2D.Impulse);
+                _rb2D.AddForce(faceDir * data.dashSpeed, ForceMode2D.Impulse);
                 data.ChangeEnergy(-data.dashEnergyCost);
 
                 // 禁止移动一会

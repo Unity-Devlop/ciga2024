@@ -9,7 +9,7 @@ namespace Game
     {
         public Rigidbody2D rb2D { get; private set; }
         public PhysicsChecker checker { get; private set; }
-        [field: SerializeField] public PlayerData data { get; private set; }
+        [field: SerializeField] public PlayerData data;
 
         private CustomInputActions _customInput;
         public CustomInputActions.PlayerActions Input => _customInput.Player;
@@ -18,6 +18,8 @@ namespace Game
         public FacingDirection direction;
         private NormalControl _normalControl;
         private ForwardControl _forwardControl;
+
+        private Animator _animator;
 
         public IControl Control
         {
@@ -35,16 +37,14 @@ namespace Game
             }
         }
 
-        public void OnAwake(PlayerData playerData)
-        {
-            data = playerData;
-        }
 
         private void Awake()
         {
             checker = GetComponent<PhysicsChecker>();
             rb2D = GetComponent<Rigidbody2D>();
             _customInput = new CustomInputActions();
+
+            _animator = GetComponent<Animator>();
 
             _normalControl = new NormalControl();
             _forwardControl = new ForwardControl();
