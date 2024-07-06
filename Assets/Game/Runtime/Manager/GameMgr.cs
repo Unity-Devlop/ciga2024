@@ -8,10 +8,12 @@ namespace Game
     {
         protected override void OnInit()
         {
+            UIRoot.Singleton.OpenPanel<GameHUDPanel>();
         }
 
         protected override void OnDispose()
         {
+            UIRoot.Singleton.ClosePanel<GameHUDPanel>();
         }
     }
 }

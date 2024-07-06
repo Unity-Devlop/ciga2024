@@ -62,7 +62,7 @@ namespace Game
                     ""id"": ""6e5f7b4f-43f6-4744-854c-51ff6441e32f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold,Tap"",
                     ""initialStateCheck"": false
                 }
             ],
