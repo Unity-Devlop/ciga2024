@@ -11,8 +11,15 @@ namespace Game
 
         public IReborn Reborn { get; private set; }
 
+
+        public static SystemLocator Systems => Singleton._systemLocator;
+        private SystemLocator _systemLocator;
+
         protected override void OnInit()
         {
+            _systemLocator = new SystemLocator();
+            _systemLocator.Register<ConditionalVisualSystem>();
+
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
             Reborn.Active();
             GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
@@ -21,6 +28,7 @@ namespace Game
 
         protected override void OnDispose()
         {
+            if (UIRoot.SingletonNullable == null) return;
             if (UIRoot.Singleton.GetOpenedPanel(out GameHUDPanel hudPanel))
             {
                 hudPanel.UnBind();

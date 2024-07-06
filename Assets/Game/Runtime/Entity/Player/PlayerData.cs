@@ -10,10 +10,10 @@ namespace Game
     public class PlayerData //: ScriptableObject
     {
         public BindData<PlayerData> Bind { get; private set; }
-        
+
         public float moveSpeed = 10f;
         public float fixedMoveSpeed = 10;
-        
+
         public float jumpSpeed = 10f;
         public float accelerateMultiplier = 2f;
 
@@ -21,8 +21,8 @@ namespace Game
         public float dashEnergyCost = 10f;
         public float accelerateCost = 12f;
         public Vector2 dashSpeed = new Vector2(10, 5);
-        
-        
+
+
         public float dashTime = 2f;
         public float energyRecoverSpeed = 1f;
 
@@ -42,6 +42,8 @@ namespace Game
         public bool canAccelerate = true;
         public bool canRecoverEnergy = true;
 
+        public bool conditionalVisual = false;
+
         public PlayerData()
         {
             Bind = new BindData<PlayerData>(this);
@@ -58,6 +60,12 @@ namespace Game
         {
             Health += i;
             Health = Mathf.Clamp(Health, 0, MaxHealth);
+            Bind.SetDirty();
+        }
+
+        [Sirenix.OdinInspector.Button]
+        private void SetDirty()
+        {
             Bind.SetDirty();
         }
     }

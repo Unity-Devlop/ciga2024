@@ -71,6 +71,9 @@ namespace UnityToolkit
             _value = value;
         }
 
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.Button]
+#endif
         private void Set(T value)
         {
             _value = value;

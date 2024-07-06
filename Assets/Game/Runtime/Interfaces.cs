@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace Game
 {
+    
+    public interface IConditionVisual
+    {
+        void SetVisible(bool dataConditionalVisual);
+    }
     public interface IControl
     {
         public void Set(Player player);
