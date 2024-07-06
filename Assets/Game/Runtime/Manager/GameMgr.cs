@@ -1,3 +1,4 @@
+using NodeCanvas.DialogueTrees;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -49,17 +50,15 @@ namespace Game
                     player.data.ChangeHealth(player.data.MaxHealth);
 
                     player.transform.position = Reborn.transform.position;
-                }   
+                }
             }
             else
             {
-                
             }
         }
-        
+
         public void OnObstacleExit(Player component, IObstacle obstacle)
         {
-            
         }
 
         public void OnRebornHit(Player player, IReborn reborn)
@@ -73,6 +72,19 @@ namespace Game
         {
             component.data.ChangeEnergy(energyObject.energyPoint);
             energyObject.BeEat();
+        }
+
+        [SerializeField] private DialoguePanel _dialoguePanel;
+
+        public void StartDialog(DialogueTreeController dialogueTreeController)
+        {
+            _dialoguePanel.gameObject.SetActive(true);
+            Local.DisableInput();
+            dialogueTreeController.StartDialogue((v) =>
+            {
+                Local.EnableInput();
+                _dialoguePanel.gameObject.SetActive(false);
+            });
         }
     }
 }

@@ -69,5 +69,15 @@ namespace Game
             rb2D.velocity = velocity;
             rb2D.angularVelocity = angularVelocity;
         }
+
+        public void DisableInput()
+        {
+            Input.Disable();
+        }
+
+        public void EnableInput()
+        {
+            Input.Enable();
+        }
     }
 }

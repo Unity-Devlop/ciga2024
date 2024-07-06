@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
   sortingOrder: 0
-  healthText: {fileID: 0}
   energyBar: {fileID: 7183680745693085615}
 --- !u!1 &1670305045718340394
 GameObject:
