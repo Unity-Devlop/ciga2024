@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1205,6 +1205,7 @@ MonoBehaviour:
   foodItem: {fileID: 617167854628436027, guid: 94a8becb42d2fee458d25fbaaefa6d32, type: 3}
   scrollRectFood: {fileID: 6218229245137120768}
   objparent: {fileID: 4594008121963692910}
+  listFoodItem: []
 --- !u!1 &5700366587817634832
 GameObject:
   m_ObjectHideFlags: 0

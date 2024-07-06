@@ -10,10 +10,12 @@ namespace Game
         [field: SerializeField] public Player Local { get; private set; }
         protected override void OnInit()
         {
+            UIRoot.Singleton.OpenPanel<PlayerRightMainPanel>();
         }
 
         protected override void OnDispose()
         {
+            UIRoot.Singleton.ClosePanel<PlayerRightMainPanel>();
         }
     }
 }
