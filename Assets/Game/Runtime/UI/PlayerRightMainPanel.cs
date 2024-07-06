@@ -25,6 +25,8 @@ namespace Game
         public List<GameObject> listobj = new List<GameObject>();
 
         public Sequence mysSequence;
+        public int num = 0;
+        public Text textNum;
 
         public float time = 30.0f;
         
@@ -32,43 +34,42 @@ namespace Game
         
         public void Init()
         {
-            textMeshProTime.text = time.ToString("f2");
+            textMeshProTime.text = time.ToString();
             //每一关的初始值
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
             SetSliderWantEatValue(0.5f);
         }
 
-        public void Reset()
+        public override void OnOpened()
         {
-            // for (int i = 0; i < listFoodItem.Count; ++i)
-            // {
-            //     listFoodItem[i].myNum = 10000;
-            // }
+            
+        }
+
+        public void SetFoodNum(string op)
+        {
+
+            textNum.GetComponent<Text>().text = op;
+        }
+
+        public void Reset(string op)
+        {
+            textMeshProTime.text = op;
+            textNum.GetComponent<Text>().text = "0";
         }
         
         private void Awake()
         {
             Init();
-            
         }
-        
+
         public void OnEat(FoodType foodType)
         {
-            //每次进来我先赋值
-            print("jinlaile");
-            
             for (int i = 0; i < listobj.Count; ++i)
             {
                 if (listobj[i].GetComponent<Food>().type == foodType)
                 {
                     print(foodType);
-                    // listobj[i].myNum--;
-                    // print($"我吃了一个类型{listobj[i].foodType}的食物");
-
-                    // imageMyHand = listFoodItem[i].foodSprite;
-
-
                     //画出对应类型的动画
                     int a = 0;
                     // mysSequence.Kill();
@@ -76,7 +77,8 @@ namespace Game
                     {
                         imageFoodInHand.GetComponent<Image>().sprite = listobj[i].GetComponent<SpriteRenderer>().sprite;
                         mysSequence = DOTween.Sequence();
-                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
+                        var tmp = imageMyHand.transform.localScale.z;
+                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, tmp + 90), 1f).SetEase(Ease.Linear)
                             .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
                             {
                                 a++;
