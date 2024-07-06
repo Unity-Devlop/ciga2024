@@ -8,6 +8,12 @@ namespace Game
     {
         [SerializeField] private SpriteRenderer render;
 
+        private void Awake()
+        {
+            render = GetComponent<SpriteRenderer>();
+            GetComponent<Collider2D>().isTrigger = true;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out Player player))
