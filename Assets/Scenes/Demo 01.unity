@@ -956,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Local>k__BackingField: {fileID: 2093033810}
+  _dialoguePanel: {fileID: 0}
 --- !u!4 &1381646137
 Transform:
   m_ObjectHideFlags: 0
