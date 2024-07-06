@@ -21,6 +21,10 @@ namespace Game
         public float dashEnergyCost = 10f;
         public float accelerateCost = 12f;
         public Vector2 dashSpeed = new Vector2(10, 5);
+        
+        
+        public float dashTime = 2f;
+        public float energyRecoverSpeed = 1f;
 
         [field: SerializeField] public int Health { get; private set; } = 1;
         [field: SerializeField] public int MaxHealth { get; private set; } = 1;
@@ -36,7 +40,7 @@ namespace Game
         public bool canDash = true;
         public bool canJump = true;
         public bool canAccelerate = true;
-        public float dashTime = 2f;
+        public bool canRecoverEnergy = true;
 
         public PlayerData()
         {
