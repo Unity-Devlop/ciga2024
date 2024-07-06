@@ -12,8 +12,9 @@ namespace Game
 
         private PhysicsChecker _checker;
 
-        [FormerlySerializedAs("forwardSpeed")] public float moveSpeed = 10f;
+        public float moveSpeed = 10f;
         public float jumpSpeed = 10f;
+        public float accelerateMultiplier = 2f;
 
         private void Awake()
         {
@@ -50,6 +51,12 @@ namespace Game
 
         public float GetMoveSpeed()
         {
+            // Input.Accelerate.triggered
+            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1))
+            {
+                return moveSpeed * accelerateMultiplier;
+            }
+
             return moveSpeed;
         }
 

@@ -64,6 +64,15 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": ""Hold,Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Accelerate"",
+                    ""type"": ""Button"",
+                    ""id"": ""cec9a710-39c6-4673-8694-570be8ae49d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -295,6 +304,17 @@ namespace Game
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0d346a8-6899-4a4c-bf06-11997c3c0b1b"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -886,6 +906,7 @@ namespace Game
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+            m_Player_Accelerate = m_Player.FindAction("Accelerate", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -963,6 +984,7 @@ namespace Game
         private readonly InputAction m_Player_Look;
         private readonly InputAction m_Player_Fire;
         private readonly InputAction m_Player_Jump;
+        private readonly InputAction m_Player_Accelerate;
         public struct PlayerActions
         {
             private @CustomInputActions m_Wrapper;
@@ -971,6 +993,7 @@ namespace Game
             public InputAction @Look => m_Wrapper.m_Player_Look;
             public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
+            public InputAction @Accelerate => m_Wrapper.m_Player_Accelerate;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -992,6 +1015,9 @@ namespace Game
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Accelerate.started += instance.OnAccelerate;
+                @Accelerate.performed += instance.OnAccelerate;
+                @Accelerate.canceled += instance.OnAccelerate;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1008,6 +1034,9 @@ namespace Game
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
+                @Accelerate.started -= instance.OnAccelerate;
+                @Accelerate.performed -= instance.OnAccelerate;
+                @Accelerate.canceled -= instance.OnAccelerate;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1194,6 +1223,7 @@ namespace Game
             void OnLook(InputAction.CallbackContext context);
             void OnFire(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnAccelerate(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
