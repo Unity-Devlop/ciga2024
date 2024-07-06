@@ -67,12 +67,13 @@ namespace Game
 
                     // imageMyHand = listFoodItem[i].foodSprite;
 
-                    imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
+
                     //画出对应类型的动画
                     int a = 0;
                     // mysSequence.Kill();
                     if (mysSequence == null)
                     {
+                        imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
                         mysSequence = DOTween.Sequence();
                         mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
                             .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
@@ -91,8 +92,6 @@ namespace Game
                             }));
                         mysSequence.Play();
                     }
-
-
                     break;
                 }
             }
