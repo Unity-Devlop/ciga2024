@@ -15,5 +15,7 @@ MonoBehaviour:
   moveSpeed: 10
   jumpSpeed: 10
   accelerateMultiplier: 2
+  <Health>k__BackingField: 1
+  <MaxHealth>k__BackingField: 1
   <MaxEnergy>k__BackingField: 100
   <CurrentEnergy>k__BackingField: 100
