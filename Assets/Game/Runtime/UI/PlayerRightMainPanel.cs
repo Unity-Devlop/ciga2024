@@ -20,10 +20,11 @@ namespace Game
         public GameObject foodItem;
         public ScrollRect scrollRectFood;
         public GameObject objparent;
+
+        public List<GameObject> listFoodItem = new List<GameObject>();
         
         public void Init()
         {
-            
             textMeshProTime.text = time.ToString("f2");
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
@@ -33,28 +34,29 @@ namespace Game
             for (int i = 0; i < 20; ++i)
             {
                 var obj = Instantiate(foodItem, objparent.transform);
+                obj.GetComponent<FoodItem>().Init(20);
+                listFoodItem.Insert(i,obj);
             }
             
-            //监听这个吃的事件
-            Global.Event.Listen<OnEat>(StartEat);
-        }
-
-        struct OnEat : IEvent
-        {
-            private string _a ;
         }
         
         private void Awake()
         {
             Init();
-            // SetSliderSatietyValue(0.5f);
-            // Global.Event.Send<OnEat>();
-            // enterGameButton.onClick.AddListener(OnEnterGameButtonClick);
         }
 
-        private void StartEat(OnEat a)
+        
+        public void OnEat(FoodType foodType)
         {
-            print("我吃了");
+            for (int i = 0; i < listFoodItem.Count; ++i)
+            {
+                if (listFoodItem[i].GetComponent<FoodItem>().foodType == foodType)
+                {
+                    listFoodItem[i].GetComponent<FoodItem>().myNum--;
+                    listFoodItem[i].GetComponent<FoodItem>().textNum.text =
+                        listFoodItem[i].GetComponent<FoodItem>().myNum.ToString();
+                }
+            }
         }
 
         public void SetSliderSatietyValue(float num)
