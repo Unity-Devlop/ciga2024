@@ -14,9 +14,15 @@ namespace Game
         public float moveSpeed = 10f;
         public float jumpSpeed = 10f;
         public float accelerateMultiplier = 2f;
-        public bool HasEnergy => CurrentEnergy > 0;
+
+
+        [field: SerializeField] public int Health { get; private set; } = 1;
+        [field: SerializeField] public int MaxHealth { get; private set; } = 1;
         [field: SerializeField] public float MaxEnergy { get; private set; } = 100;
         [field: SerializeField] public float CurrentEnergy { get; private set; } = 100;
+
+
+        public bool HasEnergy => CurrentEnergy > 0;
 
         public PlayerData()
         {

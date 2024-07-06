@@ -26,7 +26,16 @@ namespace Game
         private void Update()
         {
             Move();
+            Accelerate();
             Jump();
+        }
+
+        private void Accelerate()
+        {
+            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1))
+            {
+                _rb2D.velocity = new Vector2(_rb2D.velocity.x * data.accelerateMultiplier, _rb2D.velocity.y);
+            }
         }
 
         private void Move()
@@ -50,12 +59,6 @@ namespace Game
 
         public float GetMoveSpeed()
         {
-            // Input.Accelerate.triggered
-            if (Mathf.Approximately(Input.Accelerate.ReadValue<float>(), 1))
-            {
-                return data.moveSpeed * data.accelerateMultiplier;
-            }
-
             return data.moveSpeed;
         }
 

@@ -10,11 +10,17 @@ namespace Game
 
         protected override void OnInit()
         {
-            UIRoot.Singleton.OpenPanel<GameHUDPanel>();
+            GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
+            gameHUDPanel.Bind(Local.data);
         }
 
         protected override void OnDispose()
         {
+            if (UIRoot.Singleton.GetOpenedPanel(out GameHUDPanel hudPanel))
+            {
+                hudPanel.UnBind();
+            }
+            
             UIRoot.Singleton.ClosePanel<GameHUDPanel>();
         }
     }
