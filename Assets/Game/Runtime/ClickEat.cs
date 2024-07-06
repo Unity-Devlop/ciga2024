@@ -5,6 +5,13 @@ using UnityToolkit;
 
 namespace Game
 {
+    public enum EatFrequency
+    {
+        High,
+        Middle,
+        Low
+    }
+
     public class ClickEat : MonoBehaviour
     {
         public PlayerRightMainPanel playerRightMainPanel;
@@ -12,6 +19,7 @@ namespace Game
         public int clickTimesDivision_L;
         public int clickTimes = 0;
         float time = 0;
+        public EatFrequency eatFrequency;
 
 
         private void Awake()
@@ -32,18 +40,19 @@ namespace Game
         {
             if (Time.time - time >= 4)
             {
+                Player.Instance.EatFrequencyList.Add(clickTimes);
                 if (clickTimes > clickTimesDivision_H)
                 {
                     //Player.Instance.ChangeAppetite(1);
+                    eatFrequency = EatFrequency.High;
                 }
                 else if (clickTimes < clickTimesDivision_L)
                 {
-
-
+                    eatFrequency = EatFrequency.Low;
                 }
                 else
                 {
-
+                    eatFrequency = EatFrequency.Middle;
                 }
 
                 clickTimes = 0;

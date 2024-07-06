@@ -113,6 +113,11 @@ namespace Game
             sliderWantEat.value = num;
         }
 
+        public void SetTextMeshProTime(float num)
+        {
+            textMeshProTime.text = num.ToString("f2");
+        }
+
         private void OnEnterGameButtonClick()
         {
             Global.Systems.Get<GameFlow>().EnterGame();
