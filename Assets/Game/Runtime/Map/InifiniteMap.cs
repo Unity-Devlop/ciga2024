@@ -62,7 +62,6 @@ namespace Game
         {
             if (GetPlayerX < _centerLeftSideX)
             {
-                Debug.Log("<color=red>To Left</color>");
                 Destroy(_right);
                 _centerLeftSideX -= _mapItemDatas[0].length;
                 _centerRightSideX -= _mapItemDatas[0].length;
@@ -81,7 +80,6 @@ namespace Game
             }
             else if (GetPlayerX > _centerRightSideX)
             {
-                Debug.Log("<color=green>To Right</color>");
                 Destroy(_left);
                 
                 _centerLeftSideX += _mapItemDatas[2].length;

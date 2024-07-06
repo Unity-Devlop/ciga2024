@@ -30,7 +30,6 @@ namespace Game
             {
                 sprite = parallaxItem.parallaxObject.GetComponent<SpriteRenderer>().sprite;
                 parallaxItem.resetDistance = 640 / sprite.pixelsPerUnit;
-                Debug.Log(parallaxItem.resetDistance);
             }
         }
 
