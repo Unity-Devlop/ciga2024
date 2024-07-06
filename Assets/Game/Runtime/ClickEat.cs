@@ -15,13 +15,14 @@ namespace Game
 
         private void Awake()
         {
-            var _ = GameMgr.Singleton;
 
-            if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
         }
 
         private void Start()
         {
+            var _ = GameMgr.Singleton;
+
+            if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
             time = Time.time;
         }
 

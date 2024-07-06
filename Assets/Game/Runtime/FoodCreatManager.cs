@@ -1,3 +1,4 @@
+using Codice.Client.GameUI.Update;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,22 @@ namespace Game
     public class FoodCreatManager : MonoBehaviour
     {
         public List<GameObject> prefabs = new List<GameObject>();
-        public float baseValue;
         public float width;
         public float height;
-        Vector3[] corners;
+        public PlayerRightMainPanel playerRightMainPanel;
         float time;
+
+        private void Awake()
+        {
+
+        }
 
         // Start is called before the first frame update
         void Start()
         {
+            var _ = GameMgr.Singleton;
+            if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
+            CalculateWidthAndHeight();
             //¶ÔÏó³Ø×¢²á
             for (int i = 0; i < prefabs.Count; ++i)
             {
@@ -46,6 +54,15 @@ namespace Game
             v.y *= height / 2;
             v.z = 0;
             go.transform.position = transform.position + v;
+        }
+
+        void CalculateWidthAndHeight()
+        {
+            float w = -(Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x - Camera.main.ScreenToWorldPoint(new Vector3(1920f, 0, 0)).x);
+            float h= -(Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).y - Camera.main.ScreenToWorldPoint(new Vector3(0, 1080f, 0)).y);
+            width = 3*w/4;
+            height= h;
+            transform.position = new Vector3(width/2-w/2,0, 0);
         }
     }
 }

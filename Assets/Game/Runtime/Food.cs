@@ -8,6 +8,7 @@ namespace Game
     public enum FoodType
     {
         Hamburger,
+        Watermelon,
     }
 
     public class Food : MonoBehaviour

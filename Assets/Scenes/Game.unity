@@ -235,53 +235,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1044256314}
   m_SourcePrefab: {fileID: 100100000, guid: 54d7c6acacf844841ac0de8174207465, type: 3}
---- !u!1 &155030178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 155030180}
-  - component: {fileID: 155030179}
-  m_Layer: 0
-  m_Name: Click
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &155030179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155030178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f51c74e1f834142a31924291bd2a0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRightMainPanel: {fileID: 0}
-  clickTimesDivision: 5
-  clickTimes: 0
---- !u!4 &155030180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155030178}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2049117, y: 1.1772747, z: 1.7196577}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160029814
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,55 +369,6 @@ Transform:
   - {fileID: 1707564688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &681197975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 681197977}
-  - component: {fileID: 681197976}
-  m_Layer: 0
-  m_Name: FoodCreateManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &681197976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681197975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ccce6ca38da484a9d5755f0c313288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 652611726314769050, guid: 4ac512253b711f542a2d53d60c247c92, type: 3}
-  baseValue: 0
-  width: 10
-  height: 10
---- !u!4 &681197977
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681197975}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044256309 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7882162742754169788, guid: 54d7c6acacf844841ac0de8174207465,
@@ -534,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b0685b5764685b69291dc5e867928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Local>k__BackingField: {fileID: 2112395801}
 --- !u!4 &1381646137
 Transform:
   m_ObjectHideFlags: 0
@@ -811,60 +714,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433718943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2112395800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2112395802}
-  - component: {fileID: 2112395801}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2112395801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112395800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5665b0a55f7b1343a5a4b13d9bef09e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  appetite: 50
-  stomach: 50
-  maxHealth: 100
-  maxAppetite: 100
-  maxStomach: 100
-  appetiteIncreaseValue: 1
-  stomachLossValue: 1
-  difference: 10
-  playerRightMainPanel: {fileID: 0}
---- !u!4 &2112395802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112395800}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2049117, y: 1.1772747, z: 1.7196577}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -873,6 +722,3 @@ SceneRoots:
   - {fileID: 1381646137}
   - {fileID: 1499326269}
   - {fileID: 433718943}
-  - {fileID: 681197977}
-  - {fileID: 155030180}
-  - {fileID: 2112395802}

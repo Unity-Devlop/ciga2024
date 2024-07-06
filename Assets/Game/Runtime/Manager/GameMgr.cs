@@ -7,10 +7,12 @@ namespace Game
 {
     public class GameMgr : MonoSingleton<GameMgr>
     {
-        [field: SerializeField] public Player Local { get; private set; }
         protected override void OnInit()
         {
             UIRoot.Singleton.OpenPanel<PlayerRightMainPanel>();
+            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"));
+            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Click"));
+            GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/FoodCreateManager"));
         }
 
         protected override void OnDispose()
