@@ -557,7 +557,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5333377485538748678, guid: 4499ce83c06003645a7ee0ffb13edf7e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125489381}
   m_SourcePrefab: {fileID: 100100000, guid: 4499ce83c06003645a7ee0ffb13edf7e, type: 3}
 --- !u!1 &1381646135
 GameObject:
@@ -948,6 +952,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433718943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2125489375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5333377485538748678, guid: 4499ce83c06003645a7ee0ffb13edf7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1266840459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2125489381
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125489375}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
