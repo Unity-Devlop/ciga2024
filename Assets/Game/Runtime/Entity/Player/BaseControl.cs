@@ -21,13 +21,24 @@ namespace Game
 
         private Animator _animator;
 
-
+        private string _idleAnim;
+        private string _moveAnim;
+        private string _jumpAnim;
+        private string _dashAnim;
+        
         public void Set(Player player)
         {
             SpriteRenderer = player.GetComponent<SpriteRenderer>();
             _animator = player.GetComponent<Animator>();
             _player = player.GetComponent<Player>();
             _player = player;
+
+            var stateStage = player.data.stateStage;
+            Debug.Log($"<color=red>当前关卡 : {stateStage}</color>");
+            _idleAnim = $"idle{stateStage}";
+            _moveAnim = $"move{stateStage}";
+            _jumpAnim = $"jump{stateStage}";
+            _dashAnim = $"dash{stateStage}";
         }
 
         public virtual void Update()
@@ -90,22 +101,22 @@ namespace Game
 
         protected void ToIdle()
         {
-            _animator.Play("idle");
+            _animator.Play(_idleAnim);
         }
 
         protected void ToMove()
         {
-            _animator.Play("move");
+            _animator.Play(_moveAnim);
         }
 
         protected void ToJump()
         {
-            _animator.Play("jump");
+            _animator.Play(_jumpAnim);
         }
 
         protected void ToDash()
         {
-            _animator.Play("dash");
+            _animator.Play(_dashAnim);
         }
 
         protected void ReDashCheck()
