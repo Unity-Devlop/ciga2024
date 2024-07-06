@@ -24,6 +24,8 @@ namespace Game
 
 
         public float dashTime = 2f;
+        public float dashLock = 0.2f;
+        public float dashCoolDown = 2f;
         public float energyRecoverSpeed = 1f;
 
         [field: SerializeField] public int Health { get; private set; } = 1;

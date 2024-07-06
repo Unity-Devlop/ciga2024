@@ -21,7 +21,8 @@ namespace Game
                 data.ChangeEnergy(-data.dashEnergyCost);
 
                 // 禁止移动一会
-                DashWait(data.dashTime);
+                DashLock(data.dashLock);
+                DashCoolDown(data.dashCoolDown);
             }
         }
     }
