@@ -5,10 +5,6 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
-
-
-
-
     public class Player : MonoBehaviour
     {
         public Rigidbody2D rb2D { get; private set; }
@@ -18,6 +14,8 @@ namespace Game
         private CustomInputActions _customInput;
         public CustomInputActions.PlayerActions Input => _customInput.Player;
         [field: SerializeField] public PlayerState State { get; private set; } = PlayerState.NormalControl;
+
+        public FacingDirection direction;
         private NormalControl _normalControl;
         private ForwardControl _forwardControl;
 
@@ -35,6 +33,11 @@ namespace Game
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        public void OnAwake(PlayerData playerData)
+        {
+            data = playerData;
         }
 
         private void Awake()
@@ -80,7 +83,7 @@ namespace Game
             State = state;
         }
 
-        public void SetVelocity(Vector2 velocity,float angularVelocity = 0)
+        public void SetVelocity(Vector2 velocity, float angularVelocity = 0)
         {
             rb2D.velocity = velocity;
             rb2D.angularVelocity = angularVelocity;

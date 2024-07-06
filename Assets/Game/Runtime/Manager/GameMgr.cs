@@ -1,4 +1,6 @@
+using System.IO;
 using NodeCanvas.DialogueTrees;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -21,8 +23,24 @@ namespace Game
             _systemLocator = new SystemLocator();
             _systemLocator.Register<ConditionalVisualSystem>();
 
+
+         
+            string jsonStr = "";
+            if (File.Exists(Const.LocalPlayerDataPath))
+            {
+                jsonStr = File.ReadAllText(Const.LocalPlayerDataPath);
+                var data = JsonConvert.DeserializeObject<PlayerData>(jsonStr);
+                Local.OnAwake(data);
+            }
+            else
+            {
+                // TODO 默认存档
+            }
+
+            
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
             Reborn.Active();
+            
             GameHUDPanel gameHUDPanel = UIRoot.Singleton.OpenPanel<GameHUDPanel>();
             gameHUDPanel.Bind(Local.data);
         }
@@ -91,6 +109,24 @@ namespace Game
         {
             component.Control.RecoverDash();
             recoverDashObject.CollDown();
+        }
+
+        public void OnFloatText(Player component, FloatTextTrigger floatTextTrigger)
+        {
+        }
+        
+        
+        // 重置玩家存档
+        public void ResetPlayerData()
+        {
+            if(File.Exists(Const.LocalPlayerDataPath))
+                File.Delete(Const.LocalPlayerDataPath);
+        }
+        
+        public void SavePlayerData()
+        {
+            string jsonStr = JsonConvert.SerializeObject(Local.data);
+            File.WriteAllText(Const.LocalPlayerDataPath, jsonStr);
         }
     }
 }

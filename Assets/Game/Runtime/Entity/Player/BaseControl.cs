@@ -23,11 +23,19 @@ namespace Game
 
         public virtual void Update()
         {
+            ChangeFacingDirection();
             Fire();
             Move();
             Accelerate();
             Jump();
             Dash();
+        }
+        
+        private void ChangeFacingDirection()
+        {
+            Vector2 move = Input.Move.ReadValue<Vector2>();
+            if (Mathf.Approximately(move.x, 0)) return;
+            _player.direction = move.x > 0 ? FacingDirection.Right : FacingDirection.Left;
         }
 
         protected virtual void Fire()
