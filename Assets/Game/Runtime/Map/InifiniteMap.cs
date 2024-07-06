@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-    public class Map : MonoBehaviour
+    public class InifiniteMap : MonoBehaviour
     {
         struct MapItemData
         {

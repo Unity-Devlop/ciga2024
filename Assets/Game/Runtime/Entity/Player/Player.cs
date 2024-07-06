@@ -20,8 +20,8 @@ namespace Game
         private CustomInputActions _customInput;
         public CustomInputActions.PlayerActions Input => _customInput.Player;
         [field: SerializeField] public PlayerState State { get; private set; } = PlayerState.NormalControl;
-        public NormalControl NormalControl;
-        public ForwardControl ForwardControl;
+        private NormalControl _normalControl;
+        private ForwardControl _forwardControl;
 
         private void Awake()
         {
@@ -29,11 +29,11 @@ namespace Game
             rb2D = GetComponent<Rigidbody2D>();
             _customInput = new CustomInputActions();
 
-            NormalControl = new NormalControl();
-            ForwardControl = new ForwardControl();
+            _normalControl = new NormalControl();
+            _forwardControl = new ForwardControl();
 
-            NormalControl.Set(this);
-            ForwardControl.Set(this);
+            _normalControl.Set(this);
+            _forwardControl.Set(this);
         }
 
 
@@ -41,13 +41,13 @@ namespace Game
         {
             if (State == PlayerState.NormalControl)
             {
-                NormalControl.Update();
+                _normalControl.Update();
                 return;
             }
 
             if (State == PlayerState.ForwardControl)
             {
-                ForwardControl.Update();
+                _forwardControl.Update();
             }
         }
 
@@ -59,6 +59,11 @@ namespace Game
         private void OnDisable()
         {
             _customInput.Disable();
+        }
+
+        public void SetState(PlayerState state)
+        {
+            State = state;
         }
 
         public void SetVelocity(Vector2 velocity,float angularVelocity = 0)

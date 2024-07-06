@@ -6,7 +6,7 @@ namespace Game
     [RequireComponent(typeof(Collider2D))]
     public class Reborn : MonoBehaviour,IReborn
     {
-        private void Start()
+        private void Awake()
         {
             UnActive();
         }
@@ -21,12 +21,12 @@ namespace Game
 
         public void Active()
         {
-            // gameObject.SetActive(true);
+            GetComponent<SpriteRenderer>().enabled = true;
         }
 
         public void UnActive()
         {
-            // gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

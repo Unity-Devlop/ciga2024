@@ -64,8 +64,15 @@ namespace Game
 
         public void OnRebornHit(Player player, IReborn reborn)
         {
-            this.Reborn = reborn;
+            Reborn.UnActive();
+            Reborn = reborn;
+            Reborn.Active();
         }
 
+        public void OnEnergyObjectEnter(Player component, EnergyObject energyObject)
+        {
+            component.data.ChangeEnergy(energyObject.energyPoint);
+            Destroy(energyObject.gameObject);
+        }
     }
 }
