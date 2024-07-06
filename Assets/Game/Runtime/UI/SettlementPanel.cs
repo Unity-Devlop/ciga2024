@@ -16,7 +16,7 @@ namespace Game
         [SerializeField]private Image image;
         [SerializeField]private Button btnExit;
         [SerializeField]private Button btnNext;
-        [SerializeField]private Button btnReSart;
+        [SerializeField]private Button btnReStart;
         // Start is called before the first frame update
         void Start()
         {
@@ -38,7 +38,7 @@ namespace Game
                 print($"下一关");
             }));
             
-            btnReSart.onClick.AddListener((() =>
+            btnReStart.onClick.AddListener((() =>
             {
                 //重新开始这一关
                 print($"重新开始这一关");
