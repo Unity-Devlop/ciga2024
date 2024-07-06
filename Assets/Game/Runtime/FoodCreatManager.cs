@@ -25,7 +25,7 @@ namespace Game
         void Start()
         {
             CalculateWidthAndHeight();
-            //¶ÔÏó³Ø×¢²á
+            //ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
             for (int i = 0; i < prefabs.Count; ++i)
             {
                 GameObjectPoolManager.Create(prefabs[i].GetComponent<Food>().type, prefabs[i]);
@@ -62,6 +62,9 @@ namespace Game
             if (prefabs.Count <= 0) return;
             int r = Random.Range(0, prefabs.Count);
             GameObject go=GameObjectPoolManager.Get(prefabs[r].GetComponent<Food>().type);
+            go.GetComponent<FoodItemAnimation>().i = 0;
+            
+            
             Vector3 v = Random.insideUnitCircle;
             v.x *= width / 2*offset_x;
             v.y *= height / 2*offset_y;

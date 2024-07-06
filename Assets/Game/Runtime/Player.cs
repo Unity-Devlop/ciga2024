@@ -16,14 +16,14 @@ namespace Game
 
     public enum EndingType
     {
-        Perfect,//ÍêÃÀ½á¾Ö
-        Common,//ÆÕÍ¨½á¾Ö
-        EatingDisorder,//½øÊ³ÕÏ°­
-        EatintTooMuch,//±©Òû±©Ê³
-        Anorexia,//ÑáÊ³
-        Death,//ËÀÍöÍ¨ÖªÊé
-        Starve,//¶öËÀ
-        Boom,//±¬Ìå¶øÍö
+        Perfect,//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        Common,//ï¿½ï¿½Í¨ï¿½ï¿½ï¿½
+        EatingDisorder,//ï¿½ï¿½Ê³ï¿½Ï°ï¿½
+        EatintTooMuch,//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³
+        Anorexia,//ï¿½ï¿½Ê³
+        Death,//ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½
+        Starve,//ï¿½ï¿½ï¿½ï¿½
+        Boom,//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public class Player : MonoBehaviour
@@ -32,13 +32,13 @@ namespace Game
         public static Player Instance => _player;
 
         //[HideInInspector]
-        //½¡¿µÖµ
+        //ï¿½ï¿½ï¿½ï¿½Öµ
         public int health;
         //[HideInInspector]
-        //Ê³ÓûÖµ
+        //Ê³ï¿½ï¿½Öµ
         public int appetite;
         //[HideInInspector]
-        //±¥¸¹Öµ
+        //ï¿½ï¿½ï¿½ï¿½Öµ
         public int stomach;
 
         public int maxHealth;
@@ -151,19 +151,22 @@ namespace Game
             SettlementPanel settlementPanel;
             if (health<=0)
             {
-                //ËÀÍöÍ¨ÖªÊé
+                //ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Death;
             }
             else if(stomach<=0)
             {
-                //¶öËÀ
+                //ï¿½ï¿½ï¿½ï¿½
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Starve;
             }
             else if(stomach>=maxStomach)
             {
-                //±¬Ìå¶øÍö
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Boom;
             }
@@ -207,31 +210,39 @@ namespace Game
             SettlementPanel settlementPanel;
             if(health>60&&appetite>=50&&appetite<=70&&stomach>=70&&stomach<=80&&avg>=6&&avg<=12)
             {
-                //ÍêÃÀ½á¾Ö
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Perfect;
             }
             else if(freq_h>=2&&frep_l>=2)
             {
-                //½øÊ³ÕÏ°­
+                //ï¿½ï¿½Ê³ï¿½Ï°ï¿½
+                
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.EatingDisorder;
             }
             else if(appetite>80)
             {
-                //±©Òû±©Ê³
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³
+                
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.EatintTooMuch;
             }
             else if(appetite<40)
             {
-                //ÑáÊ³
+                //ï¿½ï¿½Ê³
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Anorexia;
             }
             else
             {
-                //ÆÕÍ¨½á¾Ö
+                //ï¿½ï¿½Í¨ï¿½ï¿½ï¿½
+                UIRoot.Singleton.OpenPanel<SettlementPanel>();
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Common;
             }

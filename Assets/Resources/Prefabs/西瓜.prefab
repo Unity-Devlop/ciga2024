@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8500414010747548914}
   - component: {fileID: 8262360792220238169}
   - component: {fileID: 1411086927200726385}
+  - component: {fileID: 1295396836148573719}
   m_Layer: 0
   m_Name: "\u897F\u74DC"
   m_TagString: Food
@@ -147,3 +148,15 @@ MonoBehaviour:
   appetiteDecrease: 1
   type: 1
   disappearTime: 4
+--- !u!114 &1295396836148573719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670313536739401474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c40177d6d2c784ab57d01bd42d5c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
