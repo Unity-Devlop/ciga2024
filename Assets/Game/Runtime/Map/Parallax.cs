@@ -37,7 +37,7 @@ namespace Game
             var cameraMoveOffset = _playerTrans.position - prePlayerPos;
             foreach (var parallaxItem in _parallaxItems)
             {
-                parallaxItem.parallaxObject.position += cameraMoveOffset.x * parallaxItem.parallaxOffset.x * Vector3.right + cameraMoveOffset.y * parallaxItem.parallaxOffset.y * Vector3.up;
+                parallaxItem.parallaxObject.position += cameraMoveOffset.x * parallaxItem.parallaxOffset.x * Vector3.left + cameraMoveOffset.y * parallaxItem.parallaxOffset.y * Vector3.up;
                 var distance = _playerTrans.position.x - parallaxItem.parallaxObject.position.x;
                 if (Mathf.Abs(distance) >= parallaxItem.resetDistance)
                 {
