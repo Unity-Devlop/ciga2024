@@ -211,6 +211,23 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5061922694898675789, guid: 54d7c6acacf844841ac0de8174207465,
+        type: 3}
+      propertyPath: levelCofigs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061922694898675789, guid: 54d7c6acacf844841ac0de8174207465,
+        type: 3}
+      propertyPath: levelCofigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: daa621da888a3fe41b827057b77f16bf,
+        type: 2}
+    - target: {fileID: 5061922694898675789, guid: 54d7c6acacf844841ac0de8174207465,
+        type: 3}
+      propertyPath: levelCofigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 244aa464305d7ee4f887e1f9a2d28876,
+        type: 2}
     - target: {fileID: 6016572944293960633, guid: 54d7c6acacf844841ac0de8174207465,
         type: 3}
       propertyPath: m_LocalPosition.x

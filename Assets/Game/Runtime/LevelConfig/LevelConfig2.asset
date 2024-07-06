@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0df93201daefd4fba2e27e780ac61d, type: 3}
   m_Name: LevelConfig2
   m_EditorClassIdentifier: 
-  totalTime: 0
-  foodList: []
-  health: 0
-  appetite: 0
-  stomach: 0
+  totalTime: 30
+  foodList:
+  - {fileID: 6670313536739401474, guid: 53f191de61442d045a427e6b026d6757, type: 3}
+  - {fileID: 652611726314769050, guid: 4ac512253b711f542a2d53d60c247c92, type: 3}
+  - {fileID: 353388955863187792, guid: d2619e0cfee11e54799c94851ce5380c, type: 3}
+  - {fileID: 5172314114923703666, guid: 7dc2eff955ae57b4a8a3053fd9fc4e8b, type: 3}
+  - {fileID: 1404816774079376358, guid: 7dc8091376304ad44982b041c1482b51, type: 3}
+  - {fileID: 5883997652091418298, guid: 7277aff3f4a95f34ca6bccef51c7c227, type: 3}
+  - {fileID: 2368515143006849438, guid: ec6e433e635f72b45abcdf3c6a747e64, type: 3}
+  - {fileID: 3250424397659239132, guid: a16223459e744c5439fb9b08638bc315, type: 3}
+  - {fileID: 239165364797882082, guid: d695a18953cddd544b5ac536ac950bbc, type: 3}
+  - {fileID: 4293805382248664408, guid: 35494891180995b4f9564d9c8d19be42, type: 3}
+  - {fileID: 7522894686320780661, guid: b5a8c14121d09c740a15d23cc8d766b1, type: 3}
+  - {fileID: 6524338837121095774, guid: a029963f680e20e489e94460e41bc601, type: 3}
+  - {fileID: 4102569962371232818, guid: 79bce9239ac2fc646935cefcf67b98f3, type: 3}
+  - {fileID: 6295633104168130196, guid: 4aa6f9641b54ef84f84e856f381074c2, type: 3}
+  - {fileID: 7164631771488651111, guid: f88c06097abf1c44ba2d3bcd6d863a46, type: 3}
+  health: 60
+  appetite: 70
+  stomach: 10

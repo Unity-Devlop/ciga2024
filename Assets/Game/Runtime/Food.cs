@@ -9,6 +9,19 @@ namespace Game
     {
         Hamburger,
         Watermelon,
+        Pizza,
+        PopCorn,
+        Icecream,
+        Chip,
+        FriedChick,
+        Cola,
+        Oden,
+        Bread,
+        Cake,
+        Drink,
+        Lunch,
+        RiceBall,
+        Apple,
     }
 
     public class Food : MonoBehaviour
