@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3645781679335876216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &183175138301672606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -679,10 +679,12 @@ MonoBehaviour:
   spritePhones:
   - {fileID: 21300000, guid: 5c4d06166b788f34b93b6c1bc0d882df, type: 2}
   - {fileID: 21300000, guid: 85842919f94acae4aa061038a74b13ce, type: 2}
+  connect: {fileID: 183175138301672606}
   imgConnect: {fileID: 7680272823976693041}
   spriteConnects:
   - {fileID: 21300000, guid: b925898a8eb676d4787edcfeee6c2484, type: 2}
   - {fileID: 21300000, guid: 857420f65042503409418595495db6b6, type: 2}
+  headSet: {fileID: 3645781679335876216}
   imgHeadSet: {fileID: 9184281361739658316}
   spriteHeadSets:
   - {fileID: 21300000, guid: d26eeead0c40c1f4f96d6edf56067f26, type: 2}

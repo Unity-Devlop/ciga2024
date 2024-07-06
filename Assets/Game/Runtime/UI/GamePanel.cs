@@ -13,6 +13,17 @@ namespace Game
     
     public struct EnterLevel : IEvent { public int levelNum; }
     
+    public struct RingUp : IEvent { }
+    
+    public struct RingOver : IEvent { }
+    
+    public struct UnlockHeadSet : IEvent { }
+    
+    public struct ConnectHeadSet : IEvent { }
+    
+    public struct DisConnectHeadSet : IEvent { }
+    
+    
     public class GamePanel : UIPanel
     {
         [SerializeField] private Transform infiniteHp;
@@ -27,17 +38,28 @@ namespace Game
         
         [SerializeField] private Image imgPhone;
         [SerializeField] private Sprite[] spritePhones = new Sprite[2];
+        [SerializeField] private Transform connect;
         [SerializeField] private Image imgConnect;
         [SerializeField] private Sprite[] spriteConnects = new Sprite[2];
+        [SerializeField] private Transform headSet;
         [SerializeField] private Image imgHeadSet;
         [SerializeField] private Sprite[] spriteHeadSets = new Sprite[2];
 
         private void Start()
         {
+            Init();
+            
             Global.Event.Listen<TurnToInfiniteHp>(TurnToInfiniteHp);
             Global.Event.Listen<UpdateHp>(UpdateHp);
             Global.Event.Listen<UpdateEnergy>(UpdateEnergy);
             Global.Event.Listen<EnterLevel>(EnterLevel);
+            Global.Event.Listen<RingUp>(RingUp);
+            Global.Event.Listen<RingOver>(RingOver);
+            
+            Global.Event.Listen<UnlockHeadSet>(UnlockHeadSet);
+            
+            Global.Event.Listen<ConnectHeadSet>(ConnectHeadSet);
+            Global.Event.Listen<DisConnectHeadSet>(DisConnectHeadSet);
         }
         
         private void OnDestroy()
@@ -46,6 +68,47 @@ namespace Game
             Global.Event.UnListen<UpdateHp>(UpdateHp);
             Global.Event.UnListen<UpdateEnergy>(UpdateEnergy);
             Global.Event.UnListen<EnterLevel>(EnterLevel);
+            Global.Event.UnListen<RingUp>(RingUp);
+            Global.Event.UnListen<RingOver>(RingOver);
+            
+            Global.Event.UnListen<UnlockHeadSet>(UnlockHeadSet);
+            
+            Global.Event.UnListen<ConnectHeadSet>(ConnectHeadSet);
+            Global.Event.UnListen<DisConnectHeadSet>(DisConnectHeadSet);
+        }
+
+        private void Init()
+        {
+            var data = GameMgr.Singleton.Local.data;
+        }
+
+        private void DisConnectHeadSet(DisConnectHeadSet obj)
+        {
+            imgConnect.sprite = spriteConnects[0];
+            imgHeadSet.sprite = spriteHeadSets[0];
+        }
+        
+        private void ConnectHeadSet(ConnectHeadSet obj)
+        {
+            imgConnect.sprite = spriteConnects[1];
+            imgHeadSet.sprite = spriteHeadSets[1];
+        }
+
+        private void UnlockHeadSet(UnlockHeadSet obj)
+        {
+            headSet.gameObject.SetActive(true);   
+        }
+        
+        private void RingOver(RingOver obj)
+        {
+            imgPhone.sprite = spritePhones[0];
+            imgPhone.GetComponent<Animator>().enabled = false;
+        }
+
+        private void RingUp(RingUp obj)
+        {
+            imgPhone.sprite = spritePhones[1];
+            imgPhone.GetComponent<Animator>().enabled = true;
         }
 
         private void EnterLevel(EnterLevel obj) => imgState.sprite = spriteStates[obj.levelNum - 1];
