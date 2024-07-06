@@ -19,6 +19,9 @@ namespace Game
         private NormalControl _normalControl;
         private ForwardControl _forwardControl;
 
+        public ParticleSystem dashEffect;
+        public ParticleSystem jumpEffect;
+
         private Animator _animator;
 
         public IControl Control

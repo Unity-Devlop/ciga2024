@@ -150,6 +150,7 @@ namespace Game
         protected virtual void Jump()
         {
             if (!data.canJump) return;
+            _player.jumpEffect.Play();
             if (Mathf.Approximately(Input.Jump.ReadValue<float>(), 1) && _checker.isGrounded)
             {
                 Vector2 velocity = _rb2D.velocity;
