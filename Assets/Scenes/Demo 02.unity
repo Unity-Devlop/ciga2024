@@ -984,65 +984,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 516307618218562164, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 516307618218562164, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1225796974936762308, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3652900861579477231, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <State>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.dashTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.dashForce.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.dashForce.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.dashSpeed.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: <data>k__BackingField.dashSpeed.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7740765121056268974, guid: e53f99c9370f34b9785681dcee9bfa0a,
-        type: 3}
-      propertyPath: lowJumpMultiplier
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8965313869116057734, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
@@ -1094,8 +1039,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2645753467457189731, guid: e53f99c9370f34b9785681dcee9bfa0a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
