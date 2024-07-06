@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityToolkit;
+using DG.Tweening;
 
 namespace Game
 {
@@ -15,46 +16,73 @@ namespace Game
         [SerializeField] private Slider sliderWantEat; 
         [SerializeField] private Slider sliderSatiety;
         [SerializeField] private TextMeshProUGUI textMeshProTime ;
+        [SerializeField] private Sprite spriteInMyHand;
+        [SerializeField] private Sprite defaultspriteInMyHand;
+
+        [SerializeField] private Image imageMyHand;
+        [SerializeField] private GameObject imageFoodInHand;
+
         public float time = 30.0f;
-
-        public GameObject foodItem;
-        public ScrollRect scrollRectFood;
-        public GameObject objparent;
-
-        public List<GameObject> listFoodItem = new List<GameObject>();
+        
+        public List<FoodItem> listFoodItem = new List<FoodItem>();
         
         public void Init()
         {
             textMeshProTime.text = time.ToString("f2");
+            //每一关的初始值
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
             SetSliderWantEatValue(0.5f);
 
-            // Transform container = transform.Find("Content");
-            for (int i = 0; i < 20; ++i)
+
+
+        }
+
+        public void Reset()
+        {
+            for (int i = 0; i < listFoodItem.Count; ++i)
             {
-                var obj = Instantiate(foodItem, objparent.transform);
-                obj.GetComponent<FoodItem>().Init(20);
-                listFoodItem.Insert(i,obj);
+                listFoodItem[i].myNum = 10000;
             }
-            
         }
         
         private void Awake()
         {
             Init();
+            
         }
-
         
         public void OnEat(FoodType foodType)
         {
+            int a = 0;
+            //每次进来我先赋值
+            
+            imageFoodInHand.GetComponent<Image>().sprite = defaultspriteInMyHand;
             for (int i = 0; i < listFoodItem.Count; ++i)
             {
-                if (listFoodItem[i].GetComponent<FoodItem>().foodType == foodType)
+                if (listFoodItem[i].foodType == foodType)
                 {
-                    listFoodItem[i].GetComponent<FoodItem>().myNum--;
-                    listFoodItem[i].GetComponent<FoodItem>().textNum.text =
-                        listFoodItem[i].GetComponent<FoodItem>().myNum.ToString();
+                    listFoodItem[i].myNum--;
+                    print($"我吃了一个类型{listFoodItem[i].foodType}的食物");
+
+                    imageMyHand = listFoodItem[i].foodSprite;
+                    
+                    //画出对应类型的动画
+                    Sequence mysSequence = DOTween.Sequence();
+                    mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, 90), 1f).SetEase(Ease.Linear)
+                        .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
+                        {
+                            a++;
+                            if (a == 1)
+                            {
+                                // imageFoodInHand = null;
+                                imageFoodInHand.GetComponent<Image>().sprite = null;
+                            }
+                    
+                        }));
+                    mysSequence.Play();
+                    
+                    break;
                 }
             }
         }
