@@ -79,6 +79,7 @@ namespace Game
         float appetiteTime = 0;
         float stomachTime = 0;
         bool isDie = false;
+        AudioSource _audio;
         public bool isEnd = false;
         public HealthState healthState;
         public AppetiteState appetiteState;
@@ -95,6 +96,7 @@ namespace Game
             var _=GameMgr.Singleton;
 
             if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
+            _audio = GetComponent<AudioSource>();
 
             TypeEventSystem.Global.Listen<TimeEndEvent>(Live);
         }
@@ -139,6 +141,7 @@ namespace Game
             }
             else if (health >= 1 && health <= 20)
             {
+                _audio.Play();
                 healthState = HealthState.Dying;
             }
             else
@@ -173,7 +176,11 @@ namespace Game
                 Die();
             }
             if (stomach > 70) stomachState = StomachState.High;
-            else if (stomach < 40) stomachState = StomachState.Low;
+            else if (stomach < 40)
+            {
+                if(stomach<=10&&!_audio.isPlaying) _audio.Play();
+                stomachState = StomachState.Low;
+            }
             else stomachState = StomachState.Middle;
         }
 
@@ -205,11 +212,10 @@ namespace Game
 
         void CheckMask()
         {
-            if(stomach<10&&appetite>80)
+            if(stomach>70||stomach<10||appetite>80||appetite<40)
             {
                 playerRightMainPanel.mask.gameObject.SetActive(true);
-                float targetAlpha = Mathf.Abs(stomach - 10f) / 10f;
-                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, targetAlpha, Time.deltaTime)); ;
+                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, 1f,Time.deltaTime));
             }
             else
             {
