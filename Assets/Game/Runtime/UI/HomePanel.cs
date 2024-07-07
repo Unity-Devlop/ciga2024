@@ -37,6 +37,7 @@ namespace Game
             // 检查视频是否播放完毕
             UniTask.WaitUntil(() => _videoPlayer.frame >= (long)_videoPlayer.frameCount - 1).ContinueWith(() =>
             {
+                if (_videoPlayer == null) return;
                 Debug.Log("视频播放完毕");
                 _videoPlayer.Stop();
                 _videoPlayer.gameObject.SetActive(false);
