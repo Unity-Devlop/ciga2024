@@ -79,7 +79,7 @@ namespace Game
         float appetiteTime = 0;
         float stomachTime = 0;
         bool isDie = false;
-        AudioSource _audio;
+        // AudioSource _audio;
         public bool isEnd = false;
         public HealthState healthState;
         public AppetiteState appetiteState;
@@ -96,7 +96,7 @@ namespace Game
             var _=GameMgr.Singleton;
 
             if (playerRightMainPanel == null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
-            _audio = GetComponent<AudioSource>();
+            // _audio = GetComponent<AudioSource>();
 
             TypeEventSystem.Global.Listen<TimeEndEvent>(Live);
         }
@@ -116,7 +116,7 @@ namespace Game
             playerRightMainPanel.SetSliderHealthValue((float)health/maxHealth);
             playerRightMainPanel.SetSliderSatietyValue((float)stomach/maxStomach);
             playerRightMainPanel.SetSliderWantEatValue((float)appetite/maxAppetite);
-            if (Mathf.Abs(stomach - appetite) >= healthDiff_Down && !_audio.isPlaying) _audio.Play();
+            // if (Mathf.Abs(stomach - appetite) >= healthDiff_Down && !_audio.isPlaying) _audio.Play();
         }
 
         private void CheckHealth()

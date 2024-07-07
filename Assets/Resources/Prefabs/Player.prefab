@@ -51,7 +51,7 @@ MonoBehaviour:
   maxHealth: 100
   maxAppetite: 100
   maxStomach: 100
-  appetiteIncreaseValue: 5
+  appetiteIncreaseValue: 2
   stomachLossValue: 5
   healthDiff_Up: 20
   healthDiff_Down: 50
@@ -74,8 +74,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ad98dbdb50c0be4cb6af4fb10253d32, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.435
+  m_Pitch: -0
   Loop: 0
   Mute: 0
   Spatialize: 0

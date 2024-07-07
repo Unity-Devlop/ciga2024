@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityToolkit;
 using DG.Tweening;
-using UnityEditor.Animations;
 
 namespace Game
 {
