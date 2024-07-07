@@ -116,6 +116,7 @@ namespace Game
             playerRightMainPanel.SetSliderHealthValue((float)health/maxHealth);
             playerRightMainPanel.SetSliderSatietyValue((float)stomach/maxStomach);
             playerRightMainPanel.SetSliderWantEatValue((float)appetite/maxAppetite);
+            if (Mathf.Abs(stomach - appetite) >= healthDiff_Down && !_audio.isPlaying) _audio.Play();
         }
 
         private void CheckHealth()
@@ -141,7 +142,7 @@ namespace Game
             }
             else if (health >= 1 && health <= 20)
             {
-                _audio.Play();
+                //_audio.Play();
                 healthState = HealthState.Dying;
             }
             else
@@ -178,7 +179,7 @@ namespace Game
             if (stomach > 70) stomachState = StomachState.High;
             else if (stomach < 40)
             {
-                if(stomach<=10&&!_audio.isPlaying) _audio.Play();
+                //if(stomach<=10&&!_audio.isPlaying) _audio.Play();
                 stomachState = StomachState.Low;
             }
             else stomachState = StomachState.Middle;
