@@ -25,7 +25,7 @@ namespace Game
         private string _moveAnim;
         private string _jumpAnim;
         private string _dashAnim;
-        
+
         public void Set(Player player)
         {
             SpriteRenderer = player.GetComponent<SpriteRenderer>();
@@ -55,11 +55,6 @@ namespace Game
             if (!data.isDashing)
             {
                 _rb2D.gravityScale = 3;
-            }
-
-            if (data.isGounded)
-            {
-                _player.rb2D.velocity = new Vector2(_rb2D.velocity.x, 0);
             }
         }
 
@@ -99,7 +94,7 @@ namespace Game
             }
 
             if (move == Vector2.zero && !_player.data.isDashing && _player.checker.isGrounded &&
-                _player.rb2D.velocity.y == 0)
+                _player.rb2D.velocity.y < 0)
             {
                 ToIdle();
             }

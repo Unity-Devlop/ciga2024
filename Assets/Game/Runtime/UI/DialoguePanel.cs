@@ -144,7 +144,7 @@ namespace Game
             var text = info.statement.text;
             var audio = info.statement.audio;
             var actor = info.actor;
-
+            
             subtitlesGroup.gameObject.SetActive(true);
             subtitlesGroup.position = originalSubsPosition;
             actorSpeech.text = "";
