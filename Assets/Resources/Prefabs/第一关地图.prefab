@@ -79,16 +79,49 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1140060499667927411, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.875
+      objectReference: {fileID: 0}
     - target: {fileID: -100876894864335141, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454217583228235616, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824488158391514029, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6681511503851340603, guid: d044079889917de48a361f5dad517b62,
+        type: 3}
+    - target: {fileID: 3279131157571128934, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1386305799501514668, guid: d044079889917de48a361f5dad517b62,
+        type: 3}
+    - target: {fileID: 3279131157571128934, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4860702812353944434, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6229789674256717656, guid: 804d8eeb35f4e4844a729214bdc4dbf8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2094700114329480457, guid: d044079889917de48a361f5dad517b62,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
