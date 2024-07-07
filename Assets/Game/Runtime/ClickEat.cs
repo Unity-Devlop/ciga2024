@@ -21,11 +21,12 @@ namespace Game
         float time = 0;
         public EatFrequency eatFrequency;
         int eatNum = 0;
+        AudioSource audio;
 
 
         private void Awake()
         {
-
+            audio = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -72,6 +73,7 @@ namespace Game
                 {
                     if (hit.collider.tag == "Food")
                     {
+                        audio.Play();
                         ++eatNum;
                         playerRightMainPanel.SetFoodNum(eatNum.ToString());
                         ++clickTimes;
