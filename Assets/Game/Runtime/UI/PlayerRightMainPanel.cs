@@ -26,6 +26,8 @@ namespace Game
 
         public List<GameObject> listobj = new List<GameObject>();
 
+        public List<Image> listiImages = new List<Image>();
+
         public Sequence mysSequence;
         public int num = 0;
         public Text textNum;
@@ -166,8 +168,19 @@ namespace Game
                                 mysSequence = null;
                                 
                                 imageFoodInHand.SetActive(true);
-                            }));
+                            }).OnStart((() =>
+                            {
+                                if (a == 0)
+                                {
+                                    listiImages[0].transform.DOShakePosition(0.2f, new Vector3(10, 10, 10));
+                                    listiImages[1].transform.DOShakePosition(0.2f, new Vector3(10, 10, 10));
+                                    listiImages[2].transform.DOShakePosition(0.2f, new Vector3(10, 10, 10));
+                                }
+                                    
+                            })));
                         mysSequence.Play();
+                        
+                        
                     }
                     break;
                 }
