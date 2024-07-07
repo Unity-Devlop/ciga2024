@@ -14,6 +14,27 @@ namespace Game
         Death,
     }
 
+    public enum AppetiteState
+    {
+        High,
+        Middle,
+        Low,
+    }
+
+    public enum StomachState
+    {
+        High,
+        Middle,
+        Low,
+    }
+
+    public enum FrequencyState
+    {
+        High,
+        Middle,
+        Low,
+    }
+
     public enum EndingType
     {
         Perfect,//�������
@@ -59,7 +80,11 @@ namespace Game
         float stomachTime = 0;
         bool isDie = false;
         public bool isEnd = false;
-        HealthState healthState;
+        public HealthState healthState;
+        public AppetiteState appetiteState;
+        public StomachState stomachState;
+        public FrequencyState frequencyState;
+
 
         private void Awake()
         {
@@ -130,6 +155,9 @@ namespace Game
                 appetiteTime = Time.time;
                 appetite += appetiteIncreaseValue;
             }
+            if (appetite > 80) appetiteState = AppetiteState.High;
+            else if (appetite < 40) appetiteState = AppetiteState.Low;
+            else appetiteState = AppetiteState.Middle;
         }
 
         private void StomachLoss()
@@ -144,6 +172,9 @@ namespace Game
             {
                 Die();
             }
+            if (stomach > 70) stomachState = StomachState.High;
+            else if (stomach < 40) stomachState = StomachState.Low;
+            else stomachState = StomachState.Middle;
         }
 
         private void Die()
