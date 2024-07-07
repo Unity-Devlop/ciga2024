@@ -38,12 +38,27 @@ namespace Game
             UniTask.WaitUntil(() => _videoPlayer.frame >= (long)_videoPlayer.frameCount - 1).ContinueWith(() =>
             {
                 if (_videoPlayer == null) return;
+                CompleteVideoDirect();
                 Debug.Log("视频播放完毕");
                 _videoPlayer.Stop();
                 _videoPlayer.gameObject.SetActive(false);
                 ToLevel1();
             });
         }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.K))
+            {
+                CompleteVideoDirect();
+            }
+        }
+
+        private void CompleteVideoDirect()
+        {
+            _videoPlayer.frame = (long)_videoPlayer.frameCount - 1;
+        }
+        
 
         private async void ToLevel1()
         {
