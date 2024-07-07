@@ -25,7 +25,6 @@ namespace Game
         public float dashSpeed = 20f;
 
 
-        public float dashTime = 2f;
         public float dashLock = 0.2f;
         public float dashCoolDown = 2f;
         public float energyRecoverSpeed = 1f;

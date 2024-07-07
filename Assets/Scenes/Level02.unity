@@ -8138,6 +8138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
+      propertyPath: data.stateStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
       propertyPath: <State>k__BackingField
       value: 1
       objectReference: {fileID: 0}

@@ -5723,22 +5723,22 @@ PrefabInstance:
     - target: {fileID: 2111983327714458346, guid: 1112e51fcb7354268916fdadc182ed90,
         type: 3}
       propertyPath: m_Points.Array.data[5].x
-      value: 13.741005
+      value: 13.592667
       objectReference: {fileID: 0}
     - target: {fileID: 2111983327714458346, guid: 1112e51fcb7354268916fdadc182ed90,
         type: 3}
       propertyPath: m_Points.Array.data[5].y
-      value: -11.164932
+      value: -10.423222
       objectReference: {fileID: 0}
     - target: {fileID: 2111983327714458346, guid: 1112e51fcb7354268916fdadc182ed90,
         type: 3}
       propertyPath: m_Points.Array.data[6].x
-      value: -2.845086
+      value: -3.3271952
       objectReference: {fileID: 0}
     - target: {fileID: 2111983327714458346, guid: 1112e51fcb7354268916fdadc182ed90,
         type: 3}
       propertyPath: m_Points.Array.data[6].y
-      value: -11.363077
+      value: -9.805486
       objectReference: {fileID: 0}
     - target: {fileID: 2111983327714458346, guid: 1112e51fcb7354268916fdadc182ed90,
         type: 3}
@@ -8383,6 +8383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: data.dashTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
+        type: 3}
+      propertyPath: data.stateStage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4425782208347048066, guid: e53f99c9370f34b9785681dcee9bfa0a,
         type: 3}
