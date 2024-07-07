@@ -40,11 +40,11 @@ namespace Game
             if (Player.Instance.isEnd) return;
             if(Player.Instance.appetite<40)
             {
-                frequency = 1f / 5f;
-            }
-            else if(Player.Instance.appetite>80)
-            {
                 frequency = 1f / 1f;
+            }
+            else if(Player.Instance.appetite>70)
+            {
+                frequency = 1f / 5f;
             }
             else
             {
