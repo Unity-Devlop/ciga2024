@@ -637,7 +637,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 468.7, y: 17}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2943341038016191320
 CanvasRenderer:
@@ -1429,6 +1429,7 @@ MonoBehaviour:
     type: 3}
   imageMyHand: {fileID: 252947931307443688}
   imageFoodInHand: {fileID: 6597709737450435193}
+  gebo: {fileID: 5854468313540465695}
   listobj:
   - {fileID: 652611726314769050, guid: 4ac512253b711f542a2d53d60c247c92, type: 3}
   - {fileID: 6670313536739401474, guid: 53f191de61442d045a427e6b026d6757, type: 3}
@@ -1449,6 +1450,10 @@ MonoBehaviour:
   - {fileID: 1232451145240401753}
   - {fileID: 7735458967381318228}
   - {fileID: 6231685041449257632}
+  listImagehand:
+  - {fileID: 1265498767, guid: e4dc74035a24e2c4c9da9af42a0f2cd6, type: 3}
+  - {fileID: -1685501401, guid: 293d1620d4fbdc44c97c2d36932c4f6d, type: 3}
+  - {fileID: -1776299046, guid: 5b3bd951a15530840b2620d6f20e779b, type: 3}
   num: 0
   textNum: {fileID: 2666122155515985138}
   mask: {fileID: 4033457073556065188}
@@ -2922,7 +2927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9138141396393771767
 RectTransform:
   m_ObjectHideFlags: 0
