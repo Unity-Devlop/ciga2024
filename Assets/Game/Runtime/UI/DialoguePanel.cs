@@ -10,7 +10,12 @@ using UnityToolkit;
 
 namespace Game
 {
-    public class DialoguePanel : GamePanel, IPointerClickHandler
+    public struct DialogNodePlayOver : IEvent
+    {
+        public SubtitlesRequestInfo requestInfo;
+    }
+    
+    public class DialoguePanel : UIPanel, IPointerClickHandler
     {
         [System.Serializable]
         public class SubtitleDelays
@@ -53,7 +58,6 @@ namespace Game
         private bool anyKeyDown;
         public void OnPointerClick(PointerEventData eventData) => anyKeyDown = true;
         void LateUpdate() => anyKeyDown = false;
-
 
         void Awake()
         {
@@ -144,6 +148,14 @@ namespace Game
             var text = info.statement.text;
             var audio = info.statement.audio;
             var actor = info.actor;
+            if (actor.name == "Player")
+            {
+                actorSpeech.alignment = TextAlignmentOptions.Right;
+            }
+            else
+            {
+                actorSpeech.alignment = TextAlignmentOptions.Left;
+            }
             
             subtitlesGroup.gameObject.SetActive(true);
             subtitlesGroup.position = originalSubsPosition;
@@ -237,7 +249,9 @@ namespace Game
 
             yield return null;
             subtitlesGroup.gameObject.SetActive(false);
-            info.Continue();
+         
+            Global.Event.Send(new DialogNodePlayOver(){requestInfo = info});
+            // info.Continue();
         }
 
         void PlayTypeSound()
@@ -290,7 +304,7 @@ namespace Game
                 btn.transform.SetParent(optionsGroup.transform, false);
                 btn.transform.localPosition =
                     (Vector3)optionButton.transform.localPosition - new Vector3(0, buttonHeight * i, 0);
-                btn.GetComponentInChildren<Text>().text = pair.Key.text;
+                btn.GetComponentInChildren<TextMeshProUGUI>().text = pair.Key.text;
                 cachedButtons.Add(btn, pair.Value);
                 btn.onClick.AddListener(() => { Finalize(info, cachedButtons[btn]); });
                 i++;

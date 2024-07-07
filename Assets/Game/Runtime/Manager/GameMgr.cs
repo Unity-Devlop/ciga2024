@@ -98,6 +98,7 @@ namespace Game
                 Local.data.canMove = true;
                 _dialoguePanel.gameObject.SetActive(false);
                 Local.rb2D.simulated = true;
+                Local.State = PlayerState.ForwardControl;
             });
         }
 
