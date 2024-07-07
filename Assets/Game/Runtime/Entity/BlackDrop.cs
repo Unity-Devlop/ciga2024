@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(BoxCollider2D))]
     public class BlackDrop : MonoBehaviour, IBackDrop
     {
         [SerializeField] private SpriteRenderer render;
