@@ -215,12 +215,12 @@ namespace Game
             if(stomach>70||stomach<10||appetite>80||appetite<40)
             {
                 playerRightMainPanel.mask.gameObject.SetActive(true);
-                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, 1f,Time.deltaTime));
+                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, 1f, Time.deltaTime));
             }
             else
             {
-                playerRightMainPanel.mask.gameObject.SetActive(false);
-                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f,0f);
+                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, 0f, Time.deltaTime));
+                if(playerRightMainPanel.maskDark.color.a<=0f) playerRightMainPanel.mask.gameObject.SetActive(false);
             }
         }
 
