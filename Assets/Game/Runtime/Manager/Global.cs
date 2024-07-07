@@ -72,7 +72,7 @@ namespace Game
         public void ReturnMainMenu()
         {
             curLevel = 0;
-            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
 
         public void LoadNextLevel()
@@ -85,7 +85,7 @@ namespace Game
             else
             {
                 curLevel = 0;
-                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             }
         }
     }

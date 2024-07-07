@@ -491,7 +491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1377510465}
   - component: {fileID: 1377510468}
-  - component: {fileID: 1377510467}
   - component: {fileID: 1377510466}
   m_Layer: 0
   m_Name: FoodCamera
@@ -559,14 +558,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1377510467
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377510464}
-  m_Enabled: 1
 --- !u!20 &1377510468
 Camera:
   m_ObjectHideFlags: 0
