@@ -23,9 +23,9 @@ namespace Game
         public List<Sprite> listSprites = new List<Sprite>();
         // Start is called before the first frame update
 
-        public override void OnLoaded()
+
+        public void ChangeText()
         {
-            base.OnLoaded();
             switch (endingType)
             {
                 case EndingType.Perfect :
@@ -103,11 +103,6 @@ namespace Game
             btnReStart.onClick.RemoveAllListeners();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            
-        }
     }
 
 }
