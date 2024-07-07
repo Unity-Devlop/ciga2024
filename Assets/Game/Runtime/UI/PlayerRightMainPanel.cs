@@ -74,27 +74,27 @@ namespace Game
         {
             if (Player.Instance.appetiteState == AppetiteState.High)
             {
-                yanjing.sprite = list2Sprites[2];
+                yanjing.sprite = list1Sprites[0];
                 _animatorface.Play("tanlan");
             }
             else if (Player.Instance.appetiteState == AppetiteState.Middle)
             {
                 
-                yanjing.sprite = list2Sprites[1];
+                yanjing.sprite = list1Sprites[1];
                 _animatorface.Play("pindan");
             }
             else if(Player.Instance.appetiteState == AppetiteState.Low)
             {
                 
-                yanjing.sprite = list2Sprites[0];
-                _animatorface.Play("jushang");
+                yanjing.sprite = list1Sprites[2];
+                _animatorface.Play("jusang");
             }
             
             
             if (Player.Instance.stomachState == StomachState.High)
             {
                 
-                tixin.sprite = list1Sprites[2];
+                tixin.sprite = list2Sprites[2];
                 gebo.sprite = listImagehand[0];
                 _animatorshenti.Play("Pang");
                 
@@ -102,14 +102,14 @@ namespace Game
             else if (Player.Instance.stomachState == StomachState.Middle)
             {
                 
-                tixin.sprite = list1Sprites[1];
+                tixin.sprite = list2Sprites[1];
                 gebo.sprite = listImagehand[1];
                 _animatorshenti.Play("zhong");
             }
             else if(Player.Instance.stomachState == StomachState.Low)
             {
                 
-                tixin.sprite = list1Sprites[0];
+                tixin.sprite = list2Sprites[0];
                 gebo.sprite = listImagehand[2];
                 _animatorshenti.Play("shou");
             }
@@ -163,7 +163,7 @@ namespace Game
                         imageFoodInHand.GetComponent<Image>().sprite = listobj[i].GetComponent<SpriteRenderer>().sprite;
                         mysSequence = DOTween.Sequence();
                         var tmp = imageMyHand.transform.localScale.z;
-                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, tmp + 180), 1f).SetEase(Ease.Linear)
+                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, tmp + 180), 0.5f).SetEase(Ease.Linear)
                             .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
                             {
                                 a++;
