@@ -10,6 +10,7 @@ namespace Game
     {
         protected override void OnInit()
         {
+            Debug.Log("GameManager Init");
             UIRoot.Singleton.OpenPanel<PlayerRightMainPanel>();
             PlayerRightMainPanel playerRightMainPanel;
             UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
