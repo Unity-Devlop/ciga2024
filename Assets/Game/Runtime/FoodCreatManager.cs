@@ -52,7 +52,7 @@ namespace Game
                 frequency = 1f / 3f;
             }
 
-            if(Time.time-time>=frequency)
+            if(Time.time-time>=frequency / 1.8)
             {
                 Create();
                 time = Time.time;

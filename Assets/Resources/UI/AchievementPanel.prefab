@@ -786,6 +786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f51ddff59e3f445974b0ac21022a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <state>k__BackingField: 0
+  sortingOrder: 0
   liststr:
   - 0
   - 1
