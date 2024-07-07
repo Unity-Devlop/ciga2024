@@ -20,6 +20,8 @@ namespace Game
         [SerializeField]private Button btnNext;
         [SerializeField]private Button btnReStart;
 
+        public List<Image> listImages = new List<Image>();
+
         public List<Sprite> listSprites = new List<Sprite>();
         // Start is called before the first frame update
 
@@ -30,27 +32,43 @@ namespace Game
             {
                 case EndingType.Perfect :
                     image.sprite = listSprites[0];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.Common :
                     image.sprite = listSprites[1];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.EatingDisorder:
                     image.sprite = listSprites[2];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.EatintTooMuch:
                     image.sprite = listSprites[3];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.Anorexia :
                     image.sprite = listSprites[4];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.Death :
                     image.sprite = listSprites[5];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 case EndingType.Starve :
                     image.sprite = listSprites[6];
+                    listImages[0].gameObject.SetActive(false);
+                    listImages[1].gameObject.SetActive(true);
                     break;
                 case EndingType.Boom :
                     image.sprite = listSprites[7];
+                    listImages[0].gameObject.SetActive(true);
+                    listImages[1].gameObject.SetActive(false);
                     break;
                 default:
                     break;
