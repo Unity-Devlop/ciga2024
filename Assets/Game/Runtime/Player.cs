@@ -120,8 +120,8 @@ namespace Game
         {
             if (Time.time - time >= 1)
             {
-                if (Mathf.Abs(appetite - stomach) <= healthDiff_Up) health += 1;
-                else if (Mathf.Abs(appetite - stomach) >= healthDiff_Down) health -= 2;
+                if (Mathf.Abs(appetite - stomach) <= healthDiff_Up) health += 3;
+                else if (Mathf.Abs(appetite - stomach) >= healthDiff_Down) health -= 3;
                 time = Time.time;
             }
             CheckHealthState();

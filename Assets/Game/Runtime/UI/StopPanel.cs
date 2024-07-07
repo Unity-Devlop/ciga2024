@@ -44,7 +44,6 @@ namespace Game
 
                 gameObject.SetActive(false);
             });
-            gameObject.SetActive(false);
         }
 
         private void OnEnable()
@@ -57,5 +56,9 @@ namespace Game
             Time.timeScale = 1;
         }
 
+        public void OnDestroy()
+        {
+            Time.timeScale = 1;
+        }
     }
 }

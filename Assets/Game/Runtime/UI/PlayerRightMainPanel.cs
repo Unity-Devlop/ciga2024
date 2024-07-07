@@ -21,7 +21,6 @@ namespace Game
 
         [SerializeField] private Image imageMyHand;
         [SerializeField] private GameObject imageFoodInHand;
-        [SerializeField] private Button stopButton;
 
         public List<GameObject> listobj = new List<GameObject>();
 
@@ -42,10 +41,6 @@ namespace Game
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
             SetSliderWantEatValue(0.5f);
-            stopButton.onClick.AddListener(() =>
-            {
-                StopPanel.panel.gameObject.SetActive(true);
-            });
         }
 
         public void SetFoodNum(string op)
