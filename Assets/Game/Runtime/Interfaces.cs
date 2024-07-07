@@ -16,6 +16,7 @@ namespace Game
 
     public interface IObstacle
     {
+        public int hitPoint { get; }
         public void Destroy();
         public void Recover();
     }

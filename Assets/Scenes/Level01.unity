@@ -897,6 +897,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588250252270752353, guid: 88df00e3e2f3e40f4b446a00838b008b,
+        type: 3}
+      propertyPath: <hitPoint>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 723422289251382815, guid: 88df00e3e2f3e40f4b446a00838b008b,
         type: 3}
       propertyPath: m_Size.x

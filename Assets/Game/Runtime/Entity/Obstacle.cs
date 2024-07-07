@@ -9,14 +9,15 @@ namespace Game
         [SerializeField] private SpriteRenderer tip;
         [SerializeField] private float trickTime;
 
+        [field: SerializeField] public int hitPoint { get; private set; } = 1;
+
         private void Start()
         {
             if (tip)
             {
-                DOVirtual.Float(0f, 1f, trickTime, (val) =>
-                {
-                    tip.color = new Color(tip.color.r, tip.color.g, tip.color.b, val);
-                }).SetLoops(-1, LoopType.Yoyo);
+                DOVirtual.Float(0f, 1f, trickTime,
+                        (val) => { tip.color = new Color(tip.color.r, tip.color.g, tip.color.b, val); })
+                    .SetLoops(-1, LoopType.Yoyo);
             }
         }
 
@@ -35,7 +36,6 @@ namespace Game
                 GameMgr.Singleton.OnObstacleExit(player, this);
             }
         }
-
         public void Destroy()
         {
             gameObject.SetActive(false);

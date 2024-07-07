@@ -22,15 +22,15 @@ namespace Game
         {
             _systemLocator = new SystemLocator();
             _systemLocator.Register<ConditionalVisualSystem>();
-            
+
             LoadPlayerData();
-            
+
             Local.gameObject.SetActive(true);
 
-            
+
             Reborn = GameObject.FindGameObjectWithTag("DefaultReborn").GetComponent<IReborn>();
             Reborn.Active();
-            
+
             UIRoot.Singleton.OpenPanel<GamePanel>();
         }
 
@@ -45,7 +45,9 @@ namespace Game
         {
             if (!player.data.infiniteHealth)
             {
-                player.data.ChangeHealth(-1);
+                player.data.ChangeHealth(-obstacle.hitPoint);
+                // 受伤效果
+                UIRoot.Singleton.OpenPanel<HitPanel>();
                 if (player.data.Health <= 0)
                 {
                     player.SetVelocity(Vector2.zero, 0);
@@ -69,10 +71,10 @@ namespace Game
             Reborn.UnActive();
             Reborn = reborn;
             Reborn.Active();
-            
+
             LoadPlayerData();
             Global.Event.Send(new UpdateHp());
-            Global.Event.Send(new UpdateEnergy(){energyFillAmount = 1f});
+            Global.Event.Send(new UpdateEnergy() { energyFillAmount = 1f });
         }
 
         public void OnEnergyObjectEnter(Player component, EnergyObject energyObject)
@@ -119,14 +121,14 @@ namespace Game
                 // TODO 默认存档
             }
         }
-        
+
         // 重置玩家存档
         public void ResetPlayerData()
         {
-            if(File.Exists(Const.LocalPlayerDataPath))
+            if (File.Exists(Const.LocalPlayerDataPath))
                 File.Delete(Const.LocalPlayerDataPath);
         }
-        
+
         public void SavePlayerData()
         {
             string jsonStr = JsonConvert.SerializeObject(Local.data);
