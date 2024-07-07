@@ -47,14 +47,17 @@ namespace Game
                 {
                     //Player.Instance.ChangeAppetite(1);
                     eatFrequency = EatFrequency.High;
+                    Player.Instance.frequencyState = FrequencyState.High;
                 }
                 else if (clickTimes < clickTimesDivision_L)
                 {
                     eatFrequency = EatFrequency.Low;
+                    Player.Instance.frequencyState = FrequencyState.Low;
                 }
                 else
                 {
                     eatFrequency = EatFrequency.Middle;
+                    Player.Instance.frequencyState = FrequencyState.Middle;
                 }
 
                 clickTimes = 0;
