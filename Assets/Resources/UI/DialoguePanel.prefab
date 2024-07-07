@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 59.8, y: 58.326}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 464, y: 99}
+  m_SizeDelta: {x: 151.5, y: 198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22200000
 CanvasRenderer:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &22400006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -459,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 74.8}
+  m_AnchoredPosition: {x: 201.35, y: 0}
+  m_SizeDelta: {x: -402.7, y: 74.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22200008
 CanvasRenderer:
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -654,36 +654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
   sortingOrder: 1
-  infiniteHp: {fileID: 0}
-  hpRoot: {fileID: 0}
-  imgHps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spriteHps:
-  - {fileID: 0}
-  - {fileID: 0}
-  imgEnegy: {fileID: 0}
-  imgState: {fileID: 0}
-  spriteStates:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  imgPhone: {fileID: 0}
-  spritePhones:
-  - {fileID: 0}
-  - {fileID: 0}
-  connect: {fileID: 0}
-  imgConnect: {fileID: 0}
-  spriteConnects:
-  - {fileID: 0}
-  - {fileID: 0}
-  headSet: {fileID: 0}
-  imgHeadSet: {fileID: 0}
-  spriteHeadSets:
-  - {fileID: 0}
-  - {fileID: 0}
   skipOnInput: 0
   waitForInput: 0
   subtitlesGroup: {fileID: 22400002}
@@ -913,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &22451302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -988,7 +958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224000012677293416
 RectTransform:
   m_ObjectHideFlags: 0

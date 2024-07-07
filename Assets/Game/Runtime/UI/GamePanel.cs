@@ -114,7 +114,8 @@ namespace Game
 
         private void UnlockHeadSet(UnlockHeadSet obj)
         {
-            headSet.gameObject.SetActive(true);   
+            connect.gameObject.SetActive(true);
+            headSet.gameObject.SetActive(true);
         }
         
         private void RingOver(RingOver obj)
