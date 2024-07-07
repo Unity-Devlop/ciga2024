@@ -16,13 +16,18 @@ namespace Game
         {
             for (int i = 0; i < 8; ++i)
             {
-                PlayerPrefs.SetFloat(liststr[i], 0);
+                PlayerPrefs.SetInt(liststr[i], 0);
             }
         }
 
         public void SetStr(int num)
         {
-            PlayerPrefs.SetFloat(liststr[num],1);
+            PlayerPrefs.SetInt(liststr[num],1);
+        }
+
+        public bool IsNull()
+        {
+            return PlayerPrefs.GetInt("0",-1) != -1;
         }
 
 
