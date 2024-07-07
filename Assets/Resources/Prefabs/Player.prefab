@@ -51,8 +51,8 @@ MonoBehaviour:
   maxHealth: 100
   maxAppetite: 100
   maxStomach: 100
-  appetiteIncreaseValue: 2
-  stomachLossValue: 5
+  appetiteIncreaseValue: 5
+  stomachLossValue: 4
   healthDiff_Up: 20
   healthDiff_Down: 50
   playerRightMainPanel: {fileID: 0}
