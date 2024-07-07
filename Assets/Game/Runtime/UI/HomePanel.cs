@@ -112,7 +112,7 @@ namespace Game
                 level1Fade.gameObject.SetActive(false);
                 CloseSelf();
                 buttons.gameObject.SetActive(true);
-                SceneManager.LoadScene("Level02");
+                SceneManager.LoadScene("Level01");
             });
         }
     }
