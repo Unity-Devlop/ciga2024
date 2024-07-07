@@ -91,7 +91,9 @@ namespace Game
             _dialoguePanel.gameObject.SetActive(true);
             Local.DisableInput();
             Local.data.canMove = false;
+            Local.rb2D.velocity = Vector2.zero;
             Local.rb2D.simulated = false;
+            
             dialogueTreeController.StartDialogue((v) =>
             {
                 Local.EnableInput();

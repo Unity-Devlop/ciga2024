@@ -94,7 +94,7 @@ namespace Game
             }
 
             if (move == Vector2.zero && !_player.data.isDashing && _player.checker.isGrounded &&
-                _player.rb2D.velocity.y < 0)
+                _player.rb2D.velocity.y <= 0)
             {
                 ToIdle();
             }

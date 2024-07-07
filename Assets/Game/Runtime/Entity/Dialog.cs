@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using NodeCanvas.DialogueTrees;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityToolkit;
 
 namespace Game
@@ -34,31 +32,31 @@ namespace Game
 
         void Subscribe()
         {
-            DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
             Global.Event.Listen<DialogNodePlayOver>(CheckIsContinue);
+            DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
         }
 
         void UnSubscribe()
         {
+            Global.Event.UnListen<DialogNodePlayOver>(CheckIsContinue);
             DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
         }
-        
+
         void OnSubtitlesRequest(SubtitlesRequestInfo info)
         {
             if (string.IsNullOrEmpty(info.statement.meta))
                 return;
+            
             var eventName = info.statement.meta;
             switch (eventName)
             {
-                case nameof(UnlockHeadSet):
-                    info.Continue += () =>
-                    {
-                        
-                    };
+                case nameof(BossCome):
+                    Global.Event.Send(new BossCome());
+                    Debug.Log("send -- > BossCome");
                     break;
-                
-                default:
-                    Debug.LogError($"没有 <color=red>{eventName}</color> 对应的事件");
+                case nameof(ChangeBody):
+                    Global.Event.Send(new ChangeBody());
+                    Debug.Log("send -- > ChangeBody");
                     break;
             }
         }
@@ -79,7 +77,6 @@ namespace Game
                         Global.Event.Send(new UnlockHeadSet());
                         Debug.Log("send -- > UnlockHeadSet");
                         Invoke("Connect", 2f);
-                        UIRoot.Singleton.GetOpenedPanel<DialoguePanel>(out var panel);
                         _waitInfo = info;
                         StartCoroutine(WaitE());
                         break;
@@ -90,6 +87,12 @@ namespace Game
             }
         }
 
+        IEnumerator Timer(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            _waitInfo.Continue();
+        }
+        
         IEnumerator WaitE()
         {
             while (true)
