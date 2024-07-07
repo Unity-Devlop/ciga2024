@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9023375652332183301}
   - component: {fileID: 6159198747912259138}
   - component: {fileID: -4854175275879209485}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: "\u996D\u56E2"
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 888103537
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: edf6c32931427c04585b8bbbe26173a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

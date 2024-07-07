@@ -29,8 +29,12 @@ namespace Game
         protected override void OnDispose()
         {
             UIRoot.Singleton.ClosePanel<PlayerRightMainPanel>();
+            Time.timeScale = 1;
         }
 
-
+        public void Stop()
+        {
+            Time.timeScale = 0;
+        }
     }
 }
