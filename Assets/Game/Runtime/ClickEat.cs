@@ -80,7 +80,7 @@ namespace Game
                         if (playerRightMainPanel==null) UIRoot.Singleton.GetOpenedPanel<PlayerRightMainPanel>(out playerRightMainPanel);
                         Food food = hit.collider.GetComponent<Food>();
                         Player.Instance.ChangeStomach(food.stomachIncrease);
-                        Player.Instance.ChangeAppetite(-food.appetiteDecrease);
+                        Player.Instance.ChangeAppetite(food.appetiteDecrease);
                         food.BeClicked(playerRightMainPanel);
                     }
                 }
