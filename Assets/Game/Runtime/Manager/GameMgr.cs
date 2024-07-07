@@ -30,7 +30,5 @@ namespace Game
         {
             UIRoot.Singleton.ClosePanel<PlayerRightMainPanel>();
         }
-
-
     }
 }

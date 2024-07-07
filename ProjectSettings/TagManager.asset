@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Best
   - Food
-  - 
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: Food
     uniqueID: 888103537
+    locked: 0
+  - name: Best
+    uniqueID: 1088760995
     locked: 0

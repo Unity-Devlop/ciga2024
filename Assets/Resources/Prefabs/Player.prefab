@@ -50,8 +50,14 @@ MonoBehaviour:
   maxHealth: 100
   maxAppetite: 100
   maxStomach: 100
-  appetiteIncreaseValue: 2
-  stomachLossValue: 1
+  appetiteIncreaseValue: 5
+  stomachLossValue: 5
   healthDiff_Up: 20
   healthDiff_Down: 50
   playerRightMainPanel: {fileID: 0}
+  EatFrequencyList: 
+  isEnd: 0
+  healthState: 0
+  appetiteState: 0
+  stomachState: 0
+  frequencyState: 0

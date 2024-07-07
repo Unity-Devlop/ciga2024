@@ -16,7 +16,7 @@ namespace Game
         [SerializeField] private Slider sliderHealth;
         [SerializeField] private Slider sliderWantEat; 
         [SerializeField] private Slider sliderSatiety;
-        [SerializeField] private TextMeshProUGUI textMeshProTime ;
+        [SerializeField] private Text textMeshProTime ;
         [SerializeField] private Sprite spriteInMyHand;
         [SerializeField] private Sprite defaultspriteInMyHand;
 
@@ -32,11 +32,10 @@ namespace Game
         public Image mask;
         public Image maskDark;
 
+        public float time = 60.0f;
         public Image tixin;
         public Image yanjing;
         public Image zui;
-
-        public float time = 30.0f;
         
         // public List<FoodItem> listFoodItem = new List<FoodItem>();
 
@@ -48,11 +47,13 @@ namespace Game
         
         public void Init()
         {
+
+            textMeshProTime.text = $"倒计时：{time}";
+
             _animatorshenti = tixin.GetComponent<Animator>();
             _animatorface = yanjing.GetComponent<Animator>();
             _animatorzui = zui.GetComponent<Animator>();
             
-            textMeshProTime.text = time.ToString();
             //每一关的初始值
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
@@ -121,7 +122,7 @@ namespace Game
 
         public void Reset(string op)
         {
-            textMeshProTime.text = op;
+            textMeshProTime.text = "倒计时："+op;
             textNum.text = "0";
             mask.gameObject.SetActive(false);
         }
@@ -188,7 +189,7 @@ namespace Game
 
         public void SetTextMeshProTime(float num)
         {
-            textMeshProTime.text = num.ToString();
+            textMeshProTime.text = $"倒计时：{num}";
         }
 
         private void OnEnterGameButtonClick()

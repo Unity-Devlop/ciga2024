@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0df93201daefd4fba2e27e780ac61d, type: 3}
   m_Name: LevelConfig1
   m_EditorClassIdentifier: 
-  totalTime: 30
+  totalTime: 60
   foodList:
   - {fileID: 652611726314769050, guid: 4ac512253b711f542a2d53d60c247c92, type: 3}
   - {fileID: 6670313536739401474, guid: 53f191de61442d045a427e6b026d6757, type: 3}
@@ -30,5 +30,5 @@ MonoBehaviour:
   - {fileID: 6295633104168130196, guid: 4aa6f9641b54ef84f84e856f381074c2, type: 3}
   - {fileID: 7164631771488651111, guid: f88c06097abf1c44ba2d3bcd6d863a46, type: 3}
   health: 60
-  appetite: 70
-  stomach: 10
+  appetite: 60
+  stomach: 20

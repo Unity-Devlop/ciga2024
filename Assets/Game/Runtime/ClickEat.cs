@@ -63,7 +63,7 @@ namespace Game
                 clickTimes = 0;
                 time = Time.time;
             }
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)&&Time.timeScale>0)
             {
                 var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(pos, Vector2.zero);

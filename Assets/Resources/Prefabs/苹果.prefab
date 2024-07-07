@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 238529771975136377}
   - component: {fileID: 3612563929195774447}
   - component: {fileID: -1298324464989204550}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: "\u82F9\u679C"
   m_TagString: Food
   m_Icon: {fileID: 0}
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2eb53207cac6a4a988cecc735a69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachIncrease: 1
-  appetiteDecrease: 1
+  stomachIncrease: 5
+  appetiteDecrease: 5
   type: 14
   disappearTime: 4
 --- !u!61 &3612563929195774447
