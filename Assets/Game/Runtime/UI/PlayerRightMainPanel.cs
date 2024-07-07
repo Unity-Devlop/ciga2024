@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityToolkit;
 using DG.Tweening;
+using UnityEditor.Animations;
 
 namespace Game
 {
@@ -22,6 +23,7 @@ namespace Game
         [SerializeField] private Image imageMyHand;
         [SerializeField] private GameObject imageFoodInHand;
 
+
         public List<GameObject> listobj = new List<GameObject>();
 
         public Sequence mysSequence;
@@ -31,12 +33,27 @@ namespace Game
         public Image maskDark;
 
         public float time = 60.0f;
+        public Image tixin;
+        public Image yanjing;
+        public Image zui;
         
         // public List<FoodItem> listFoodItem = new List<FoodItem>();
+
+        public List<Sprite> list1Sprites = new List<Sprite>();
+        public List<Sprite> list2Sprites = new List<Sprite>();
+        private Animator _animatorshenti;
+        private Animator _animatorface;
+        private Animator _animatorzui;
         
         public void Init()
         {
+
             textMeshProTime.text = $"倒计时：{time}";
+
+            _animatorshenti = tixin.GetComponent<Animator>();
+            _animatorface = yanjing.GetComponent<Animator>();
+            _animatorzui = zui.GetComponent<Animator>();
+            
             //每一关的初始值
             SetSliderSatietyValue(0.5f);
             SetSliderHealthValue(0.5f);
@@ -45,9 +62,63 @@ namespace Game
 
         public void SetFoodNum(string op)
         {
-
             textNum.text = op;
         }
+
+        public void Update()
+        {
+            if (Player.Instance.appetiteState == AppetiteState.High)
+            {
+                tixin.sprite = list1Sprites[2];
+                _animatorshenti.Play("Pang");
+            }
+            else if (Player.Instance.appetiteState == AppetiteState.Middle)
+            {
+                
+                tixin.sprite = list1Sprites[1];
+                _animatorshenti.Play("zhong");
+            }
+            else if(Player.Instance.appetiteState == AppetiteState.Low)
+            {
+                
+                tixin.sprite = list1Sprites[0];
+                _animatorshenti.Play("shou");
+            }
+            
+            
+            if (Player.Instance.stomachState == StomachState.High)
+            {
+                yanjing.sprite = list2Sprites[2];
+                _animatorface.Play("tanlan");
+            }
+            else if (Player.Instance.stomachState == StomachState.Middle)
+            {
+                
+                yanjing.sprite = list2Sprites[1];
+                _animatorface.Play("pindan");
+            }
+            else if(Player.Instance.stomachState == StomachState.Low)
+            {
+                
+                yanjing.sprite = list2Sprites[0];
+                _animatorface.Play("jushang");
+            }
+            
+            
+            if (Player.Instance.frequencyState == FrequencyState.High)
+            {
+                _animatorzui.speed = 1.5f;
+            }
+            else if (Player.Instance.frequencyState == FrequencyState.Middle)
+            {
+                _animatorzui.speed = 1.0f;
+            }
+            else if(Player.Instance.frequencyState == FrequencyState.Low)
+            {
+                _animatorzui.speed = 0.8f;
+            }
+        }
+
 
         public void Reset(string op)
         {
@@ -76,7 +147,7 @@ namespace Game
                         imageFoodInHand.GetComponent<Image>().sprite = listobj[i].GetComponent<SpriteRenderer>().sprite;
                         mysSequence = DOTween.Sequence();
                         var tmp = imageMyHand.transform.localScale.z;
-                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, tmp + 90), 1f).SetEase(Ease.Linear)
+                        mysSequence.Append(imageMyHand.transform.DORotate(new Vector3(0, 0, tmp + 180), 1f).SetEase(Ease.Linear)
                             .SetLoops(2, LoopType.Yoyo).OnStepComplete(() =>
                             {
                                 a++;
