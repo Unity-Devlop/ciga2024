@@ -17,6 +17,7 @@ namespace Game
         [SerializeField] private Button level03;
         [SerializeField] private Button level04;
         [SerializeField] private Button level05;
+        [SerializeField] private Button people;
         public RectTransform buttons;
         public Image level1Fade;
         [SerializeField] private VideoPlayer _videoPlayer;
@@ -26,10 +27,31 @@ namespace Game
             StartCheck();
 
             level01.onClick.AddListener(ToLevel1);
-            level02.onClick.AddListener(() => { SceneManager.LoadScene("Level02"); });
-            level03.onClick.AddListener(() => { SceneManager.LoadScene("Level03"); });
-            level04.onClick.AddListener(() => { SceneManager.LoadScene("Level04"); });
-            level05.onClick.AddListener(() => { SceneManager.LoadScene("Level05"); });
+            level02.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                SceneManager.LoadScene("Level02");
+            });
+            level03.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                SceneManager.LoadScene("Level03");
+            });
+            level04.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                SceneManager.LoadScene("Level04");
+            });
+            level05.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                SceneManager.LoadScene("Level05");
+            });
+            people.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                SceneManager.LoadScene("End");
+            });
         }
 
         private CancellationTokenSource _videoCts;
