@@ -22,6 +22,16 @@ namespace Game
         public ParticleSystem dashEffect;
         public ParticleSystem jumpEffect;
 
+        public AudioSource rainSfx;
+
+        public AudioSource dashSfx;
+
+        public AudioSource jumpSfx;
+
+        public AudioSource normalBgm;
+
+        public AudioSource forwardBgm;
+
         private Animator _animator;
 
         public IControl Control
@@ -62,23 +72,45 @@ namespace Game
             data.isGounded = checker.isGrounded;
             if (State == PlayerState.NormalControl)
             {
+                if (forwardBgm.isPlaying)
+                {
+                    forwardBgm.Stop();
+                }
+
+                if (!normalBgm.isPlaying)
+                {
+                    normalBgm.Play();
+                }
+
                 _normalControl.Update();
                 return;
             }
 
             if (State == PlayerState.ForwardControl)
             {
+                if (!forwardBgm.isPlaying)
+                {
+                    forwardBgm.Play();
+                }
+
+                if (normalBgm.isPlaying)
+                {
+                    normalBgm.Stop();
+                }
+
                 _forwardControl.Update();
             }
         }
 
         public void OnEnable()
         {
+            rainSfx.Play();
             _customInput.Enable();
         }
 
         private void OnDisable()
         {
+            rainSfx.Stop();
             _customInput.Disable();
         }
 

@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using NodeCanvas.Tasks.Actions;
 using UnityEngine;
 
 namespace Game
@@ -15,7 +16,7 @@ namespace Game
         protected override void Dash()
         {
             if (!data.canDash) return;
-            _player.dashEffect.Play();
+            
             Vector2 faceDir = Input.Move.ReadValue<Vector2>();
             if (faceDir == Vector2.zero)
             {
@@ -29,6 +30,8 @@ namespace Game
 
             if (Input.Dash.triggered && data.HasEnergy && data.canDash)
             {
+                _player.dashEffect.Play();
+                _player.dashSfx.Play();
                 _rb2D.AddForce(faceDir * data.dashSpeed, ForceMode2D.Impulse);
                 data.ChangeEnergy(-data.dashEnergyCost);
 
