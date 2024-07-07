@@ -641,7 +641,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -660,8 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
   sortingOrder: 0
-  infiniteHp: {fileID: 0}
-  hpRoot: {fileID: 0}
+  infiniteHp: {fileID: 246561848508812498}
+  hpRoot: {fileID: 7480279872036422495}
   imgHps:
   - {fileID: 2412829925184389623}
   - {fileID: 720888474445876435}

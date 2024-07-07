@@ -1,6 +1,6 @@
 using System.IO;
+using Newtonsoft.Json;
 using NodeCanvas.DialogueTrees;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
