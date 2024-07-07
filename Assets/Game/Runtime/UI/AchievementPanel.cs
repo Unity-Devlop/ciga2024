@@ -11,6 +11,8 @@ namespace Game
     {
         public List<string> liststr =new List<string>(){ "0", "1", "2", "3", "4", "5", "6", "7", "8" };
         public List<Image> listImg = new List<Image>();
+
+        public Button btnClose;
         
         public void newstr()
         {
