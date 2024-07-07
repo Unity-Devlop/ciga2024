@@ -48,6 +48,10 @@ namespace Game
 
         public void BeClicked(PlayerRightMainPanel playerRightMainPanel)
         {
+            GameObject go = GameObjectPoolManager.Get("FloatText");
+            go.transform.position = transform.position;
+            go.GetComponent<FloatTextManager>().valueAppetite = appetiteDecrease;
+            go.GetComponent<FloatTextManager>().valueStomach = stomachIncrease;
             Disappear(playerRightMainPanel);
         }
 

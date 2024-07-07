@@ -1,4 +1,3 @@
-using Codice.Client.GameUI.Update;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +8,7 @@ namespace Game
     public class FoodCreatManager : MonoBehaviour
     {
         public List<GameObject> prefabs = new List<GameObject>();
+        public GameObject floatText;
         public float offset_x;
         public float offset_y;
         float width;
@@ -30,6 +30,7 @@ namespace Game
             {
                 GameObjectPoolManager.Create(prefabs[i].GetComponent<Food>().type, prefabs[i]);
             }
+            GameObjectPoolManager.Create("FloatText", floatText);
             time = Time.time;
             
         }
