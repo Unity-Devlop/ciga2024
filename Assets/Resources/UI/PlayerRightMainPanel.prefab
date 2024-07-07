@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 644, y: 138}
+  m_AnchoredPosition: {x: 637.7, y: 138}
   m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9025020545926448428
@@ -358,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 620, y: -149}
+  m_AnchoredPosition: {x: 620, y: -113}
   m_SizeDelta: {x: 660, y: 247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3229525945985190502
@@ -1085,7 +1085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 620, y: -130}
+  m_AnchoredPosition: {x: 620, y: -118}
   m_SizeDelta: {x: 660, y: 247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2453320947399554142
@@ -1317,9 +1317,9 @@ RectTransform:
   - {fileID: 677668118598177154}
   - {fileID: 7788412658247348895}
   - {fileID: 1266008234711046361}
-  - {fileID: 792746007339977998}
-  - {fileID: 7487563167006298556}
   - {fileID: 8909189846187599084}
+  - {fileID: 7487563167006298556}
+  - {fileID: 792746007339977998}
   - {fileID: 9138141396393771767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1575,7 +1575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 620, y: -104}
+  m_AnchoredPosition: {x: 620, y: -130}
   m_SizeDelta: {x: 660, y: 247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1632646992400254088
@@ -2220,7 +2220,7 @@ RectTransform:
   m_GameObject: {fileID: 6597709737450435193}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.78, y: 1.78, z: 1.78}
+  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7788412658247348895}
