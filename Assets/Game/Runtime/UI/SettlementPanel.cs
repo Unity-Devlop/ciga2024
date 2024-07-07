@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityToolkit;
@@ -18,6 +19,8 @@ namespace Game
         [SerializeField]private Button btnExit;
         [SerializeField]private Button btnNext;
         [SerializeField]private Button btnReStart;
+
+        public List<Sprite> listSprites = new List<Sprite>();
         // Start is called before the first frame update
         void Start()
         {
@@ -58,20 +61,28 @@ namespace Game
             switch (endingType)
             {
                 case EndingType.Perfect :
+                    image.sprite = listSprites[0];
                     break;
                 case EndingType.Common :
+                    image.sprite = listSprites[1];
                     break;
                 case EndingType.EatingDisorder:
+                    image.sprite = listSprites[2];
                     break;
                 case EndingType.EatintTooMuch:
+                    image.sprite = listSprites[3];
                     break;
                 case EndingType.Anorexia :
+                    image.sprite = listSprites[4];
                     break;
                 case EndingType.Death :
+                    image.sprite = listSprites[5];
                     break;
                 case EndingType.Starve :
+                    image.sprite = listSprites[6];
                     break;
                 case EndingType.Boom :
+                    image.sprite = listSprites[7];
                     break;
                 default:
                     break;
