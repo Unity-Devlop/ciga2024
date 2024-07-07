@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -31,26 +32,45 @@ namespace Game
             level05.onClick.AddListener(() => { SceneManager.LoadScene("Level05"); });
         }
 
-        private void StartCheck()
+        private CancellationTokenSource _videoCts;
+
+        private async void StartCheck()
         {
             _videoPlayer.Play();
             // 检查视频是否播放完毕
-            UniTask.WaitUntil(() => _videoPlayer.frame >= (long)_videoPlayer.frameCount - 1).ContinueWith(() =>
+            _videoCts = new CancellationTokenSource();
+            try
             {
-                if (_videoPlayer == null) return;
-                CompleteVideoDirect();
-                Debug.Log("视频播放完毕");
-                _videoPlayer.Stop();
-                _videoPlayer.gameObject.SetActive(false);
-                ToLevel1();
-            });
+                await UniTask.WaitUntil(() => _videoPlayer.frame >= (long)_videoPlayer.frameCount - 1,
+                    cancellationToken: _videoCts.Token).ContinueWith(() =>
+                {
+                    if (_videoPlayer == null) return;
+                    CompleteVideoDirect();
+                    Debug.Log("视频播放完毕");
+                    _videoPlayer.Stop();
+                    _videoPlayer.gameObject.SetActive(false);
+                    ToLevel1();
+                });
+            }
+            catch (OperationCanceledException)
+            {
+            }
         }
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                _videoCts.Cancel();
+                buttons.gameObject.SetActive(true);
+                CompleteVideoDirect();
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 CompleteVideoDirect();
+                return;
             }
         }
 
@@ -58,7 +78,7 @@ namespace Game
         {
             _videoPlayer.frame = (long)_videoPlayer.frameCount - 1;
         }
-        
+
 
         private async void ToLevel1()
         {
