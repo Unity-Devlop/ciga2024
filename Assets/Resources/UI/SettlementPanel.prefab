@@ -696,7 +696,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &130542420471461389
 MonoBehaviour:
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <state>k__BackingField: 0
-  sortingOrder: 0
+  sortingOrder: 100
   endingType: 0
   image: {fileID: 4405311810473133138}
   btnExit: {fileID: 2608327656083879382}

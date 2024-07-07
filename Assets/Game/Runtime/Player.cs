@@ -182,27 +182,24 @@ namespace Game
             isEnd = true;
             healthState = HealthState.Death;
             SettlementPanel settlementPanel;
+            UIRoot.Singleton.OpenPanel<SettlementPanel>();
+            UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
             if (health<=0)
             {
                 //����֪ͨ��
-                UIRoot.Singleton.OpenPanel<SettlementPanel>();
-                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Death;
             }
             else if(stomach<=0)
             {
                 //����
-                UIRoot.Singleton.OpenPanel<SettlementPanel>();
-                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Starve;
             }
             else if(stomach>=maxStomach)
             {
                 //�������
-                UIRoot.Singleton.OpenPanel<SettlementPanel>();
-                UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Boom;
             }
+            settlementPanel.ChangeText();
             TypeEventSystem.Global.UnListen<TimeEndEvent>(Live);
         }
 
@@ -294,6 +291,7 @@ namespace Game
                 UIRoot.Singleton.GetOpenedPanel<SettlementPanel>(out settlementPanel);
                 settlementPanel.endingType = EndingType.Common;
             }
+            settlementPanel.ChangeText();
             TypeEventSystem.Global.UnListen<TimeEndEvent>(Live);
         }
     }
