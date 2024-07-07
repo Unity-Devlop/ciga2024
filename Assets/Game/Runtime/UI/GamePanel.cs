@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityToolkit;
@@ -60,7 +61,7 @@ namespace Game
             Global.Event.Listen<ConnectHeadSet>(ConnectHeadSet);
             Global.Event.Listen<DisConnectHeadSet>(DisConnectHeadSet);
         }
-        
+
         private void OnDestroy()
         {
             if (Global.SingletonNullable==null)

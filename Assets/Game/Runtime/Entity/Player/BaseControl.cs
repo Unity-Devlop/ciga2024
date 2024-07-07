@@ -56,6 +56,11 @@ namespace Game
             {
                 _rb2D.gravityScale = 3;
             }
+
+            if (data.isGounded)
+            {
+                _player.rb2D.velocity = new Vector2(_rb2D.velocity.x, 0);
+            }
         }
 
         protected virtual void UpdateAnim()
