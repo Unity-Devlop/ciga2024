@@ -83,6 +83,7 @@ namespace Game
             }
             AppetiteIncrease();
             StomachLoss();
+            CheckMask();
             CheckHealth();
             //print($"{(float)health/maxHealth}  {(float)stomach/maxStomach} {(float)appetite/maxAppetite}");
             playerRightMainPanel.SetSliderHealthValue((float)health/maxHealth);
@@ -172,6 +173,21 @@ namespace Game
                 settlementPanel.endingType = EndingType.Boom;
             }
             TypeEventSystem.Global.UnListen<TimeEndEvent>(Live);
+        }
+
+        void CheckMask()
+        {
+            if(stomach<10&&appetite>80)
+            {
+                playerRightMainPanel.mask.gameObject.SetActive(true);
+                float targetAlpha = Mathf.Abs(stomach - 10f) / 10f;
+                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f, Mathf.Lerp(playerRightMainPanel.maskDark.color.a, targetAlpha, Time.deltaTime)); ;
+            }
+            else
+            {
+                playerRightMainPanel.mask.gameObject.SetActive(false);
+                playerRightMainPanel.maskDark.color = new Color(0f, 0f, 0f,0f);
+            }
         }
 
         public void ChangeStomach(int value)

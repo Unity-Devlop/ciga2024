@@ -40,7 +40,7 @@ namespace Game
 
         private void Update()
         {
-            if (Time.time - time >= disappearTime)
+            if (Time.time - time >= disappearTime||Player.Instance.isEnd)
             {
                 Disappear(null);
             }

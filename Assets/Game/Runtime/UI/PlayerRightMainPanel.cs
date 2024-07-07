@@ -27,6 +27,8 @@ namespace Game
         public Sequence mysSequence;
         public int num = 0;
         public Text textNum;
+        public Image mask;
+        public Image maskDark;
 
         public float time = 30.0f;
         
@@ -51,6 +53,7 @@ namespace Game
         {
             textMeshProTime.text = op;
             textNum.text = "0";
+            mask.gameObject.SetActive(false);
         }
         
         private void Awake()
