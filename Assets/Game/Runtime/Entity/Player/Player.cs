@@ -13,7 +13,7 @@ namespace Game
 
         private CustomInputActions _customInput;
         public CustomInputActions.PlayerActions Input => _customInput.Player;
-        [field: SerializeField] public PlayerState State { get; private set; } = PlayerState.NormalControl;
+        [field: SerializeField] public PlayerState State { get; set; } = PlayerState.NormalControl;
 
         public FacingDirection direction;
         private NormalControl _normalControl;
