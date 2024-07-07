@@ -58,6 +58,14 @@ namespace Game
                     Global.Event.Send(new ChangeBody());
                     Debug.Log("send -- > ChangeBody");
                     break;
+                case nameof(RingUp):
+                    Global.Event.Send(new RingUp());
+                    Debug.Log("send -- > RingUp");
+                    break;
+                case nameof(RingOver):
+                    Global.Event.Send(new RingOver());
+                    Debug.Log("send -- > RingOver");
+                    break;
             }
         }
 
