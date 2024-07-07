@@ -89,9 +89,11 @@ namespace Game
         {
             _dialoguePanel.gameObject.SetActive(true);
             Local.DisableInput();
+            Local.data.canMove = false;
             dialogueTreeController.StartDialogue((v) =>
             {
                 Local.EnableInput();
+                Local.data.canMove = true;
                 _dialoguePanel.gameObject.SetActive(false);
             });
         }
