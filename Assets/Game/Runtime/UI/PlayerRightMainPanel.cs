@@ -69,39 +69,41 @@ namespace Game
         {
             if (Player.Instance.appetiteState == AppetiteState.High)
             {
-                tixin.sprite = list1Sprites[2];
-                _animatorshenti.Play("Pang");
-            }
-            else if (Player.Instance.appetiteState == AppetiteState.Middle)
-            {
-                
-                tixin.sprite = list1Sprites[1];
-                _animatorshenti.Play("zhong");
-            }
-            else if(Player.Instance.appetiteState == AppetiteState.Low)
-            {
-                
-                tixin.sprite = list1Sprites[0];
-                _animatorshenti.Play("shou");
-            }
-            
-            
-            if (Player.Instance.stomachState == StomachState.High)
-            {
                 yanjing.sprite = list2Sprites[2];
                 _animatorface.Play("tanlan");
             }
-            else if (Player.Instance.stomachState == StomachState.Middle)
+            else if (Player.Instance.appetiteState == AppetiteState.Middle)
             {
                 
                 yanjing.sprite = list2Sprites[1];
                 _animatorface.Play("pindan");
             }
-            else if(Player.Instance.stomachState == StomachState.Low)
+            else if(Player.Instance.appetiteState == AppetiteState.Low)
             {
                 
                 yanjing.sprite = list2Sprites[0];
                 _animatorface.Play("jushang");
+            }
+            
+            
+            if (Player.Instance.stomachState == StomachState.High)
+            {
+                
+                tixin.sprite = list1Sprites[2];
+                _animatorshenti.Play("Pang");
+                
+            }
+            else if (Player.Instance.stomachState == StomachState.Middle)
+            {
+                
+                tixin.sprite = list1Sprites[1];
+                _animatorshenti.Play("zhong");
+            }
+            else if(Player.Instance.stomachState == StomachState.Low)
+            {
+                
+                tixin.sprite = list1Sprites[0];
+                _animatorshenti.Play("shou");
             }
             
             
