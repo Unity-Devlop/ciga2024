@@ -31,6 +31,8 @@ namespace Game
         public AudioSource normalBgm;
 
         public AudioSource forwardBgm;
+        
+        public AudioSource deadSfx;
 
         private Animator _animator;
 
@@ -133,6 +135,11 @@ namespace Game
         public void EnableInput()
         {
             Input.Enable();
+        }
+
+        public void OnDeadReborn()
+        {
+            deadSfx.Play();
         }
     }
 }

@@ -55,6 +55,7 @@ namespace Game
                     player.data.ChangeHealth(player.data.MaxHealth);
 
                     player.transform.position = Reborn.transform.position;
+                    player.OnDeadReborn();
                 }
             }
             else
