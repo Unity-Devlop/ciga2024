@@ -24,6 +24,8 @@ namespace Game
 
         private void Awake()
         {
+            ToLevel1Mid();
+            
             StartCheck();
 
             level01.onClick.AddListener(ToLevel1);
@@ -56,6 +58,20 @@ namespace Game
 
         private CancellationTokenSource _videoCts;
 
+        private async void ToLevel1Mid()
+        {
+            buttons.gameObject.SetActive(false);
+            level1Fade.gameObject.SetActive(true);
+            level1Fade.DOColor(Color.clear, 1).OnComplete(() =>
+            {
+                level1Fade.color = Color.black;
+                level1Fade.gameObject.SetActive(false);
+                CloseSelf();
+                buttons.gameObject.SetActive(true);
+                SceneManager.LoadScene("Level01_Mid");
+            });
+        }
+        
         private async void StartCheck()
         {
             _videoPlayer.Play();
