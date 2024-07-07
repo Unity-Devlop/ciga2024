@@ -1330,7 +1330,7 @@ MonoBehaviour:
   spriteInMyHand: {fileID: 21300000, guid: 8b73ba34c75d18446ba67599581352f1, type: 3}
   defaultspriteInMyHand: {fileID: 21300000, guid: 8b73ba34c75d18446ba67599581352f1,
     type: 3}
-  imageMyHand: {fileID: 0}
+  imageMyHand: {fileID: 8704208626240969697}
   imageFoodInHand: {fileID: 6597709737450435193}
   listobj:
   - {fileID: 652611726314769050, guid: 4ac512253b711f542a2d53d60c247c92, type: 3}
