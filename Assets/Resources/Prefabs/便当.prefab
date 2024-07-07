@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stomachIncrease: 5
-  appetiteDecrease: 5
+  appetiteDecrease: -5
   type: 12
   disappearTime: 4
 --- !u!61 &7968709745276614182

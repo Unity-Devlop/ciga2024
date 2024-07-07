@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2eb53207cac6a4a988cecc735a69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomachIncrease: 5
-  appetiteDecrease: 5
+  stomachIncrease: 2
+  appetiteDecrease: -4
   type: 10
   disappearTime: 4
 --- !u!61 &6783759607387991940
