@@ -23,10 +23,13 @@ namespace Game
         [SerializeField] private Image imageMyHand;
         [SerializeField] private GameObject imageFoodInHand;
 
+        public Image gebo;
+
 
         public List<GameObject> listobj = new List<GameObject>();
 
         public List<Image> listiImages = new List<Image>();
+        public List<Sprite> listImagehand = new List<Sprite>();
 
         public Sequence mysSequence;
         public int num = 0;
@@ -92,6 +95,7 @@ namespace Game
             {
                 
                 tixin.sprite = list1Sprites[2];
+                gebo.sprite = listImagehand[0];
                 _animatorshenti.Play("Pang");
                 
             }
@@ -99,12 +103,14 @@ namespace Game
             {
                 
                 tixin.sprite = list1Sprites[1];
+                gebo.sprite = listImagehand[1];
                 _animatorshenti.Play("zhong");
             }
             else if(Player.Instance.stomachState == StomachState.Low)
             {
                 
                 tixin.sprite = list1Sprites[0];
+                gebo.sprite = listImagehand[2];
                 _animatorshenti.Play("shou");
             }
             
@@ -112,14 +118,20 @@ namespace Game
             if (Player.Instance.frequencyState == FrequencyState.High)
             {
                 _animatorzui.speed = 1.5f;
+                _animatorshenti.speed = 1.5f;
+                _animatorface.speed = 1.5f;
             }
             else if (Player.Instance.frequencyState == FrequencyState.Middle)
             {
                 _animatorzui.speed = 1.0f;
+                _animatorshenti.speed = 1.0f;
+                _animatorface.speed = 1.0f;
             }
             else if(Player.Instance.frequencyState == FrequencyState.Low)
             {
                 _animatorzui.speed = 0.8f;
+                _animatorshenti.speed = 0.8f;
+                _animatorface.speed = 0.8f;
             }
         }
 
