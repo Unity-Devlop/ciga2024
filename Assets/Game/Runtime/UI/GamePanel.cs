@@ -45,6 +45,7 @@ namespace Game
         [SerializeField] private Image imgHeadSet;
         [SerializeField] private Sprite[] spriteHeadSets = new Sprite[2];
 
+        private bool _inited = false;
         private void Start()
         {
             Init();
@@ -82,6 +83,8 @@ namespace Game
 
         private void Init()
         {
+            if(_inited)return;
+            _inited = true;
             var data = GameMgr.Singleton.Local.data;
             imgState.sprite = spriteStates[data.stateStage - 1];
             if (data.infiniteHealth)

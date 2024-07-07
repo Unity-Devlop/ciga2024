@@ -90,11 +90,13 @@ namespace Game
             _dialoguePanel.gameObject.SetActive(true);
             Local.DisableInput();
             Local.data.canMove = false;
+            Local.rb2D.simulated = false;
             dialogueTreeController.StartDialogue((v) =>
             {
                 Local.EnableInput();
                 Local.data.canMove = true;
                 _dialoguePanel.gameObject.SetActive(false);
+                Local.rb2D.simulated = true;
             });
         }
 
