@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -11,13 +12,24 @@ namespace Game
 
         [field: SerializeField] public int hitPoint { get; private set; } = 1;
 
+        private Tweener twinkle;
+        
         private void Start()
         {
             if (tip)
             {
-                DOVirtual.Float(0f, 1f, trickTime,
+                twinkle = DOVirtual.Float(0f, 1f, trickTime,
                         (val) => { tip.color = new Color(tip.color.r, tip.color.g, tip.color.b, val); })
                     .SetLoops(-1, LoopType.Yoyo);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (tip)
+            {
+                twinkle.Kill();
+                twinkle = null;
             }
         }
 
@@ -36,6 +48,7 @@ namespace Game
                 GameMgr.Singleton.OnObstacleExit(player, this);
             }
         }
+        
         public void Destroy()
         {
             gameObject.SetActive(false);
