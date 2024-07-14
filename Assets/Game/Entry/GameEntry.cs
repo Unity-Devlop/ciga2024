@@ -8,7 +8,11 @@ namespace Game.Entry
     {
         private void Awake()
         {
+            
+            Camera camera = Camera.main;
+            Camera.main.enabled = false;
             SceneManager.LoadScene("Main");
+            camera.enabled = true;
         }
     }
 }

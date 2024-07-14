@@ -22,11 +22,16 @@ namespace Game
         public Image level1Fade;
         [SerializeField] private VideoPlayer _videoPlayer;
 
+        private CancellationTokenSource _videoCts;
+
+        [SerializeField] private Button startButton;
+        [SerializeField] private Button tutorialButton;
+
         private void Awake()
         {
-            StartCheck();
-
             level01.onClick.AddListener(ToLevel1);
+            startButton.onClick.AddListener(ToLevel1);
+            tutorialButton.onClick.AddListener(OnTutorialButtonClick);
             level02.onClick.AddListener(() =>
             {
                 CloseSelf();
@@ -54,8 +59,24 @@ namespace Game
             });
         }
 
-        private CancellationTokenSource _videoCts;
-        
+        private void OnTutorialButtonClick()
+        {
+            UIRoot.Singleton.OpenPanel<TutorialPanel>();
+        }
+
+        public override void OnOpened()
+        {
+            base.OnOpened();
+            StartCheck();
+        }
+
+        public override void OnClosed()
+        {
+            base.OnClosed();
+            startButton.gameObject.SetActive(true);
+            tutorialButton.gameObject.SetActive(false);
+        }
+
         private async void StartCheck()
         {
             _videoPlayer.Play();
@@ -71,7 +92,8 @@ namespace Game
                     Debug.Log("视频播放完毕");
                     _videoPlayer.Stop();
                     _videoPlayer.gameObject.SetActive(false);
-                    ToLevel1();
+                    startButton.gameObject.SetActive(true);
+                    tutorialButton.gameObject.SetActive(true);
                 });
             }
             catch (OperationCanceledException)
@@ -106,13 +128,13 @@ namespace Game
         {
             buttons.gameObject.SetActive(false);
             level1Fade.gameObject.SetActive(true);
-            level1Fade.DOColor(Color.clear, 1).OnComplete(() =>
+            level1Fade.DOColor(Color.black, 1).OnComplete(async () =>
             {
-                level1Fade.color = Color.black;
+                await SceneManager.LoadSceneAsync("Level01");
+                level1Fade.color = Color.clear;
                 level1Fade.gameObject.SetActive(false);
                 CloseSelf();
                 buttons.gameObject.SetActive(true);
-                SceneManager.LoadScene("Level01");
             });
         }
     }
