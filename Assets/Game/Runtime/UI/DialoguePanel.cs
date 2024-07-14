@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using NodeCanvas.DialogueTrees;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityToolkit;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -100,7 +102,7 @@ namespace Game
             optionsGroup.gameObject.SetActive(false);
             optionButton.gameObject.SetActive(false);
             waitInputIndicator.gameObject.SetActive(false);
-            originalSubsPosition = subtitlesGroup.transform.position;
+            originalSubsPosition = subtitlesGroup.position;
         }
 
         void OnDialogueStarted(DialogueTree dlg)
@@ -148,14 +150,7 @@ namespace Game
             var text = info.statement.text;
             var audio = info.statement.audio;
             var actor = info.actor;
-            if (actor.name == "Player")
-            {
-                actorSpeech.alignment = TextAlignmentOptions.Right;
-            }
-            else
-            {
-                actorSpeech.alignment = TextAlignmentOptions.Left;
-            }
+            actorSpeech.alignment = actor.name == "Player" ? TextAlignmentOptions.BottomRight : TextAlignmentOptions.BottomLeft;
             
             subtitlesGroup.gameObject.SetActive(true);
             subtitlesGroup.position = originalSubsPosition;

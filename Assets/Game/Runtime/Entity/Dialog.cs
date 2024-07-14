@@ -94,12 +94,6 @@ namespace Game
                 }
             }
         }
-
-        IEnumerator Timer(float waitTime)
-        {
-            yield return new WaitForSeconds(waitTime);
-            _waitInfo.Continue();
-        }
         
         IEnumerator WaitE()
         {
