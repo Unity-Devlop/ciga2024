@@ -3375,14 +3375,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialoguePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 11400014, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400018, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
-      propertyPath: m_Color.a
-      value: 0.11764706
-      objectReference: {fileID: 0}
     - target: {fileID: 22400010, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3462,33 +3454,6 @@ PrefabInstance:
     - target: {fileID: 22400010, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -1334
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 667
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: 7b707fcf172a44fba8ecc230c45955ed, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 711022429209979020, guid: 7b707fcf172a44fba8ecc230c45955ed,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 711022429209979020, guid: 7b707fcf172a44fba8ecc230c45955ed,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 711022429209979020, guid: 7b707fcf172a44fba8ecc230c45955ed,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
