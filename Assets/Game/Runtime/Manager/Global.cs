@@ -12,7 +12,7 @@ namespace Game
         public static SystemLocator Systems => Singleton._systemLocator;
         public static TypeEventSystem Event => Singleton._event;
 
-        public static Tables Tables => Singleton._tables;
+        // public static Tables Tables => Singleton._tables;
 
 
         protected override bool DontDestroyOnLoad() => true;
@@ -27,7 +27,7 @@ namespace Game
             _systemLocator = new SystemLocator();
             _systemLocator.Register<GameFlow>();
 
-            _tables = new Tables(Loader);
+            // _tables = new Tables(Loader);
             _event = new TypeEventSystem();
         }
 
@@ -37,12 +37,12 @@ namespace Game
             _event = null;
         }
 
-        private static JSONNode Loader(string name)
-        {
-            var path = $"Tables/{name}";
-            TextAsset asset = Resources.Load<TextAsset>(path);
-            return JSON.Parse(asset.text);
-        }
+        // private static JSONNode Loader(string name)
+        // {
+        //     var path = $"Tables/{name}";
+        //     TextAsset asset = Resources.Load<TextAsset>(path);
+        //     return JSON.Parse(asset.text);
+        // }
 
         [Sirenix.OdinInspector.Button]
         private void ToGame()
