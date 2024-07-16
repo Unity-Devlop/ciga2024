@@ -34,7 +34,6 @@ namespace Game
             _player = player;
 
             var stateStage = player.data.stateStage;
-            Debug.Log($"<color=red>当前关卡 : {stateStage}</color>");
             _idleAnim = $"idle{stateStage}";
             _moveAnim = $"move{stateStage}";
             _jumpAnim = $"jump{stateStage}";

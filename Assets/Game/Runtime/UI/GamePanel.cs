@@ -22,6 +22,8 @@ namespace Game
     public struct ConnectHeadSet : IEvent { }
     
     public struct DisConnectHeadSet : IEvent { }
+    public struct PlayVideoBegin : IEvent { }
+    public struct PlayVideoOver : IEvent { }
     
     
     public class GamePanel : UIPanel
@@ -30,6 +32,8 @@ namespace Game
         [SerializeField] private Transform hpRoot;
         [SerializeField] private Image[] imgHps = new Image[3];
         [SerializeField] private Sprite[] spriteHps = new Sprite[2];
+        
+        [SerializeField] private RawImage imgVideo;
         
         [SerializeField] private Image imgEnegy;
         
@@ -61,6 +65,9 @@ namespace Game
             
             Global.Event.Listen<ConnectHeadSet>(ConnectHeadSet);
             Global.Event.Listen<DisConnectHeadSet>(DisConnectHeadSet);
+            
+            Global.Event.Listen<PlayVideoBegin>(PlayVideoBegin);
+            Global.Event.Listen<PlayVideoOver>(PlayVideoOver);
         }
 
         private void OnDestroy()
@@ -79,6 +86,9 @@ namespace Game
             
             Global.Event.UnListen<ConnectHeadSet>(ConnectHeadSet);
             Global.Event.UnListen<DisConnectHeadSet>(DisConnectHeadSet);
+            
+            Global.Event.UnListen<PlayVideoBegin>(PlayVideoBegin);
+            Global.Event.UnListen<PlayVideoOver>(PlayVideoOver);
         }
 
         private void Init()
@@ -99,6 +109,10 @@ namespace Game
                 headSet.gameObject.SetActive(true);
             }
         }
+
+        private void PlayVideoBegin(PlayVideoBegin obj) => imgVideo.gameObject.SetActive(true);
+        
+        private void PlayVideoOver(PlayVideoOver obj) => imgVideo.gameObject.SetActive(false);
 
         private void DisConnectHeadSet(DisConnectHeadSet obj)
         {

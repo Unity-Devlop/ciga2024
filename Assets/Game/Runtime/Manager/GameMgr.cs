@@ -12,9 +12,9 @@ namespace Game
     public class GameMgr : MonoSingleton<GameMgr>
     {
         [field: SerializeField] public Player Local { get; private set; }
+        [SerializeField] private bool isMidScene;
 
         public IReborn Reborn { get; private set; }
-
 
         public static SystemLocator Systems => Singleton._systemLocator;
         private SystemLocator _systemLocator;
@@ -59,9 +59,6 @@ namespace Game
                     player.OnDeadReborn();
                 }
             }
-            else
-            {
-            }
         }
 
         public void OnObstacleExit(Player component, IObstacle obstacle)
@@ -101,7 +98,11 @@ namespace Game
                 Local.data.canMove = true;
                 _dialoguePanel.gameObject.SetActive(false);
                 Local.rb2D.simulated = true;
-                Local.State = PlayerState.ForwardControl;
+                
+                if (!isMidScene)
+                {
+                    Local.State = PlayerState.ForwardControl;    
+                }
             });
         }
 

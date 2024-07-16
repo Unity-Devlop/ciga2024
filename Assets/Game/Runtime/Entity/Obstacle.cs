@@ -26,7 +26,7 @@ namespace Game
 
         private void OnDestroy()
         {
-            if (tip)
+            if (twinkle is not null)
             {
                 twinkle.Kill();
                 twinkle = null;

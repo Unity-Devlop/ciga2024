@@ -664,6 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Local>k__BackingField: {fileID: 2093033810}
+  isMidScene: 1
   _dialoguePanel: {fileID: 1873963696}
 --- !u!4 &1381646137
 Transform:
@@ -1101,6 +1102,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5166388980412881315, guid: 53d61367d4320054eb37db43c39cd7c4,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 15eaa5aa4615e0842bd1b03daa46705a,
+        type: 3}
     - target: {fileID: 8293872337063786743, guid: 53d61367d4320054eb37db43c39cd7c4,
         type: 3}
       propertyPath: m_Name
